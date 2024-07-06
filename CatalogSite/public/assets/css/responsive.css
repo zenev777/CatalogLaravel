@@ -1,0 +1,1323 @@
+@media (min-width: 1280px) {
+  .container {
+    max-width: 94.5%;
+  }
+  .container1 {
+    max-width: 60.5%;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1280px) {
+}
+@media (min-width: 767px) and (max-width: 1023px) {
+  .d {
+    flex-direction: column;
+  }
+  .banerr2 {
+    width: 696px;
+    height: 387px;
+  }
+  .text-godini {
+    font-size: 50px;
+  }
+  .bqlpole-baner {
+    padding: 15px 127px;
+  }
+  .smalltext {
+    font-size: 15px;
+  }
+  .buton-poweche {
+    font-size: 14px;
+    width: 213px;
+    height: 50px;
+  }
+  .baner-grid {
+    grid-template-columns: 1fr;
+    row-gap: 15px;
+  }
+  .banericon1 {
+    width: 60px;
+  }
+  .banericon2 {
+    width: 150px;
+  }
+  .texticon {
+    bottom: 100px;
+  }
+  .title-texticon {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  .col3-with {
+    width: 33%;
+  }
+  .footer-background {
+    padding: 50px 30px;
+  }
+  .col3-with1 {
+    width: 65%;
+    padding-top: 30px;
+  }
+  .mhm1 {
+    width: 22.5%;
+  }
+  .mhm2 {
+    width: 39.5%;
+  }
+  .t {
+    display: flex;
+    flex-direction: column;
+  }
+  .img-grid {
+    padding-left: 0px;
+    padding-top: 20px;
+  }
+  .txt {
+    font-size: 30px;
+  }
+  .buton-poveche {
+    font-size: 15px;
+    height: 60px;
+    width: 260px;
+  }
+  .vector {
+    display: none;
+  }
+  .textalert-productova {
+    padding: 20px 20px;
+  }
+  .row7 {
+    display: flex;
+    flex-direction: column;
+  }
+  .col-9a {
+    width: 100%;
+  }
+  .php {
+    display: flex;
+    flex-direction: column;
+  }
+  .display-n {
+    display: block;
+  }
+  .display-no {
+    display: none;
+  }
+  .col-77 {
+    width: 100%;
+  }
+  .btn-wsichki {
+    display: none;
+  }
+  .col-5g {
+    width: 100%;
+  }
+  .kutiii {
+    flex-wrap: wrap;
+  }
+  .px-4 {
+    padding-left: 0rem !important;
+  }
+  .text-serinf {
+    font-size: 37px;
+  }
+  .pozicia {
+    display: none;
+  }
+  .podtitle {
+    top: 70%;
+    width: 100%;
+    left: 0%;
+    bottom: auto;
+  }
+  .dis {
+    display: block;
+  }
+  .title-zanas {
+    font-size: 80px;
+    top: 25%;
+    left: 17%;
+  }
+  .iphm {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .coloniq3 {
+    width: 50%;
+    padding: 20px 50px;
+  }
+  .sekciq4 {
+    display: none;
+  }
+  .m {
+    display: flex;
+    flex-direction: column;
+  }
+  .padding {
+    padding-left: 0px;
+  }
+  .col-7a {
+    width: 100%;
+  }
+  .orangetext {
+    font-size: 22px;
+  }
+  .col-44 {
+    width: 41%;
+  }
+  .z {
+    width: 58%;
+  }
+  .textcart-partnior {
+    padding-right: 3rem;
+  }
+  .ptext {
+    width: 90%;
+  }
+  .bordercart-client {
+    width: 30.5%;
+    height: 220px;
+  }
+  .title-zanas1 {
+    font-size: 70px;
+    left: 8%;
+  }
+  .bn {
+    display: none;
+  }
+  .with {
+    width: 63%;
+  }
+  .col-3a {
+    width: 36%;
+  }
+  .display-n {
+    display: none;
+  }
+  .order-7b {
+    order: 2;
+    width: 45%;
+  }
+  .display-n {
+    display: block;
+  }
+  .bql {
+    width: 100%;
+  }
+  .order-7a {
+    order: 1;
+    width: 71%;
+  }
+  .col-3b {
+    margin-top: 33px;
+    width: 50%;
+  }
+  .title-chastclienti {
+    padding-top: 40px;
+  }
+  .text-chastclienti {
+    font-size: 18px;
+  }
+  .title-chastclienti {
+    font-size: 28px;
+  }
+  .btn-vijwsichki {
+    padding: 20px 130px;
+    font-size: 14px;
+  }
+  .cart-partnior {
+    width: 100%;
+  }
+}
+@media (min-width: 424px) and (max-width: 767px) {
+  .t {
+    flex-direction: column;
+  }
+  .nav {
+    width: 100%;
+  }
+  .dis {
+    display: block;
+    padding: 0px;
+  }
+  .offcanvas-bodyy {
+    padding: 0px 25px;
+  }
+  .offcanvas-headerr {
+    padding: 30px 20px;
+  }
+  button.btn-close.btn-close1 {
+    margin-right: calc(0 * var(--bs-offcanvas-padding-x));
+  }
+  .pozicia {
+    display: none;
+  }
+
+  .kutiii {
+    flex-wrap: wrap;
+  }
+  .d {
+    flex-direction: column;
+  }
+  .baner-grid {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  .footer-background {
+    padding: 40px 20px;
+  }
+  .tt {
+    display: flex;
+    flex-direction: column;
+  }
+  .col3-with1 {
+    width: 60%;
+    flex-direction: column;
+    text-align: center;
+  }
+  .col3-with {
+    width: 60%;
+    text-align: center;
+    line-height: 50px;
+  }
+  .px-4 {
+    line-height: 40px;
+    border-top: 1px solid #2a2964;
+  }
+  .ptp {
+    border-top: 1px solid #2a2964;
+  }
+  .banerr2 {
+    width: 100%;
+    height: auto;
+  }
+  .bql {
+    width: 100%;
+  }
+  .kutiika-iconbql {
+    width: 193px;
+  }
+  .banerr22 {
+    left: -1px;
+    width: 80.6%;
+  }
+  .bqlpole-baner {
+    padding: 20px 20px;
+  }
+  .text-godini {
+    font-size: 52px;
+    margin-right: 60px;
+  }
+  .text-serinf {
+    font-size: 42px;
+    line-height: 35px;
+  }
+  .smalltext {
+    font-size: 18px;
+  }
+  .buton-poweche {
+    font-size: 16px;
+    width: 360px;
+    height: 53px;
+  }
+  .big-baner {
+    height: 244px;
+  }
+  .img-4 {
+    width: 100%;
+    border-radius: 15px;
+  }
+  .txt {
+    font-size: 28px;
+    padding: 0px 6px;
+  }
+  .img-grid {
+    grid-template-columns: 1fr;
+    padding-left: 0px;
+  }
+  .mxm {
+    padding-bottom: 20px;
+  }
+  .title-baner {
+    font-size: 43px;
+    bottom: 80px;
+  }
+  .btn-pregledai {
+    bottom: 40px;
+    right: 40px;
+    padding: 12px 116px;
+    font-size: 16px;
+  }
+  .button-banersmall {
+    display: none;
+  }
+  .title-smallbaner {
+    font-size: 32px;
+    left: 25px;
+  }
+  .kutiika-julta {
+    height: 105px;
+    font-size: 20px;
+  }
+  .img-3 {
+    width: 104px;
+  }
+  .display-n {
+    display: block;
+  }
+  .display-no {
+    display: none;
+  }
+  .php {
+    flex-direction: column;
+  }
+  .col-5g {
+    width: 100%;
+  }
+  .breadcrumb2 {
+    font-size: 12px;
+  }
+  .col-77 {
+    width: 100%;
+  }
+  .white-alert {
+    margin-top: 20px;
+  }
+  .mobilna {
+    flex-direction: column;
+  }
+  .buton-zapitvane {
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 26px;
+  }
+  .phone-product {
+    font-size: 26px;
+  }
+  .k {
+    width: 6%;
+  }
+  .butoncheta {
+    display: none;
+  }
+  .vector {
+    display: none;
+  }
+  .m {
+    display: flex;
+    flex-direction: column;
+  }
+  .order-7a {
+    width: 100%;
+    order: 1;
+  }
+  .order-7b {
+    width: 100%;
+    order: 2;
+  }
+  .order1 {
+    order: 1;
+    text-align: center;
+    width: 63%;
+    line-height: 40px;
+    font-weight: 600;
+  }
+  .orders {
+    order: 2;
+    text-align: center;
+    width: 63%;
+    font-weight: 600;
+    padding-top: 20px;
+  }
+  .prevnext-btn {
+    display: none;
+  }
+  .padding-sekciq2 {
+    margin-left: 0px;
+  }
+
+  .m1 {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+  .centeralign {
+    align-items: center;
+  }
+  .textcart-partnior {
+    padding-right: 0px;
+  }
+  .imgcart {
+    margin-bottom: 20px;
+  }
+  .z {
+    width: 85.5%;
+    line-height: 28px;
+  }
+  .col-44 {
+    width: 90.5%;
+  }
+  .regularcart-col {
+    width: 98%;
+    height: auto;
+  }
+  .l {
+    justify-content: center;
+  }
+  .col-9a {
+    width: 100%;
+  }
+  .text-alertt {
+    font-size: 16px;
+    padding: 20px 20px;
+  }
+  .buton-scroll {
+    font-size: 14px;
+    padding: 20px;
+  }
+  .title {
+    font-size: 36px;
+    font-weight: 600;
+  }
+  .podtitle {
+    top: 100%;
+    width: 100%;
+    left: 0;
+    bottom: auto;
+    padding: 25px 20px;
+    margin-top: 30px;
+  }
+  .title-zanas {
+    left: 0%;
+  }
+  .breadcrumbzanas {
+    left: 35%;
+  }
+  .sekciq3 {
+    padding: 20px 40px;
+  }
+  .iphm {
+    padding-top: 150px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .title-partniori {
+    text-align: center;
+    font-size: 38px;
+  }
+  .bordercart-client {
+    width: 46.5%;
+    height: 160px;
+  }
+  .cart-partnior {
+    width: 100%;
+  }
+  .coloniq3 {
+    width: 50%;
+  }
+  .bordercart-client1 {
+    width: 47%;
+  }
+  .clienti-background {
+    flex-wrap: wrap;
+    padding: 30px 20px;
+  }
+  .imgserviz {
+    height: 580px;
+  }
+  .title-zanas1 {
+    font-size: 41px;
+  }
+  .title-zanas1 {
+    top: 40%;
+    left: 6%;
+  }
+  .bn {
+    display: none;
+  }
+  .pading {
+    padding-top: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+  .with {
+    width: 100%;
+  }
+  .text-aboutserviz {
+    font-size: 18px;
+    padding-right: 0px;
+  }
+  .btn-vijwsichki {
+    padding: 18px 146px;
+    font-size: 16px;
+  }
+  .text-chastclienti {
+    font-size: 18px;
+  }
+  .title-chastclienti {
+    font-size: 31px;
+  }
+  .ptext {
+    width: 100%;
+    font-size: 16px;
+  }
+  .sekciq4 {
+    display: none;
+  }
+  .col-3b {
+    padding-right: 0;
+    padding-left: 0;
+    margin-top: 0;
+    width: 100%;
+  }
+  .col-7a {
+    width: 100%;
+  }
+  .imgsekciq1 {
+    padding: 30px 40px;
+  }
+  .padding {
+    padding: 0;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 423px) {
+  .t {
+    flex-direction: column;
+  }
+  .nav {
+    width: 100%;
+  }
+  .serviz-title {
+    font-size: 43px;
+  }
+  .rational {
+    font-size: 42px;
+  }
+  .buton-poveche {
+    font-size: 13px;
+    height: 49px;
+    width: 200px;
+  }
+  .offcanvas-bodyy {
+    padding: 0px 25px;
+  }
+  .offcanvas-headerr {
+    padding: 30px 20px;
+  }
+  button.btn-close.btn-close1 {
+    margin-right: calc(0 * var(--bs-offcanvas-padding-x));
+  }
+  .pozicia {
+    display: none;
+  }
+  .dis {
+    display: block;
+    padding: 0px;
+  }
+  .kutiii {
+    flex-wrap: wrap;
+  }
+  .d {
+    flex-direction: column;
+  }
+  .baner-grid {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  .footer-background {
+    padding: 40px 20px;
+  }
+  .tt {
+    display: flex;
+    flex-direction: column;
+  }
+  .col3-with1 {
+    width: 70%;
+    flex-direction: column;
+    text-align: center;
+  }
+  .col3-with {
+    width: 60%;
+    text-align: center;
+    line-height: 50px;
+  }
+  .px-4 {
+    line-height: 40px;
+    border-top: 1px solid #2a2964;
+  }
+  .ptp {
+    border-top: 1px solid #2a2964;
+  }
+  .banerr2 {
+    width: 100%;
+    height: auto;
+  }
+  .bql {
+    width: 100%;
+  }
+  .kutiika-iconbql {
+    width: 193px;
+  }
+  .banerr22 {
+    left: -1px;
+    width: 80.6%;
+  }
+  .bqlpole-baner {
+    padding: 20px 20px;
+  }
+  .text-godini {
+    font-size: 52px;
+    margin-right: 60px;
+  }
+  .text-serinf {
+    font-size: 42px;
+    line-height: 35px;
+  }
+  .smalltext {
+    font-size: 18px;
+  }
+  .title-texticon {
+    font-size: 24px;
+  }
+  .texticon {
+    top: 45px;
+  }
+  .banericon2 {
+    width: 85px;
+  }
+  .banericon1 {
+    width: 36px;
+  }
+  .buton-poweche {
+    font-size: 16px;
+    width: 310px;
+    height: 53px;
+  }
+  .big-baner {
+    height: 214px;
+  }
+  .img-4 {
+    width: 100%;
+    border-radius: 15px;
+  }
+  .txt {
+    font-size: 20px;
+    padding: 0px 6px;
+  }
+  .img-grid {
+    grid-template-columns: 1fr;
+    padding-left: 0px;
+  }
+  .mxm {
+    padding-bottom: 20px;
+  }
+  .title-baner {
+    font-size: 33px;
+    bottom: 80px;
+    left: 22px;
+  }
+  .btn-pregledai {
+    bottom: 40px;
+    right: 27px;
+    padding: 14px 105px;
+    font-size: 16px;
+  }
+  .button-banersmall {
+    display: none;
+  }
+  .title-smallbaner {
+    font-size: 32px;
+    left: 25px;
+  }
+  .kutiika-julta {
+    height: 105px;
+    font-size: 20px;
+  }
+  .img-3 {
+    width: 104px;
+  }
+  .display-n {
+    display: block;
+  }
+  .display-no {
+    display: none;
+  }
+  .php {
+    flex-direction: column;
+  }
+  .col-5g {
+    width: 100%;
+  }
+  .breadcrumb2 {
+    font-size: 12px;
+  }
+  .col-77 {
+    width: 100%;
+  }
+  .white-alert {
+    margin-top: 20px;
+  }
+  .mobilna {
+    flex-direction: column;
+  }
+  .buton-zapitvane {
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 26px;
+  }
+  .phone-product {
+    font-size: 26px;
+  }
+  .k {
+    width: 6%;
+  }
+  .butoncheta {
+    display: none;
+  }
+  .vector {
+    display: none;
+  }
+  .m {
+    display: flex;
+    flex-direction: column;
+  }
+  .order-7a {
+    width: 100%;
+    order: 1;
+  }
+  .order-7b {
+    width: 100%;
+    order: 2;
+  }
+  .order1 {
+    order: 1;
+    text-align: center;
+    width: 74%;
+    line-height: 40px;
+    font-weight: 600;
+  }
+  .orders {
+    order: 2;
+    text-align: center;
+    width: 63%;
+    font-weight: 600;
+    padding-top: 20px;
+  }
+  .prevnext-btn {
+    display: none;
+  }
+  .padding-sekciq2 {
+    margin-left: 0px;
+  }
+
+  .m1 {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+  .centeralign {
+    align-items: center;
+  }
+  .textcart-partnior {
+    padding-right: 0px;
+  }
+  .imgcart {
+    margin-bottom: 20px;
+  }
+  .z {
+    width: 85.5%;
+    line-height: 28px;
+  }
+  .col-44 {
+    width: 90.5%;
+  }
+  .regularcart-col {
+    width: 98%;
+    height: auto;
+  }
+  .l {
+    justify-content: center;
+  }
+  .col-9a {
+    width: 100%;
+  }
+  .text-alertt {
+    font-size: 16px;
+    padding: 20px 20px;
+  }
+  .buton-scroll {
+    font-size: 14px;
+    padding: 20px;
+  }
+  .title {
+    font-size: 36px;
+    font-weight: 600;
+  }
+  .podtitle {
+    top: 100%;
+    width: 100%;
+    left: 0;
+    bottom: auto;
+    padding: 25px 20px;
+    margin-top: 30px;
+  }
+  .title-zanas {
+    left: 0%;
+  }
+  .breadcrumbzanas {
+    left: 35%;
+  }
+  .sekciq3 {
+    padding: 20px 40px;
+  }
+  .iphm {
+    padding-top: 150px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .title-partniori {
+    text-align: center;
+    font-size: 38px;
+  }
+  .bordercart-client {
+    width: 45.5%;
+    height: 160px;
+  }
+  .cart-partnior {
+    width: 100%;
+  }
+  .coloniq3 {
+    width: 50%;
+  }
+  .bordercart-client1 {
+    width: 47%;
+  }
+  .clienti-background {
+    flex-wrap: wrap;
+    padding: 30px 20px;
+  }
+  .imgserviz {
+    height: 580px;
+  }
+  .title-zanas1 {
+    font-size: 37px;
+  }
+  .title-zanas1 {
+    top: 40%;
+    left: 5%;
+  }
+  .bn {
+    display: none;
+  }
+  .pading {
+    padding-top: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+  .with {
+    width: 100%;
+  }
+  .text-aboutserviz {
+    font-size: 18px;
+    padding-right: 0px;
+  }
+  .btn-vijwsichki {
+    padding: 18px 121px;
+    font-size: 16px;
+  }
+  .text-chastclienti {
+    font-size: 18px;
+  }
+  .title-chastclienti {
+    font-size: 31px;
+  }
+  .ptext {
+    width: 100%;
+    font-size: 16px;
+  }
+  .sekciq4 {
+    display: none;
+  }
+  .col-3b {
+    padding-right: 0;
+    padding-left: 0;
+    margin-top: 0;
+    width: 100%;
+  }
+  .col-7a {
+    width: 100%;
+  }
+  .imgsekciq1 {
+    padding: 30px 40px;
+  }
+  .padding {
+    padding: 0;
+  }
+  .phone-product7 {
+    font-size: 23px;
+  }
+  .nav {
+    width: 100%;
+  }
+}
+
+@media (max-width: 374px) {
+  .t {
+    flex-direction: column;
+  }
+  .nav {
+    width: 100%;
+  }
+  .btn-vshichkiproducti {
+    font-size: 12px;
+  }
+  .phone-product7 {
+    font-size: 17px;
+  }
+  .offcanvas-bodyy {
+    padding: 0px 25px;
+  }
+  .offcanvas-headerr {
+    padding: 30px 20px;
+  }
+  button.btn-close.btn-close1 {
+    margin-right: calc(0 * var(--bs-offcanvas-padding-x));
+  }
+  .pozicia {
+    display: none;
+  }
+  .dis {
+    display: block;
+    padding: 0px;
+  }
+  .kutiii {
+    flex-wrap: wrap;
+  }
+  .d {
+    flex-direction: column;
+  }
+  .baner-grid {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  .footer-background {
+    padding: 40px 20px;
+  }
+  .tt {
+    display: flex;
+    flex-direction: column;
+  }
+  .col3-with1 {
+    width: 80%;
+    flex-direction: column;
+    text-align: center;
+  }
+  .col3-with {
+    width: 60%;
+    text-align: center;
+    line-height: 50px;
+  }
+  .px-4 {
+    line-height: 40px;
+    border-top: 1px solid #2a2964;
+  }
+  .ptp {
+    border-top: 1px solid #2a2964;
+  }
+  .banerr2 {
+    width: 100%;
+    height: auto;
+  }
+  .bql {
+    width: 100%;
+  }
+  .kutiika-iconbql {
+    width: 193px;
+  }
+  .banerr22 {
+    left: -1px;
+    width: 80.6%;
+  }
+  .bqlpole-baner {
+    padding: 20px 20px;
+  }
+  .text-godini {
+    font-size: 52px;
+    margin-right: 60px;
+  }
+  .text-serinf {
+    font-size: 42px;
+    line-height: 35px;
+  }
+  .smalltext {
+    font-size: 18px;
+  }
+  .buton-poweche {
+    font-size: 16px;
+    width: 360px;
+    height: 53px;
+  }
+  .big-baner {
+    height: 180px;
+  }
+  .img-4 {
+    width: 100%;
+    border-radius: 15px;
+  }
+  .txt {
+    font-size: 28px;
+    padding: 0px 6px;
+  }
+  .img-grid {
+    grid-template-columns: 1fr;
+    padding-left: 0px;
+  }
+  .mxm {
+    padding-bottom: 20px;
+  }
+  .title-baner {
+    font-size: 38px;
+    bottom: 80px;
+    left: 8px;
+  }
+  .btn-pregledai {
+    bottom: 40px;
+    right: 40px;
+    padding: 14px 65px;
+    font-size: 16px;
+  }
+  .button-banersmall {
+    display: none;
+  }
+  .title-smallbaner {
+    font-size: 32px;
+    left: 25px;
+  }
+  .kutiika-julta {
+    height: 105px;
+    font-size: 20px;
+  }
+  .img-3 {
+    width: 104px;
+  }
+  .display-n {
+    display: block;
+  }
+  .display-no {
+    display: none;
+  }
+  .php {
+    flex-direction: column;
+  }
+  .col-5g {
+    width: 100%;
+  }
+  .breadcrumb2 {
+    font-size: 12px;
+  }
+  .col-77 {
+    width: 100%;
+  }
+  .white-alert {
+    margin-top: 20px;
+  }
+  .mobilna {
+    flex-direction: column;
+  }
+  .buton-zapitvane {
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 26px;
+  }
+  .phone-product {
+    font-size: 26px;
+  }
+  .k {
+    width: 6%;
+  }
+  .butoncheta {
+    display: none;
+  }
+  .vector {
+    display: none;
+  }
+  .m {
+    display: flex;
+    flex-direction: column;
+  }
+  .order-7a {
+    width: 100%;
+    order: 1;
+  }
+  .order-7b {
+    width: 100%;
+    order: 2;
+  }
+  .order1 {
+    order: 1;
+    text-align: center;
+    width: 63%;
+    line-height: 40px;
+    font-weight: 600;
+  }
+  .orders {
+    order: 2;
+    text-align: center;
+    width: 63%;
+    font-weight: 600;
+    padding-top: 20px;
+  }
+  .prevnext-btn {
+    display: none;
+  }
+  .padding-sekciq2 {
+    margin-left: 0px;
+  }
+
+  .m1 {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+  .centeralign {
+    align-items: center;
+  }
+  .textcart-partnior {
+    padding-right: 0px;
+  }
+  .imgcart {
+    margin-bottom: 20px;
+  }
+  .z {
+    width: 85.5%;
+    line-height: 28px;
+  }
+  .col-44 {
+    width: 90.5%;
+  }
+  .regularcart-col {
+    width: 98%;
+    height: auto;
+  }
+  .l {
+    justify-content: center;
+  }
+  .col-9a {
+    width: 100%;
+  }
+  .text-alertt {
+    font-size: 16px;
+    padding: 20px 20px;
+  }
+  .buton-scroll {
+    font-size: 14px;
+    padding: 20px;
+  }
+  .title {
+    font-size: 36px;
+    font-weight: 600;
+  }
+  .podtitle {
+    top: 100%;
+    width: 100%;
+    left: 0;
+    bottom: auto;
+    padding: 25px 20px;
+    margin-top: 30px;
+  }
+  .title-zanas {
+    left: 0%;
+  }
+  .breadcrumbzanas {
+    left: 35%;
+  }
+  .sekciq3 {
+    padding: 20px 40px;
+  }
+  .iphm {
+    padding-top: 150px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .title-partniori {
+    text-align: center;
+    font-size: 38px;
+  }
+  .bordercart-client {
+    width: 44.5%;
+    height: 160px;
+  }
+  .cart-partnior {
+    width: 100%;
+  }
+  .coloniq3 {
+    width: 50%;
+  }
+  .bordercart-client1 {
+    width: 47%;
+  }
+  .clienti-background {
+    flex-wrap: wrap;
+    padding: 30px 20px;
+  }
+  .imgserviz {
+    height: 580px;
+  }
+  .title-zanas1 {
+    font-size: 31px;
+  }
+  .title-zanas1 {
+    top: 40%;
+    left: 5%;
+  }
+  .bn {
+    display: none;
+  }
+  .pading {
+    padding-top: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+  .with {
+    width: 100%;
+  }
+  .text-aboutserviz {
+    font-size: 18px;
+    padding-right: 0px;
+  }
+  .btn-vijwsichki {
+    padding: 18px 94px;
+    font-size: 16px;
+  }
+  .text-chastclienti {
+    font-size: 18px;
+  }
+  .title-chastclienti {
+    font-size: 31px;
+  }
+  .ptext {
+    width: 100%;
+    font-size: 16px;
+  }
+  .sekciq4 {
+    display: none;
+  }
+  .col-3b {
+    padding-right: 0;
+    padding-left: 0;
+    margin-top: 0;
+    width: 100%;
+  }
+  .col-7a {
+    width: 100%;
+  }
+  .imgsekciq1 {
+    padding: 30px 40px;
+  }
+  .padding {
+    padding: 0;
+  }
+}
