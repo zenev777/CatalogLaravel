@@ -25,7 +25,7 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary pozicia">
         <div class="container-fluid nav">
-            <a class="navbar-brand" href="index.php"><img src="assets/img/logo.png" class="logo"></a>
+            <a class="navbar-brand" href="home"><img src="assets/img/logo.png" class="logo"></a>
             <button class="btn btn-vshichkiproducti" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#ProductsNavOffcanvas" aria-controls="ProductsNavOffcanvas">Всички продукти</button>
 
@@ -152,7 +152,7 @@
     <div class="offcanvas offcanvas-top bodyofcanvas" tabindex="-1" id="ProductsNavMobilleOffcanvas"
         aria-labelledby="ProductsNavMobilleOffcanvasLabel">
         <div class="offcanvas-header1">
-            <a class="navbar-brand" href="index.php"><img src="assets/img/logo.png" class="logo"></a>
+            <a class="navbar-brand" href="home"><img src="assets/img/logo.png" class="logo"></a>
             <button type="button" class="btn-close zatrowi-btn1" data-bs-dismiss="offcanvas" aria-label="Close">
             </button>
         </div>
@@ -165,19 +165,19 @@
             <div>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 categorynamemobile">
                     <li class="nav-item">
-                        <a class="nav-link" href="zanas.php">За нас</a>
+                        <a class="nav-link" href="aboutus">За нас</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="partniori.php">Партньори</a>
+                        <a class="nav-link" href="partners">Партньори</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="clienti.php">Клиенти</a>
+                        <a class="nav-link" href="clients">Клиенти</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="serviz.php">Сервиз</a>
+                        <a class="nav-link" href="service">Сервиз</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacti.php">Контакти</a>
+                        <a class="nav-link" href="contacts">Контакти</a>
                     </li>
                 </ul>
             </div>

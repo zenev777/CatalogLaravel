@@ -1,4 +1,4 @@
-<?php include "includes/nav.php";?>
+@include ('includes/nav')
 
 <div class="container ">
     <div class="imgza-nas ">
@@ -6,7 +6,7 @@
             style="background-color: rgba(42, 41, 100, .5);"></span>
         <nav aria-label="breadcrumbzanas">
             <ol class="breadcrumbzanas">
-                <li class="breadcrumb-itemm"><a href="index.php">Начало /</a></li>
+                <li class="breadcrumb-itemm"><a href="home">Начало /</a></li>
                 <li class="breadcrumb-item " aria-current="page">За нас</li>
             </ol>
         </nav>
@@ -143,7 +143,7 @@
             </div>
 
         </div>
-        <a href="clienti.php" class="btn-vijwsichki">Вижте всички</a>
+        <a href="clients" class="btn-vijwsichki">Вижте всички</a>
     </div>
     <div class="pt-5 mt-5">
         <h3 class="title-chastclienti">Нашите партньори</h3>
@@ -164,9 +164,9 @@
                 <img src=" assets/img/client.png" alt="Сибиес" class="imgclienttt">
             </div>
         </div>
-        <a href="clienti.php" class="btn-vijwsichki">Вижте всички</a>
+        <a href="clients" class="btn-vijwsichki">Вижте всички</a>
     </div>
 
 </div>
 
-<?php include "includes/footer.php" ?>
+@include ('includes/footer')

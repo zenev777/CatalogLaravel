@@ -1,14 +1,14 @@
-<?php include "includes/nav.php";?>
+@include ('includes/nav')
 <div class="container">
     <div class="d-flex pt-3 t">
         <div class="d-flex w-100 position-relative mxm">
-            <a href="kategorii.php" class="position-relative zoom-container">
+            <a href="categories" class="position-relative zoom-container">
                 <span class="overlay position-absolute w-100 h-100 start-0 top-0"
                     style="background-color: rgba(42, 41, 100, .5);"></span>
                 <img src="assets/img/1.png" class="img-1 zoom-object">
                 <span class="title-baner">Професионални<br> Конвектомати</span>
             </a>
-            <a href="kategorii.php" class="position-absolute btn-pregledai">
+            <a href="categories" class="position-absolute btn-pregledai">
                 Прегледай
                 <svg class="hidden ml-10 icon-right" width="8" height="10" viewBox="0 0 8 10" fill="#2a2964"
                     xmlns="http://www.w3.org/2000/svg">
@@ -17,14 +17,14 @@
             </a>
         </div>
         <div class="d-grid img-grid">
-            <a href="kategorii.php" class="position-relative zoom-container">
+            <a href="categories" class="position-relative zoom-container">
                 <span class="overlay position-absolute w-100 h-100 start-0 top-0"
                     style="background-color: rgba(42, 41, 100, .5);"></span>
                 <img src="assets/img/2.png" class="img-2 zoom-object">
                 <span class="title-smallbaner">Професионални<br>миялни машини</span>
                 <span class="button-banersmall"></span>
             </a>
-            <a href="kategorii.php" class="position-relative zoom-container">
+            <a href="categories" class="position-relative zoom-container">
                 <span class="overlay position-absolute w-100 h-100 start-0 top-0"
                     style="background-color: rgba(42, 41, 100, .5);"></span>
                 <img src="assets/img/3.png" class="img-2 zoom-object">
@@ -32,14 +32,14 @@
                     за съдомиялни</span>
                 <span class="button-banersmall"></span>
             </a>
-            <a href="kategorii.php" class="position-relative zoom-container">
+            <a href="categories" class="position-relative zoom-container">
                 <span class="overlay position-absolute w-100 h-100 start-0 top-0"
                     style="background-color: rgba(42, 41, 100, .5);"></span>
                 <img src="assets/img/4.png" class="img-2 zoom-object">
                 <span class="title-smallbaner">Професионални<br>препарати</span>
                 <span class="button-banersmall"></span>
             </a>
-            <a href="kategorii.php" class="text-decoration-none">
+            <a href="categories" class="text-decoration-none">
                 <span class="kutiika-julta">
                     Всички Продукти
                     <img src="assets/img/frame.png" class="img-3">
@@ -102,7 +102,8 @@
                 Професионалното и качествено оборудване<br>
                 гарантира високи резултати.
             </div>
-            <a href="#" class="buton-poveche d-flex justify-content-center align-items-center">
+            <!-- ask about the new path (from # to aboutus) -->
+            <a href="aboutus" class="buton-poveche d-flex justify-content-center align-items-center">
                 Научете повече за нас
             </a>
         </div>
@@ -169,7 +170,7 @@
 
             </div>
             <div class="d-flex ">
-                <a href="#" class="pregledai">
+                <a href="aboutus" class="pregledai">
                     <span class="buton-poweche">
                         Научете повече
                     </span>
@@ -265,19 +266,14 @@
         </div>
         <div class="col col-md-6">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-sm-1 g-3">
-                <?php foreach (range(1, 4) as $item):?>
-                <div class="col">
-                    <?php include "includes/product-small.php";?>
-                </div>
-                <?php endforeach;?>
+                @foreach (range(1, 4) as $item)
+                    <div class="col">
+                         @include ('includes/product-small')
+                    </div>
+                @endforeach  
             </div>
         </div>
-
-
     </div>
-
-
-
 </div>
 </div>
 
@@ -288,17 +284,17 @@
         <div class="prevnext-btn">
             <a class="prev product-slider-1-prev">&#10094;</a>
             <a class="next product-slider-1-next">&#10095;</a>
-            <a href="kategorii.php" class="btn-wsichki">Към всички<img src="assets/img/Polygon1.png"
+            <a href="categories" class="btn-wsichki">Към всички<img src="assets/img/Polygon1.png"
                     class="img-icon"></a>
         </div>
     </div>
     <div class="slideshow-container ">
         <div class="product-slider-1">
-            <?php foreach (range(1, 8) as $item):?>
-            <div>
-                <?php include "includes/product-small.php";?>
-            </div>
-            <?php endforeach;?>
+            @foreach (range(1, 8) as $item)
+                <div>
+                     @include ('includes/product-small')
+                </div>
+            @endforeach
         </div>
 
     </div>
@@ -310,26 +306,25 @@
         <div class="prevnext-btn">
             <a class="prev product-slider-2-prev">&#10094;</a>
             <a class="next product-slider-2-next">&#10095;</a>
-            <a href="kategorii.php" class="btn-wsichki">Към всички<img src="assets/img/Polygon1.png"
+            <a href="categories" class="btn-wsichki">Към всички<img src="assets/img/Polygon1.png"
                     class="img-icon"></a>
         </div>
     </div>
     <div class="slideshow-container ">
         <div class="product-slider-2">
-            <?php foreach (range(1, 8) as $item):?>
-            <div>
-                <?php include "includes/product-small.php";?>
-            </div>
-            <?php endforeach;?>
+            @foreach (range(1, 8) as $item)
+                <div>
+                     @include ('includes/product-small')
+                </div>
+            @endforeach
         </div>
-
     </div>
 </div>
 
 
 <div class="container">
     <div class="pb-5 d-grid baner-grid">
-        <a href="kategorii.php" class="position-relative zoom-container2">
+        <a href="categories" class="position-relative zoom-container2">
             <span class="overlayy position-absolute w-100 h-100 start-0 top-0"
                 style="background-color: rgba(42, 41, 100, .5);"></span>
             <span class="texticon">
@@ -341,7 +336,7 @@
             <img src="assets/img/img1.png" class="img-7 zoom-object">
 
         </a>
-        <a href="kategorii.php" class="position-relative zoom-container2">
+        <a href="categories" class="position-relative zoom-container2">
             <span class="overlayy position-absolute w-100 h-100 start-0 top-0"
                 style="background-color: rgba(42, 41, 100, .5);"></span>
             <span class="texticon">
@@ -355,7 +350,7 @@
         </a>
 
 
-        <a href="kategorii.php" class="position-relative zoom-container2">
+        <a href="categories" class="position-relative zoom-container2">
             <span class="overlayy position-absolute w-100 h-100 start-0 top-0"
                 style="background-color: rgba(42, 41, 100, .5);"></span>
             <span class="texticon">
@@ -372,6 +367,4 @@
     </div>
 </div>
 
-
-
-<?php include "includes/footer.php" ?>
+@include ('includes/footer')

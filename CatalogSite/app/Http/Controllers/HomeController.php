@@ -34,4 +34,8 @@ class HomeController extends Controller
     public function categories(){
         return view('kategorii'); 
     }
+
+    public function product(){
+        return view('product'); 
+    }
 }

@@ -4,26 +4,26 @@
         <div class="row align-items-center tt">
             <div class="col-3 col3-with">
                 <span class="footernav1">Продукти</span>
-                <li><a class="footernav" href="kategorii.php">Конвектомати</a></li>
-                <li><a class="footernav" href="kategorii.php">Професионални Миялни машини</a></li>
-                <li><a class="footernav" href="kategorii.php">Професионални препарати</a></li>
+                <li><a class="footernav" href="categories">Конвектомати</a></li>
+                <li><a class="footernav" href="categories">Професионални Миялни машини</a></li>
+                <li><a class="footernav" href="categories">Професионални препарати</a></li>
             </div>
             <div class="col-3 col3-with">
-                <li><a class="footernav" href="kategorii.php">Препарати за съдомиялни</a></li>
-                <li><a class="footernav" href="kategorii.php">Почистващи препарати</a></li>
-                <li><a class="footernav" href="kategorii.php">Рециклирани машини</a></li>
+                <li><a class="footernav" href="categories">Препарати за съдомиялни</a></li>
+                <li><a class="footernav" href="categories">Почистващи препарати</a></li>
+                <li><a class="footernav" href="categories">Рециклирани машини</a></li>
             </div>
             <div class="col-3 col3-with">
-                <li><a class="footernav" href="kategorii.php">Рециклирани Конвектомати</a></li>
-                <li><a class="footernav" href="kategorii.php">Рециклирани Съдомиялни</a></li>
-                <li><a class="footernav" href="kategorii.php">Омекотители</a></li>
+                <li><a class="footernav" href="categories">Рециклирани Конвектомати</a></li>
+                <li><a class="footernav" href="categories">Рециклирани Съдомиялни</a></li>
+                <li><a class="footernav" href="categories">Омекотители</a></li>
             </div>
             <div class="col-3 d-flex gap-5 col3-with1">
                 <div class="px-4">
                     <span class="footernav1">За компанията</span>
-                    <li> <a class="footernav" href="zanas.php">За нас</a></li>
-                    <li><a class="footernav" href="serviz.php">Сервиз</a></li>
-                    <li> <a class="footernav" href="contacti.php">Контакти</a></li>
+                    <li> <a class="footernav" href="aboutus">За нас</a></li>
+                    <li><a class="footernav" href="service">Сервиз</a></li>
+                    <li> <a class="footernav" href="contacts">Контакти</a></li>
                 </div>
                 <div class="ptp">
                     <span class="footernav1">Свържете се с нас</span>
