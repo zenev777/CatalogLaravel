@@ -1,11 +1,11 @@
-<?php include "includes/nav.php";?>
+@include ('includes/nav')
 <div class="container pb-5 mb-5">
     <div class="imgserviz ">
         <span class="overlay position-absolute w-100 h-100 start-0 top-0 rounded-4"
             style="background-color: rgba(42, 41, 100, .5);"></span>
         <nav aria-label="breadcrumbzanas">
             <ol class="breadcrumbzanas">
-                <li class="breadcrumb-itemm"><a href="index.php">Начало /</a></li>
+                <li class="breadcrumb-itemm"><a href="home">Начало /</a></li>
                 <li class="breadcrumb-item " aria-current="page">Сервиз</li>
             </ol>
         </nav>
@@ -84,5 +84,4 @@
     </div>
 </div>
 
-
-<?php include "includes/footer.php" ?>
+@include ('includes/footer')

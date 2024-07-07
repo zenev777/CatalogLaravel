@@ -1,9 +1,9 @@
-<?php include "includes/nav.php";?>
+@include ('includes/nav')
 
 <div class="container align-items-center flex-column  d-flex pt-3 ">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item mininav "><a href="index.php" class="text-decoration-none">Начало</a></li>
+            <li class="breadcrumb-item mininav "><a href="home" class="text-decoration-none">Начало</a></li>
             <li class="breadcrumb-item mininav" aria-current="page">Партньори</li>
         </ol>
     </nav>
@@ -130,4 +130,4 @@
 
 </div>
 
-<?php include "includes/footer.php" ?>
+@include ('includes/footer')

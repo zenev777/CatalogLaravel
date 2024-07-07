@@ -1,9 +1,9 @@
-<?php include "includes/nav.php";?>
+@include('includes/nav')
 
 <div class="container align-items-center flex-column  d-flex pt-3 pb-5 ">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item mininav "><a href="index.php" class="text-decoration-none">Начало</a></li>
+            <li class="breadcrumb-item mininav "><a href="home" class="text-decoration-none">Начало</a></li>
             <li class="breadcrumb-item mininav" aria-current="page">Клиенти</li>
         </ol>
     </nav>
@@ -24,14 +24,12 @@
     <div class="clienti-background">
         <div class="container text-center ">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 gap-4">
-                <?php foreach (range(1, 16) as $item):?>
-
-                <?php include "includes/client-card.php";?>
-
-                <?php endforeach;?>
+                @foreach (range(1, 16) as $item)
+                    @include('includes/client-card')
+                @endforeach
             </div>
         </div>
     </div>
 </div>
 
-<?php include "includes/footer.php" ?>
+@include('includes/footer')

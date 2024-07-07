@@ -1,4 +1,4 @@
-<?php include "includes/nav.php";?>
+@include ('includes/nav')
 <div class="container">
     <div class="row pt-3 php">
         <div class="col-5 col-5g">
@@ -6,12 +6,12 @@
                 <div class="fs-6">
                     <nav aria-label="breadcrumb ">
                         <ol class="breadcrumb breadcrumb2">
-                            <li class="breadcrumb-item itemtext "><a href="index.php"
+                            <li class="breadcrumb-item itemtext "><a href="home"
                                     class="text-decoration-none">Начало</a></li>
-                            <li class="breadcrumb-item itemtext"><a href="kategorii.php"
+                            <li class="breadcrumb-item itemtext"><a href="categories"
                                     class="text-decoration-none">Всички
                                     продукти</a></li>
-                            <li class="breadcrumb-item itemtext"><a href="kategorii.php"
+                            <li class="breadcrumb-item itemtext"><a href="categories"
                                     class="text-decoration-none">Професионални
                                     конвектомати</a></li>
                             <li class="breadcrumb-item active" aria-current="page">КОНВЕКТОМАТ МЕХАНИЧЕН, 5 ТАВИ GN 2/3
@@ -80,12 +80,12 @@
                 <div class="display-no">
                     <nav aria-label="breadcrumb ">
                         <ol class="breadcrumb breadcrumb2">
-                            <li class="breadcrumb-item itemtext "><a href="index.php"
+                            <li class="breadcrumb-item itemtext "><a href="home"
                                     class="text-decoration-none">Начало</a></li>
-                            <li class="breadcrumb-item itemtext"><a href="kategorii.php"
+                            <li class="breadcrumb-item itemtext"><a href="categories"
                                     class="text-decoration-none">Всички
                                     продукти</a></li>
-                            <li class="breadcrumb-item itemtext"><a href="kategorii.php"
+                            <li class="breadcrumb-item itemtext"><a href="categories"
                                     class="text-decoration-none">Професионални
                                     конвектомати</a></li>
                             <li class="breadcrumb-item active" aria-current="page">КОНВЕКТОМАТ МЕХАНИЧЕН, 5 ТАВИ GN 2/3
@@ -257,6 +257,7 @@
             <div class="butoncheta">
                 <a class="prev product-slider-3-prev">&#10094;</a>
                 <a class="next product-slider-3-next">&#10095;</a>
+                <!-- Ask for this path -->
                 <a href="productova.php" class="btn-wsichki">Към всички<img src="assets/img/Polygon1.png"
                         class="img-icon"></a>
             </div>
@@ -264,11 +265,11 @@
 
         <div class="slideshow-container ">
             <div class="product-slider-3">
-                <?php foreach (range(1, 8) as $item):?>
-                <div>
-                    <?php include "includes/product-small.php";?>
-                </div>
-                <?php endforeach;?>
+                @foreach (range(1, 8) as $item)
+                    <div>
+                        @include ('includes/product-small')
+                    </div>
+                @endforeach         
             </div>
 
         </div>
@@ -278,5 +279,4 @@
 
     </div>
 
-
-    <?php include "includes/footer.php" ?>
+  @include ('includes/footer')

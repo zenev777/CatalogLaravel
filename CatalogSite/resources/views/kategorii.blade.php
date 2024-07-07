@@ -1,10 +1,11 @@
-<?php include "includes/nav.php";?>
+@include ('includes/nav')
 
 <div class="container">
 
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb breadcrumb2">
-            <li class="breadcrumb-item itemtext "><a href="#" class="text-decoration-none">Начало</a></li>
+            <li class="breadcrumb-item itemtext "><a href="home" class="text-decoration-none">Начало</a></li>
+            <!-- ask for this links path -->
             <li class="breadcrumb-item itemtext"><a href="#" class="text-decoration-none">Всички
                     продукти</a></li>
             <li class="breadcrumb-item itemtext"><a href="#" class="text-decoration-none">Професионални
@@ -61,32 +62,32 @@
         </div>
         <div class="col-9 col-9a pt-4">
             <div class="d-flex gap-3 pb-3 m">
-                <?php foreach (range(1, 3) as $item):?>
-                <div class="col">
-                    <?php include "includes/product-small.php";?>
-                </div>
-                <?php endforeach;?>
+                @foreach(range(1, 3) as $item)
+                    <div class="col">
+                        @include ('includes/product-small')
+                    </div>
+                @endforeach
             </div>
             <div class="d-flex gap-3 pb-3 m">
-                <?php foreach (range(1, 3) as $item):?>
-                <div class="col">
-                    <?php include "includes/product-small.php";?>
-                </div>
-                <?php endforeach;?>
+                @foreach(range(1, 3) as $item)
+                    <div class="col">
+                        @include ('includes/product-small')
+                    </div>
+                @endforeach
             </div>
             <div class="d-flex gap-3 pb-3 m">
-                <?php foreach (range(1, 3) as $item):?>
-                <div class="col">
-                    <?php include "includes/product-small.php";?>
-                </div>
-                <?php endforeach;?>
+                @foreach(range(1, 3) as $item)
+                    <div class="col">
+                        @include ('includes/product-small')
+                    </div>
+                @endforeach
             </div>
             <div class="d-flex gap-3 pb-5 m">
-                <?php foreach (range(1, 3) as $item):?>
-                <div class="col">
-                    <?php include "includes/product-small.php";?>
-                </div>
-                <?php endforeach;?>
+                @foreach(range(1, 3) as $item)
+                    <div class="col">
+                        @include ('includes/product-small')
+                    </div>
+                @endforeach
             </div>
             <h2 class="pb-3">Често задавани въпроси</h2>
             <div class="pb-5">
@@ -179,10 +180,7 @@
 
         </div>
     </div>
-
-
-
 </div>
 
 
-<?php include "includes/footer.php" ?>
+@include ('includes/footer')

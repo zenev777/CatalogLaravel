@@ -1,4 +1,4 @@
-<a href="product.php" class="text-center py-3 px-4 rounded-3 text-dark text-decoration-none d-flex product-small">
+<a href="product" class="text-center py-3 px-4 rounded-3 text-dark text-decoration-none d-flex product-small">
     <img src="assets/img/image3.png" class="img-smallproduct">
     <span style="font-size:14px" class="smallproduct-title">Конвектомат електроника, 4 тави
         46х34см или gn 2/3 (35.5×32.5см) –
