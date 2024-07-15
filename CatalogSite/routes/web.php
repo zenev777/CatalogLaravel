@@ -1,21 +1,31 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ContactsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ServiceController;
+use GuzzleHttp\Client;
 
+//temporary route
+Route::get('/', [HomeController::class,'index']);
 
-Route::get('/home', [HomeController::class,'home']);
+Route::get('/home', [HomeController::class,'index']);
 
-Route::get('/aboutus', [HomeController::class,'aboutus']);
+Route::get('/aboutus', [AboutUsController::class,'index']);
 
-Route::get('/clients', [HomeController::class,'clients']);
+Route::get('/clients', [ClientController::class,'index']);
 
-Route::get('/partners', [HomeController::class,'partners']);
+Route::get('/partners', [PartnerController::class,'index']);
 
-Route::get('/service', [HomeController::class,'service']);
+Route::get('/service', [ServiceController::class,'index']);
 
-Route::get('/contacts', [HomeController::class,'contacts']);
+Route::get('/contacts', [ContactsController::class,'index']);
 
-Route::get('/categories', [HomeController::class,'categories']);
+Route::get('/categories', [CategoryController::class,'index']);
 
-Route::get('/product', [HomeController::class,'product']);
+Route::get('/product', [ProductController::class,'index']);
