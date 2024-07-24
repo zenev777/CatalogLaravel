@@ -16,7 +16,7 @@ class CategoriesSeeder extends Seeder
         // Define categories data
         $categories = [
             [
-                'parent_id' => 1,
+                'parent_id' => null,
                 'title' => 'Конвектомати',
                 'slug' => 'konvektomati',
                 'short_description' => 'Описание на конвектомати',
@@ -29,7 +29,7 @@ class CategoriesSeeder extends Seeder
 
             ],
             [
-                'parent_id' => 2,
+                'parent_id' => null,
                 'title' => 'Професионални Миялни машини',
                 'slug' => 'profesionalni-miialni-mashini',
                 'short_description' => 'Описание на професионални миялни машини',
@@ -41,7 +41,7 @@ class CategoriesSeeder extends Seeder
                 'image' => 'image-profesionalni-miialni-mashini.jpg',
             ],
             [
-                'parent_id' => 3,
+                'parent_id' => null,
                 'title' => 'Професионални препарати',
                 'slug' => 'profesionalni-preparati',
                 'short_description' => 'Описание на професионални препарати',
@@ -53,7 +53,7 @@ class CategoriesSeeder extends Seeder
                 'image' => 'image-profesionalni-preparati.jpg',
             ],
             [
-                'parent_id' => 4,
+                'parent_id' => null,
                 'title' => 'Препарати за съдомиялни',
                 'slug' => 'preparati-za-sudomialni',
                 'short_description' => 'Описание на препарати за съдомиялни',
@@ -65,7 +65,7 @@ class CategoriesSeeder extends Seeder
                 'image' => 'image-preparati-za-sudomialni.jpg',
             ],
             [
-                'parent_id' => 5,
+                'parent_id' => null,
                 'title' => 'Почистващи препарати',
                 'slug' => 'pochistvashti-preparati',
                 'short_description' => 'Описание на почистващи препарати',
@@ -77,7 +77,7 @@ class CategoriesSeeder extends Seeder
                 'image' => 'image-pochistvashti-preparati.jpg',
             ],
             [
-                'parent_id' => 6,
+                'parent_id' => null,
                 'title' => 'Рециклирани машини',
                 'slug' => 'reciklirani-mashini',
                 'short_description' => 'Описание на рециклирани машини',
@@ -89,7 +89,7 @@ class CategoriesSeeder extends Seeder
                 'image' => 'image-reciklirani-mashini.jpg',
             ],
             [
-                'parent_id' => 7,
+                'parent_id' => null,
                 'title' => 'Рециклирани Конвектомати',
                 'slug' => 'reciklirani-konvektomati',
                 'short_description' => 'Описание на рециклирани конвектомати',
@@ -101,7 +101,7 @@ class CategoriesSeeder extends Seeder
                 'image' => 'image-reciklirani-konvektomati.jpg',
             ],
             [
-                'parent_id' => 8,
+                'parent_id' => null,
                 'title' => 'Рециклирани Съдомиялни',
                 'slug' => 'reciklirani-sudomialni',
                 'short_description' => 'Описание на рециклирани съдомиялни',
@@ -113,7 +113,7 @@ class CategoriesSeeder extends Seeder
                 'image' => 'image-reciklirani-sudomialni.jpg',
             ],
             [
-                'parent_id' => 9,
+                'parent_id' => null,
                 'title' => 'Омекотители',
                 'slug' => 'omekotiteli',
                 'short_description' => 'Описание на омекотители',
