@@ -21,7 +21,7 @@ class CreateAttributesTable extends Migration
             $table->timestamps();
 
             // Foreign key constraint
-            $table->foreign('product_id')->references('id')->on('attributes')->onDelete('cascade');
+            //$table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

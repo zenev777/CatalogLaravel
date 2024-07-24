@@ -36,7 +36,7 @@ class CreateProductsTable extends Migration
             $table->tinyInteger('warranty_6m')->default(0);
             $table->timestamps();
             
-            $table->foreign('manufacturer_id')->references('id')->on('products')->onDelete('cascade');
+            //$table->foreign('manufacturer_id')->references('id')->on('manufacturers')->onDelete('cascade');
         });
     }
 
