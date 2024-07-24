@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('sku');
             $table->string('manufacturer_code');
             $table->unsignedBigInteger('manufacturer_id');
+            $table->unsignedBigInteger('category_id');
             $table->string('slug');
             $table->decimal('price', 8, 2);
             $table->integer('position');
