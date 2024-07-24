@@ -26,7 +26,7 @@ class CreateOptionsTable extends Migration
             $table->timestamps();
 
             // Foreign key constraint
-            $table->foreign('product_id')->references('id')->on('options')->onDelete('cascade');
+            //$table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 
