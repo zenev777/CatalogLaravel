@@ -79,19 +79,19 @@
         <div class="offcanvas-body">
             <div class="row vsichki-produkti">
                 <div class="col">
-                    <li><a class="dropdown-item" href="categories">Конвектомати</a></li>
-                    <li><a class="dropdown-item" href="categories">Професионални Миялни машини</a></li>
-                    <li><a class="dropdown-item" href="categories">Професионални препарати</a></li>
+                    <li><a class="dropdown-item" href="categories/1/products">Конвектомати</a></li>
+                    <li><a class="dropdown-item" href="categories/2/products">Професионални Миялни машини</a></li>
+                    <li><a class="dropdown-item" href="categories/3/products">Професионални препарати</a></li>
                 </div>
                 <div class="col">
-                    <li><a class="dropdown-item" href="categories">Препарати за съдомиялни</a></li>
-                    <li><a class="dropdown-item" href="categories">Почистващи препарати</a></li>
-                    <li><a class="dropdown-item" href="categories">Рециклирани машини</a></li>
+                    <li><a class="dropdown-item" href="categories/4/products">Препарати за съдомиялни</a></li>
+                    <li><a class="dropdown-item" href="categories/5/products">Почистващи препарати</a></li>
+                    <li><a class="dropdown-item" href="categories/6/products">Рециклирани машини</a></li>
                 </div>
                 <div class="col">
-                    <li><a class="dropdown-item" href="categories">Рециклирани Конвектомати</a></li>
-                    <li><a class="dropdown-item" href="categories">Рециклирани Съдомиялни</a></li>
-                    <li><a class="dropdown-item" href="categories">Омекотители</a></li>
+                    <li><a class="dropdown-item" href="categories/7/products">Рециклирани Конвектомати</a></li>
+                    <li><a class="dropdown-item" href="categories/8/products">Рециклирани Съдомиялни</a></li>
+                    <li><a class="dropdown-item" href="categories/9/products">Омекотители</a></li>
                 </div>
             </div>
         </div>

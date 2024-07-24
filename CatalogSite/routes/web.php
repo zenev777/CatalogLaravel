@@ -26,6 +26,9 @@ Route::get('/service', [ServiceController::class,'index']);
 
 Route::get('/contacts', [ContactsController::class,'index']);
 
-Route::get('/categories', [CategoryController::class,'index']);
+//Route::get('/categories', [CategoryController::class,'index']);
 
 Route::get('/product', [ProductController::class,'index']);
+
+//specific categories 
+Route::get('/categories/{id}/products', [CategoryController::class, 'index']);
