@@ -237,7 +237,7 @@
                                 Научете повече
                             </span>
                         </a>
-                    </div>
+                    </div>                   
                 </div>
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
@@ -266,10 +266,11 @@
         </div>
         <div class="col col-md-6">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-sm-1 g-3">
-                @foreach (range(1, 4) as $item)
+                @foreach ($products as $product)
                     <div class="col">
-                         @include ('includes/product-small')
+                        @include('includes.product-small')
                     </div>
+                    @if($loop->iteration % 8 == 0) @break @endif
                 @endforeach  
             </div>
         </div>
@@ -290,7 +291,7 @@
     </div>
     <div class="slideshow-container ">
         <div class="product-slider-1">
-            @foreach (range(1, 8) as $item)
+            @foreach ($products as $product)
                 <div>
                      @include ('includes/product-small')
                 </div>
@@ -312,7 +313,7 @@
     </div>
     <div class="slideshow-container ">
         <div class="product-slider-2">
-            @foreach (range(1, 8) as $item)
+            @foreach ($products as $product)
                 <div>
                      @include ('includes/product-small')
                 </div>
