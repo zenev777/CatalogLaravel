@@ -20,29 +20,27 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary pozicia">
         <div class="container-fluid nav">
-            <a class="navbar-brand" href="home"><img src={{url('assets/img/logo.png')}} class="logo"></a>
+            <a class="navbar-brand" href={{ route('home') }}><img src={{url('assets/img/logo.png')}} class="logo"></a>
+
             <button class="btn btn-vshichkiproducti" type="button" data-bs-toggle="offcanvas" data-bs-target="#ProductsNavOffcanvas" aria-controls="ProductsNavOffcanvas">Всички продукти</button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 categoryname">
-
-
                     <li class="nav-item">
-                        <a class="nav-link" href="aboutus">За нас</a>
+                        <a class="nav-link" href={{ route('aboutus') }}>За нас</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="partners">Партньори</a>
+                        <a class="nav-link" href={{ route('partners') }}>Партньори</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="clients">Клиенти</a>
+                        <a class="nav-link" href={{ route('clients') }}>Клиенти</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="service">Сервиз</a>
+                        <a class="nav-link" href={{ route('service') }}>Сервиз</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacts">Контакти</a>
+                        <a class="nav-link" href={{ route('contacts') }}>Контакти</a>
                     </li>
-
                 </ul>
                 <form class="d-flex" role="search">
                     <div>
@@ -150,20 +148,20 @@
             </div>
             <div>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 categorynamemobile">
-                    <li class="nav-item">
-                        <a class="nav-link" href="aboutus">За нас</a>
+                <li class="nav-item">
+                        <a class="nav-link" href={{ route('aboutus') }}>За нас</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="partners">Партньори</a>
+                        <a class="nav-link" href={{ route('partners') }}>Партньори</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="clients">Клиенти</a>
+                        <a class="nav-link" href={{ route('clients') }}>Клиенти</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="service">Сервиз</a>
+                        <a class="nav-link" href={{ route('service') }}>Сервиз</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacts">Контакти</a>
+                        <a class="nav-link" href={{ route('contacts') }}>Контакти</a>
                     </li>
                 </ul>
             </div>
