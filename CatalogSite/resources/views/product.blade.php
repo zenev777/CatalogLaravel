@@ -19,8 +19,9 @@
                         </ol>
                     </nav>
 
-                    <h1 class="fs-2 fw-semibold pb-2">КОНВЕКТОМАТ МЕХАНИЧЕН, 5 ТАВИ
-                        GN 2/3 (35.5×32.5СМ) SQ053M00</h1>
+                    <h1 class="fs-2 fw-semibold pb-2">{{$product->title}}, 5 ТАВИ
+                    {{$product->width}}x{{$product->height}}x{{$product->length}}–
+                    Дигитална еволюция {{$product->manufacturer_code}}</h1>
                     <div class="d-flex justify-content-start fs-6">
                         <small class="text-small">Производител: <a href="#" class="link">Electrolux</a></small>
                         <small class="ms-4 pb-3 text-small">арт.№: 123456789</small>
@@ -30,33 +31,30 @@
             <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
                     <div class="carousel-itemm active">
-                        <img src="assets/img/image11.png" class="d-block slaid-imgg" alt="...">
-
-
+                        <img src={{url('assets/img/image11.png')}} class="d-block slaid-imgg" alt="...">
                     </div>
-
                     <div class="carousel-item">
-                        <img src="assets/img/image1.png" class="d-block  slaid-img" alt="...">
+                        <img src={{url('assets/img/image11.png')}} class="d-block  slaid-img" alt="...">
 
                     </div>
                     <div class="carousel-item">
-                        <img src="assets/img/image1.png" class="d-block  slaid-img" alt="...">
+                        <img src={{url('assets/img/image11.png')}} class="d-block  slaid-img" alt="...">
 
                     </div>
                     <div class="carousel-item">
-                        <img src="assets/img/image1.png" class="d-block  slaid-img" alt="...">
+                        <img src={{url('assets/img/image11.png')}} class="d-block  slaid-img" alt="...">
 
                     </div>
                 </div>
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
                     data-bs-slide="prev">
-                    <img src="assets/img/next.png" class="icon7">
+                    <img src={{url('assets/img/next.png')}} class="icon7">
                     <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
                     data-bs-slide="next">
-                    <img src="assets/img/next1.png" class="icon7">
+                    <img src={{url('assets/img/next1.png')}} class="icon7">
                     <span class="visually-hidden">Next</span>
                 </button>
 
@@ -93,11 +91,12 @@
                         </ol>
                     </nav>
 
-                    <h1 class="fs-2 fw-semibold pb-2">КОНВЕКТОМАТ МЕХАНИЧЕН, 5 ТАВИ
-                        GN 2/3 (35.5×32.5СМ) SQ053M00</h1>
+                    <h1 class="fs-2 fw-semibold pb-2">{{$product->title}}, 5 ТАВИ
+                    {{$product->width}}x{{$product->height}}x{{$product->length}}–
+                    Дигитална еволюция {{$product->manufacturer_code}}</h1>
                     <div class="d-flex justify-content-start fs-6">
                         <small class="text-small">Производител: <a href="#" class="link">Electrolux</a></small>
-                        <small class="ms-4 pb-3 text-small">арт.№: 123456789</small>
+                        <small class="ms-4 pb-3 text-small">арт.№: {{$product->sku}}</small>
                     </div>
                 </div>
             </div>
@@ -116,7 +115,7 @@
                     </button>
                 </div>
                 <div>
-                    <span class="prizenow">1 932,99 лв</span>
+                    <span class="prizenow">{{$product->price}} лв.</span>
                     <span class="dds">/без ДДС/</span>
                 </div>
                 <div>
@@ -135,7 +134,7 @@
                         <span class="d-flex flex-column" style="font-size:13px; color:#2a2964; font-weight: 700;"> За
                             повече информация и
                             консултация:
-                            <a href="tel:+359898573708" class="phone-product"><img src="assets/img/logophone.png"
+                            <a href="tel:+359898573708" class="phone-product"><img src={{url('assets/img/logophone.png')}}
                                     class="k">
                                 +359 899 065 105</a>
                         </span>
@@ -250,7 +249,7 @@
             </div>
         </div>
         <div class="d-flex pb-4 justify-content-between pt-5">
-            <h4 class="d-flex align-items-center"> <img src="assets/img/ellipse6.png" class="me-3"> Още продукти от
+            <h4 class="d-flex align-items-center"> <img src={{url('assets/img/ellipse6.png')}} class="me-3"> Още продукти от
                 категория
                 “Професионални
                 конвектомати”</h4>
@@ -258,7 +257,7 @@
                 <a class="prev product-slider-3-prev">&#10094;</a>
                 <a class="next product-slider-3-next">&#10095;</a>
                 <!-- Ask for this path -->
-                <a href="productova.php" class="btn-wsichki">Към всички<img src="assets/img/Polygon1.png"
+                <a href="productova.php" class="btn-wsichki">Към всички<img src={{url('assets/img/Polygon1.png')}}
                         class="img-icon"></a>
             </div>
         </div>
