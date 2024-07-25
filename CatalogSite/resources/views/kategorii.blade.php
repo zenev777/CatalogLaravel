@@ -14,7 +14,7 @@
     </nav>
     <h1 class="title">Професионални конвектомати</h1>
     <div class="alert-productova">
-        <img src="assets/img/vector.png" class="vector">
+        <img src={{url('assets/img/vector.png')}} class="vector">
         <div class="textalert-productova">
             <span class="text-alertt">
                 В  заведенията за бързо хранене, ресторантите, баровете, кафенетата, и особено в разрастващата се област
@@ -62,31 +62,11 @@
         </div>
         <div class="col-9 col-9a pt-4">
             <div class="d-flex gap-3 pb-3 m">
-                @foreach(range(1, 3) as $item)
+                @foreach($products as $product)
                     <div class="col">
-                        @include ('includes/product-small')
+                        @include('includes.product-small')
                     </div>
-                @endforeach
-            </div>
-            <div class="d-flex gap-3 pb-3 m">
-                @foreach(range(1, 3) as $item)
-                    <div class="col">
-                        @include ('includes/product-small')
-                    </div>
-                @endforeach
-            </div>
-            <div class="d-flex gap-3 pb-3 m">
-                @foreach(range(1, 3) as $item)
-                    <div class="col">
-                        @include ('includes/product-small')
-                    </div>
-                @endforeach
-            </div>
-            <div class="d-flex gap-3 pb-5 m">
-                @foreach(range(1, 3) as $item)
-                    <div class="col">
-                        @include ('includes/product-small')
-                    </div>
+                @if($loop->iteration % 3 == 0) </div><div class="d-flex gap-3 pb-3 m"> @endif
                 @endforeach
             </div>
             <h2 class="pb-3">Често задавани въпроси</h2>
