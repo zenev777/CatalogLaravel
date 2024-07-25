@@ -12,7 +12,7 @@ class CategoryController extends Controller
     public function index($categoryId){
 
         $category = Category::find($categoryId);
-
+      
         // Check if the category exists]
         if (!$category) {
             abort(404, 'Category not found');
@@ -20,6 +20,7 @@ class CategoryController extends Controller
 
         // Retrieve products for the category
         $products = Product::where('category_id', '=', $categoryId)->get();
+
 
         // Return view with products
         return view('kategorii', ['products' => $products]);

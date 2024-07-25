@@ -24,5 +24,6 @@ Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
 // Product route
 Route::get('/product', [ProductController::class, 'index'])->name('product');
 
-// Category-specific products
-Route::get('/categories/{id}/products', [CategoryController::class, 'index'])->name('category.products');
+//specific categories 
+Route::get('/categories/{id}/products', [CategoryController::class, 'index']);
+
