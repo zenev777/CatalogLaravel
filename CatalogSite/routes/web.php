@@ -22,7 +22,7 @@ Route::get('/service', [ServiceController::class, 'index'])->name('service');
 Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
 
 // Product route
-Route::get('/product', [ProductController::class, 'index'])->name('product');
+Route::get('/product/{id}', [ProductController::class, 'index'])->name('product.index');
 
 //specific categories 
 Route::get('/categories/{id}/products', [CategoryController::class, 'index']);
