@@ -29,3 +29,6 @@ Route::get('/categories/{id}/products', [CategoryController::class, 'index']);
 
 // Search existing product route
 Route::get('/search', [ProductController::class, 'search'])->name('search');
+
+// Receive email from contact form
+Route::post('/contact/send', [ContactsController::class, 'sendEmail'])->name('contact.send');
