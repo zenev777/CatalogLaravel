@@ -42,11 +42,12 @@
                         <a class="nav-link" href={{ route('contacts') }}>Контакти</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
+                <form class="d-flex" role="search" method="GET" action="{{ route('search') }}">
                     <div>
-                        <input class="form-control me-2 searchh" type="search" placeholder="Търсете по модел или актуален номер" aria-label="Search">
+                        <input class="form-control me-2 searchh" type="search" name="query" placeholder="Търсете по модел или актуален номер" aria-label="Search" value="{{ request()->query('query') }}">
                     </div>
                 </form>
+
                 <div class="nomer">
                     Tелефон за поръчки и сервиз
                     <span class="nomerflex">
@@ -117,9 +118,9 @@
 
             <div class="collapse navbar-collapse" id="NavMobilleSupportedContent">
 
-                <form class="d-flex" role="search">
+                <form class="d-flex" role="search" method="GET" action="{{ route('search') }}">
                     <div>
-                        <input class="form-control me-2 searchh" type="search" placeholder="Търсете по модел или актуален номер" aria-label="Search">
+                        <input class="form-control me-2 searchh" type="search" name="query" placeholder="Търсете по модел или актуален номер" aria-label="Search" value="{{ request()->query('query') }}">
                     </div>
                 </form>
                 <div class="nomer">
@@ -148,7 +149,7 @@
             </div>
             <div>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 categorynamemobile">
-                <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href={{ route('aboutus') }}>За нас</a>
                     </li>
                     <li class="nav-item">
