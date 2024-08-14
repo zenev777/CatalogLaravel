@@ -27,3 +27,5 @@ Route::get('/product', [ProductController::class, 'index'])->name('product');
 //specific categories 
 Route::get('/categories/{id}/products', [CategoryController::class, 'index']);
 
+// Search existing product route
+Route::get('/search', [ProductController::class, 'search'])->name('search');
