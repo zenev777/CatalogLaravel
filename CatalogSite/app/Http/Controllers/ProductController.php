@@ -10,8 +10,15 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public function index(){
-        return view('product'); 
+    public function index($productId){
+        $product = Product::find($productId);
+      
+        // Check if the product exists]
+        if (!$product) {
+            abort(404, 'Product not found');
+        }
+
+        return view('product', ['product' => $product]);
     }
 
     public function search(Request $request)
