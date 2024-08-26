@@ -34,6 +34,6 @@ class CategoryController extends Controller
 
         // Return view with products
         return view('kategorii', ['products' => $products,
-                                'subcategories' => $subcategories]);
+                                 'subcategories' => $subcategories]);
     }
 }
