@@ -22,7 +22,7 @@ class CategoryController extends Controller
             $subcategories = Category::where('parent_id', '=', $categoryId)->get();
 
             // Check if the subcategories exists
-            if ($subcategories) {
+            if (count($subcategories) > 1) {
                //return view with subcategories
                return view('kategorii', ['subcategories' => $subcategories]);
            }
