@@ -62,12 +62,22 @@
         </div>
         <div class="col-9 col-9a pt-4">
             <div class="d-flex gap-3 pb-3 m">
+                @if(!$subcategories){
+                    @foreach($subcategories as $subcategory)
+                    <div class="col">
+                        @include('includes.subcategories-small')
+                    </div>
+                    @if($loop->iteration % 3 == 0) </div><div class="d-flex gap-3 pb-3 m"> @endif
+                    @endforeach
+                }
+                @else{
                 @foreach($products as $product)
                     <div class="col">
                         @include('includes.product-small')
                     </div>
                 @if($loop->iteration % 3 == 0) </div><div class="d-flex gap-3 pb-3 m"> @endif
                 @endforeach
+                }
             </div>
             <h2 class="pb-3">Често задавани въпроси</h2>
             <div class="pb-5">
@@ -163,4 +173,4 @@
 </div>
 
 
-@include ('includes/footer')
+<!-- @include ('includes/footer') -->

@@ -12,17 +12,28 @@ class CategoryController extends Controller
     public function index($categoryId){
 
         $category = Category::find($categoryId);
-      
-        // Check if the category exists]
+        
+        // Check if the category exists
         if (!$category) {
             abort(404, 'Category not found');
         }
 
+        if($category->parent_id == null){
+            $subcategories = Category::where('parent_id', '=', $categoryId)->get();
+
+            // Check if the subcategories exists
+            if ($subcategories) {
+               //return view with subcategories
+               return view('kategorii', ['subcategories' => $subcategories]);
+           }
+        }
+        $subcategories = null;
         // Retrieve products for the category
         $products = Product::where('category_id', '=', $categoryId)->get();
 
 
         // Return view with products
-        return view('kategorii', ['products' => $products]);
+        return view('kategorii', ['products' => $products,
+                                'subcategories' => $subcategories]);
     }
 }
