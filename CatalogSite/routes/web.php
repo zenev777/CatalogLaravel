@@ -25,7 +25,7 @@ Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
 Route::get('/product/{id}', [ProductController::class, 'index'])->name('product.index');
 
 //specific categories 
-Route::get('/categories/{id}/products', [CategoryController::class, 'index']);
+Route::get('/categories/{id}/products', [CategoryController::class, 'index'])->name('categories.index');
 
 // Search existing product route
 Route::get('/search', [ProductController::class, 'search'])->name('search');
