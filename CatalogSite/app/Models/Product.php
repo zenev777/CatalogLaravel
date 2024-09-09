@@ -16,7 +16,7 @@ class Product extends Model
         'sku',
         'manufacturer_code',
         'manufacturer_id',
-        'category_id', 
+        'category_id',
         'slug',
         'price',
         'position',
@@ -31,4 +31,16 @@ class Product extends Model
         'warranty_1y',
         'warranty_6m',
     ];
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'category_product' , 'category_id', 'product_id');
+    }
+
+    public function manufacturer()
+    {
+        return $this->belongsTo(Manufacturer::class);
+    }
+
+
 }

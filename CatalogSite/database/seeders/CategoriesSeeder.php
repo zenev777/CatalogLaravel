@@ -4,12 +4,15 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
 class CategoriesSeeder extends Seeder
 {
     public function run()
     {
+        Schema::disableForeignKeyConstraints();
+
         // Clear the categories table
         DB::table('categories')->truncate();
 
