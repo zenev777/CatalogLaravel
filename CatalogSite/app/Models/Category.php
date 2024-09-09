@@ -30,6 +30,7 @@ class Category extends Model
         return $this->belongsTo(Category::class, 'parent_id');
     }
 
+
     /**
      * Get the subcategories.
      */
@@ -40,6 +41,6 @@ class Category extends Model
 
     public function products()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsToMany(Product::class, 'category_product', 'product_id', 'category_id');
     }
 }

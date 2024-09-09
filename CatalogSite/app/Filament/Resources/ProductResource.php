@@ -32,7 +32,8 @@ class ProductResource extends Resource
         // Кратко описание на продукта
         Forms\Components\Textarea::make('short_description')
             ->label('Short Description')
-            ->maxLength(255),
+            ->maxLength(255)
+            ->nullable(),
 
         // Пълно описание на продукта
         Forms\Components\RichEditor::make('description')
@@ -42,7 +43,8 @@ class ProductResource extends Resource
         // SKU на продукта
         Forms\Components\TextInput::make('sku')
             ->label('SKU')
-            ->maxLength(255),
+            ->maxLength(255)
+            ->nullable(),
 
         // Код на производителя
         Forms\Components\TextInput::make('manufacturer_code')
@@ -75,19 +77,21 @@ class ProductResource extends Resource
         Forms\Components\TextInput::make('position')
             ->label('Position')
             ->numeric()
-            ->default(0),
+            ->default(0)
+            ->nullable(),
 
         // Статус на продукта: видим или скрит
         Forms\Components\Toggle::make('visible')
             ->label('Visible')
-            ->default(true),
+            ->default(true)
+            ->nullable(),
 
         // Избор на категории
         Forms\Components\Select::make('categories')
             ->label('Categories')
             ->multiple()
             ->relationship('categories', 'title') // assuming a relationship to categories
-            ->required(),
+            ->nullable(),
 
         // Избор на изображения (много снимки)
         Forms\Components\FileUpload::make('images')
@@ -95,29 +99,35 @@ class ProductResource extends Resource
             ->directory('products/images')
             ->multiple() // allows multiple image uploads
             ->image()
-            ->maxSize(2048), // 2MB max size per image
+            ->maxSize(2048)
+            ->nullable(), // 2MB max size per image
 
         // Тегло
         Forms\Components\TextInput::make('weight')
             ->label('Weight (grams)')
-            ->numeric(),
+            ->numeric()
+            ->nullable(),
 
         // Размери
         Forms\Components\TextInput::make('width')
             ->label('Width (cm)')
-            ->numeric(),
+            ->numeric()
+            ->nullable(),
         Forms\Components\TextInput::make('height')
             ->label('Height (cm)')
-            ->numeric(),
+            ->numeric()
+            ->nullable(),
         Forms\Components\TextInput::make('length')
             ->label('Length (cm)')
-            ->numeric(),
+            ->numeric()
+            ->nullable(),
 
         // Налични количества
         Forms\Components\TextInput::make('available_qty')
             ->label('Available Quantity')
             ->numeric()
-            ->default(0),
+            ->default(0)
+            ->nullable(),
 
         // Характеристики: Представен, Нов, Топ цена
         Forms\Components\Toggle::make('is_featured')
