@@ -9,23 +9,24 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index($categoryId){
+    public function index($categoryId)
+    {
 
         $category = Category::find($categoryId);
-        
+
         // Check if the category exists
         if (!$category) {
             abort(404, 'Category not found');
         }
 
-        if($category->parent_id == null){
+        if ($category->parent_id == null) {
             $subcategories = Category::where('parent_id', '=', $categoryId)->get();
 
             // Check if the subcategories exists
             if (count($subcategories) > 1) {
-               //return view with subcategories
-               return view('kategorii', ['subcategories' => $subcategories]);
-           }
+                //return view with subcategories
+                return view('kategorii', ['subcategories' => $subcategories]);
+            }
         }
         $subcategories = null;
         // Retrieve products for the category
@@ -33,7 +34,16 @@ class CategoryController extends Controller
 
 
         // Return view with products
-        return view('kategorii', ['products' => $products,
-                                 'subcategories' => $subcategories]);
+        return view('kategorii', [
+            'products' => $products,
+            'subcategories' => $subcategories
+        ]);
+    }
+
+    public function getMenuCategories()
+    {
+        return Category::where('in_menu', true)
+            ->orderBy('menu_order')
+            ->get();
     }
 }

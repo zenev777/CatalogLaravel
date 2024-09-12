@@ -69,21 +69,11 @@
         </div>
         <div class="offcanvas-body">
             <div class="row vsichki-produkti">
+                @foreach ($categories as $category)
                 <div class="col">
-                    <li><a class="dropdown-item" href={{url('categories/1/products')}}>Конвектомати</a></li>
-                    <li><a class="dropdown-item" href={{url('categories/2/products')}}>Професионални Миялни машини</a></li>
-                    <li><a class="dropdown-item" href={{url('categories/3/products')}}>Професионални препарати</a></li>
-                </div>
-                <div class="col">
-                    <li><a class="dropdown-item" href={{url('categories/4/products')}}>Препарати за съдомиялни</a></li>
-                    <li><a class="dropdown-item" href={{url('categories/5/products')}}>Почистващи препарати</a></li>
-                    <li><a class="dropdown-item" href={{url('categories/6/products')}}>Рециклирани машини</a></li>
-                </div>
-                <div class="col">
-                    <li><a class="dropdown-item" href={{url('categories/7/products')}}>Рециклирани Конвектомати</a></li>
-                    <li><a class="dropdown-item" href={{url('categories/8/products')}}>Рециклирани Съдомиялни</a></li>
-                    <li><a class="dropdown-item" href={{url('categories/9/products')}}>Омекотители</a></li>
-                </div>
+                    <li style="list-style-type: none;"><a class="dropdown-item" href={{ url('categories/' . $category->title . '/products') }}>{{$category->title}}</a></li>
+                </div> @if($loop->iteration % 3 == 0) </div><div class="d-flex gap-3 pb-3 m"> @endif
+                @endforeach
             </div>
         </div>
         <hr class="dropdown-divider">

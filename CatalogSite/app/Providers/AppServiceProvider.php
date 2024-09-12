@@ -21,7 +21,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Sharing data with a specific view
+        View::composer('includes.nav', function ($view) {
+            $view->with('categories', Category::where('visible', true)
+            ->orderBy('position', 'asc')
+            ->get());
+
         View::composer('includes.footer', function ($view) {
             $view->with('pages', Page::All());
         });
