@@ -61,16 +61,6 @@ class CategoryResource extends Resource
                     ->maxSize(2048)
                     ->nullable(),
 
-                // Menu Options
-                Forms\Components\Toggle::make('in_menu')
-                    ->label('Show in Menu')
-                    ->default(false), // Default to false, so categories are not shown in the menu by default
-
-                Forms\Components\TextInput::make('menu_order')
-                    ->label('Menu Order')
-                    ->numeric()
-                    ->nullable() // Optional field, if it is not provided it can be null
-                    ->default(0),
             ]);
     }
 
