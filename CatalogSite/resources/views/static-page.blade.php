@@ -15,4 +15,6 @@
             </div>
         </div>
     </div>
-    @include('includes/footer')
+</div>
+
+@include('includes/footer')
