@@ -84,6 +84,7 @@ class HomepageBoxResource extends Resource
             'index' => Pages\ListHomepageBoxes::route('/'),
             'create' => Pages\CreateHomepageBox::route('/create'),
             'edit' => Pages\EditHomepageBox::route('/{record}/edit'),
+            'select' => Pages\SelectHomepageBoxes::route('/select'),
         ];
     }
 }
