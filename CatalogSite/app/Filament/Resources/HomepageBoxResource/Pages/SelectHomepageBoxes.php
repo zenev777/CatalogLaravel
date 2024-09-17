@@ -4,12 +4,15 @@ namespace App\Filament\Resources\HomepageBoxResource\Pages;
 
 use App\Filament\Resources\HomepageBoxResource;
 use App\Models\HomepageBox;
-use Filament\Resources\Pages\Page;
-use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Notifications\Notification;
+use Filament\Resources\Pages\Page;
+
+// ref: https://filamentphp.com/docs/3.x/panels/resources/custom-pages
+// "Filament\Resources\Pages\Page;" instad of ->> use Filament\Resources\Pages\Page;
 
 class SelectHomepageBoxes extends Page
 {
@@ -43,17 +46,17 @@ class SelectHomepageBoxes extends Page
     {
         // Филтрираме само видимите кутии
         $selectedVisibleBoxes = array_filter($this->visibleBoxes);
-    
+
         // Проверка дали има точно 4 избрани кутии
         if (count($selectedVisibleBoxes) !== 4) {
             Notification::make()
                 ->title('You must select exactly 4 boxes!')
                 ->danger()
                 ->send();
-    
+
             return;
         }
-    
+
         // Проверка дали за всяка избрана кутия има попълнена позиция
         foreach ($selectedVisibleBoxes as $boxId) {
             if (empty($this->positions[$boxId])) {
@@ -61,22 +64,22 @@ class SelectHomepageBoxes extends Page
                     ->title('Each selected box must have a position!')
                     ->danger()
                     ->send();
-    
+
                 return;
             }
         }
-    
+
         // Всички кутии стават невидими
         HomepageBox::query()->update(['visible' => false]);
-    
+
         // Обновяваме само избраните кутии
         HomepageBox::whereIn('id', $selectedVisibleBoxes)->update(['visible' => true]);
-    
+
         // Обновяване на позициите на кутиите
         foreach ($this->positions as $boxId => $position) {
             HomepageBox::where('id', $boxId)->update(['position' => $position]);
         }
-    
+
         Notification::make()
             ->title('Homepage boxes updated successfully!')
             ->success()
@@ -87,7 +90,7 @@ class SelectHomepageBoxes extends Page
     {
         return [
             Card::make([
-                Grid::make(1) // Grid с 1 колона за всеки ред с кутия
+                Grid::make(3)
                     ->schema(
                         HomepageBox::all()->map(function ($box) {
                             return Grid::make(3) // Grid с 3 колони за заглавие, Toggle и позиция
@@ -102,30 +105,35 @@ class SelectHomepageBoxes extends Page
                                         ->reactive()
                                         ->afterStateUpdated(function ($state, $get, $set) use ($box) {
                                             $selectedCount = count(array_filter($get('visibleBoxes')));
-                                    
+
                                             if ($selectedCount > 4) {
                                                 Notification::make()
                                                     ->title('You need to select 4 boxes!')
                                                     ->danger()
                                                     ->send();
-                                    
+
                                                 $set('visibleBoxes.' . $box->id, false);
                                             }
                                         })
                                         ->default(in_array($box->id, $this->visibleBoxes)),
-                                    
 
-                                    TextInput::make('positions.' . $box->id)
-                                        ->label('Position')
-                                        ->numeric()
-                                        ->default($this->positions[$box->id] ?? 1)
-                                        ->minValue(1)
-                                        ->maxValue(4)
-                                        ->nullable()
-                                        ->reactive(),
-                                ]);
-                        })->toArray() // Превръщане в масив за schema
-                    ),
+
+                                            $set('visibleBoxes.' . $box->id, false);
+                                        }
+                                    })
+                                    ->default(in_array($box->id, $this->visibleBoxes)),
+
+                                TextInput::make('positions.' . $box->id)
+                                    ->label('Position')
+                                    ->numeric()
+                                    ->default($this->positions[$box->id] ?? 1)
+                                    ->minValue(1)
+                                    ->maxValue(10)
+                                    ->required()
+                                    ->reactive(),
+                            ];
+                        })->flatten()->toArray()
+                    )
             ]),
         ];
     }
