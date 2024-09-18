@@ -24,40 +24,8 @@ class ContactsController extends Controller
             'comentar' => 'required|string',
         ]);
 
-        // Prepare the data
-        $name = $validated['name'];
-        $phone = $validated['phone'];
-        $email = $validated['email'];
-        $comentar = $validated['comentar'];
-
-        // Define the HTML content of the email
-        $htmlContent = "
-        <html>
-        <head>
-            <style>
-                body { font-family: Arial, sans-serif; }
-                .email-container { padding: 20px; border: 1px solid #ddd; }
-                .email-header { font-size: 18px; font-weight: bold; }
-                .email-body { margin-top: 10px; }
-            </style>
-        </head>
-        <body>
-            <div class='email-container'>
-                <div class='email-header'>New Contact Form Submission</div>
-                <div class='email-body'>
-                    <p><strong>Name:</strong> $name</p>
-                    <p><strong>Phone:</strong> $phone</p>
-                    <p><strong>Email:</strong> $email</p>
-                    <p><strong>Message:</strong></p>
-                    <p>$comentar</p>
-                </div>
-            </div>
-        </body>
-        </html>
-        ";
-
         // Send the email
-        Mail::html($htmlContent, function ($message) {
+        Mail::send('email', $validated, function ($message) {
             $message->to('zhan.enev@abv.bg')
                 ->subject('New Contact Form Submission');
         });
