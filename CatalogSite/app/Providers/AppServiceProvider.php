@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('categories', Category::where('visible', true)
             ->orderBy('position', 'asc')
             ->get());
-
+        });
         View::composer('includes.footer', function ($view) {
             $view->with('pages', Page::All());
         });
