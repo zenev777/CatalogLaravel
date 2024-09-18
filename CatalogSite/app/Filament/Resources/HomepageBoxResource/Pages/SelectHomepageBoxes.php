@@ -2,8 +2,9 @@
 
 namespace App\Filament\Resources\HomepageBoxResource\Pages;
 
+use App\Filament\Resources\HomepageBoxResource;
 use App\Models\HomepageBox;
-use Filament\Pages\Page;
+use Filament\Resources\Pages\Page;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Grid;
@@ -14,10 +15,17 @@ class SelectHomepageBoxes extends Page
 {
     protected static ?string $navigationIcon = 'heroicon-o-check';
     protected static ?string $navigationLabel = 'Select Homepage Boxes';
+    protected static ?string $slug = 'select-homepage-boxes';
+    protected static ?int $navigationSort = 4;
     protected static string $view = 'filament.resources.homepage-box-resource.pages.select-homepage-boxes';
 
     public $visibleBoxes = [];
     public $positions = [];
+
+    public static function getResource(): string
+    {
+        return HomepageBoxResource::class;
+    }
 
     public function mount()
     {
