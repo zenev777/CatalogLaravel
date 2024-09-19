@@ -38,21 +38,25 @@ class HomepageBoxResource extends Resource
                 TextInput::make('link')
                     ->label('Link')
                     ->required()
-                    ->url(),
+                    ->url()
+                    ->nullable(),
 
                 FileUpload::make('image')
                     ->label('Image')
                     ->image()
-                    ->required(),
+                    ->required()
+                    ->nullable(),
 
                 TextInput::make('position')
                     ->label('Position')
                     ->numeric()
-                    ->required(),
+                    ->required()
+                    ->nullable(),
 
                 Toggle::make('visible')
                     ->label('Visible')
-                    ->default(true),
+                    ->default(true)
+                    ->nullable(),
             ]);
     }
 

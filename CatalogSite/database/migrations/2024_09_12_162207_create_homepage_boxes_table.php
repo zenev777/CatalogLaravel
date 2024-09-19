@@ -14,11 +14,10 @@ return new class extends Migration
         Schema::create('homepage_boxes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('link');
+            $table->string('link')->nullable();
             $table->string('image')->nullable();
-            $table->integer('position');
-            $table->boolean('visible')->default(true);  // статус: видим/скрит
-            $table->timestamps();
+            $table->integer('position')->nullable();
+            $table->boolean('visible')->default(true)->nullable();  // статус: видим/скрит
         });
     }
 

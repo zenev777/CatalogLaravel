@@ -1,16 +1,12 @@
 <x-filament::page>
     {{ $this->form }}
 
-    <div class="homepage-boxes-display mt-4">
+    <div class="homepage-boxes-display">
         @foreach (\App\Models\HomepageBox::where('visible', true)
             ->orderBy('position', 'asc')
             ->limit(4)
             ->get() as $box)
-            <div class="homepage-box">
-                <h3>{{ $box->title }}</h3>
-                <img src="{{ $box->image }}" alt="{{ $box->title }}" class="img-fluid">
-                <p>{{ $box->description }}</p>
-            </div>
+            <br>
         @endforeach
     </div>
 

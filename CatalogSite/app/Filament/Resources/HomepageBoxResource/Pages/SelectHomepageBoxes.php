@@ -29,34 +29,54 @@ class SelectHomepageBoxes extends Page
 
     public function mount()
     {
+        // Взимаме само видимите кутии (visible = true) и ги сортираме по позиция
         $this->visibleBoxes = HomepageBox::where('visible', true)
             ->orderBy('position', 'asc')
-            ->limit(4)
-            ->pluck('id')
+            ->pluck('id') // Връщаме само id-тата
             ->toArray();
 
+        // Взимаме всички позиции на кутиите
         $this->positions = HomepageBox::pluck('position', 'id')->toArray();
     }
 
     public function save()
     {
-        if (count(array_filter($this->visibleBoxes)) !== 4) {
+        // Филтрираме само видимите кутии
+        $selectedVisibleBoxes = array_filter($this->visibleBoxes);
+    
+        // Проверка дали има точно 4 избрани кутии
+        if (count($selectedVisibleBoxes) !== 4) {
             Notification::make()
                 ->title('You must select exactly 4 boxes!')
                 ->danger()
                 ->send();
-
+    
             return;
         }
-
+    
+        // Проверка дали за всяка избрана кутия има попълнена позиция
+        foreach ($selectedVisibleBoxes as $boxId) {
+            if (empty($this->positions[$boxId])) {
+                Notification::make()
+                    ->title('Each selected box must have a position!')
+                    ->danger()
+                    ->send();
+    
+                return;
+            }
+        }
+    
+        // Всички кутии стават невидими
         HomepageBox::query()->update(['visible' => false]);
-
-        HomepageBox::whereIn('id', $this->visibleBoxes)->update(['visible' => true]);
-
+    
+        // Обновяваме само избраните кутии
+        HomepageBox::whereIn('id', $selectedVisibleBoxes)->update(['visible' => true]);
+    
+        // Обновяване на позициите на кутиите
         foreach ($this->positions as $boxId => $position) {
             HomepageBox::where('id', $boxId)->update(['position' => $position]);
         }
-
+    
         Notification::make()
             ->title('Homepage boxes updated successfully!')
             ->success()
@@ -67,38 +87,45 @@ class SelectHomepageBoxes extends Page
     {
         return [
             Card::make([
-                Grid::make(3) 
+                Grid::make(1) // Grid с 1 колона за всеки ред с кутия
                     ->schema(
                         HomepageBox::all()->map(function ($box) {
-                            return [
-                                Toggle::make('visibleBoxes.' . $box->id)
-                                    ->label($box->title)
-                                    ->reactive()
-                                    ->afterStateUpdated(function ($state, $get, $set) use ($box) {
-                                        $selectedCount = count(array_filter($get('visibleBoxes')));
+                            return Grid::make(3) // Grid с 3 колони за заглавие, Toggle и позиция
+                                ->schema([
+                                    // Показване на заглавието като текст, не поле
+                                    \Filament\Forms\Components\Placeholder::make('title_' . $box->id)
+                                        ->label('Title')
+                                        ->content($box->title),
 
-                                        if ($selectedCount > 4) {
-                                            Notification::make()
-                                                ->title('You can only select 4 boxes!')
-                                                ->danger()
-                                                ->send();
+                                        Toggle::make('visibleBoxes.' . $box->id)
+                                        ->label('Visible')
+                                        ->reactive()
+                                        ->afterStateUpdated(function ($state, $get, $set) use ($box) {
+                                            $selectedCount = count(array_filter($get('visibleBoxes')));
+                                    
+                                            if ($selectedCount > 4) {
+                                                Notification::make()
+                                                    ->title('You need to select 4 boxes!')
+                                                    ->danger()
+                                                    ->send();
+                                    
+                                                $set('visibleBoxes.' . $box->id, false);
+                                            }
+                                        })
+                                        ->default(in_array($box->id, $this->visibleBoxes)),
+                                    
 
-                                            $set('visibleBoxes.' . $box->id, false);
-                                        }
-                                    })
-                                    ->default(in_array($box->id, $this->visibleBoxes)),
-
-                                TextInput::make('positions.' . $box->id)
-                                    ->label('Position')
-                                    ->numeric()
-                                    ->default($this->positions[$box->id] ?? 1) 
-                                    ->minValue(1)
-                                    ->maxValue(10)
-                                    ->required()
-                                    ->reactive(),
-                            ];
-                        })->flatten()->toArray() 
-                    )
+                                    TextInput::make('positions.' . $box->id)
+                                        ->label('Position')
+                                        ->numeric()
+                                        ->default($this->positions[$box->id] ?? 1)
+                                        ->minValue(1)
+                                        ->maxValue(4)
+                                        ->nullable()
+                                        ->reactive(),
+                                ]);
+                        })->toArray() // Превръщане в масив за schema
+                    ),
             ]),
         ];
     }
