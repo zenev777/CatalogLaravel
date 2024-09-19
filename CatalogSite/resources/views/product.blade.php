@@ -23,7 +23,7 @@
                     {{$product->width}}x{{$product->height}}x{{$product->length}}–
                     Дигитална еволюция {{$product->manufacturer_code}}</h1>
                     <div class="d-flex justify-content-start fs-6">
-                        <small class="text-small">Производител: <a href="#" class="link">Electrolux</a></small>
+                        <small class="text-small">Производител: <a href="#" class="link">{{$product->manufacturer_id}}</a></small>
                         <small class="ms-4 pb-3 text-small">арт.№: 123456789</small>
                     </div>
                 </div>
@@ -91,11 +91,9 @@
                         </ol>
                     </nav>
 
-                    <h1 class="fs-2 fw-semibold pb-2">{{$product->title}}, 5 ТАВИ
-                    {{$product->width}}x{{$product->height}}x{{$product->length}}–
-                    Дигитална еволюция {{$product->manufacturer_code}}</h1>
+                    <h1 class="fs-2 fw-semibold pb-2">{{$product->title}} - {{$product->manufacturer_code}} - {{$product->width}}x{{$product->height}}x{{$product->length}}</h1>
                     <div class="d-flex justify-content-start fs-6">
-                        <small class="text-small">Производител: <a href="#" class="link">Electrolux</a></small>
+                        <small class="text-small">Производител: <a href="#" class="link">{{$product->manufacturer_id}}</a></small>
                         <small class="ms-4 pb-3 text-small">арт.№: {{$product->sku}}</small>
                     </div>
                 </div>
@@ -120,7 +118,7 @@
                 </div>
                 <div>
                     <span class="prizeold">Стара цена:</span>
-                    <span class="prizeold-dds"> 2 248,90лв/без ДДС/</span>
+                    <span class="prizeold-dds">{{$product->old_price}} лв.</span>
                 </div>
             </div>
             <div>
@@ -196,47 +194,47 @@
                     <table class=" tablica">
                         <tr class=" table-color">
                             <th class="th-table">Име:</th>
-                            <td class="td-table">Конвектомат механичен, 5 тави GN 2/3 (35.5×32.5см).</td>
+                            <td class="td-table">{{$product->title}}</td>
                         </tr>
                         <tr>
                             <th class="th-table">Впръскване</th>
-                            <td class="td-table">Електронно регулиране на впръскването на водата.</td>
+                            <td class="td-table">{{$product->vpruzkvane}}</td>
                         </tr>
                         <tr class=" table-color">
                             <th class="th-table">Реверс</th>
-                            <td class="td-table">Реверсна система.</td>
+                            <td class="td-table">{{$product->revers}}</td>
                         </tr>
                         <tr>
                             <th class="th-table">Таймер</th>
-                            <td class="td-table">Механичен таймер: 0-120‘.</td>
+                            <td class="td-table">{{$product->taimer}}: 0-120‘.</td>
                         </tr>
                         <tr class=" table-color">
                             <th class="th-table">Осветление</th>
-                            <td class="td-table">Осветление.</td>
+                            <td class="td-table">{{$product->osvetlenie}}</td>
                         </tr>
                         <tr>
                             <th class="th-table">Модел:</th>
-                            <td class="td-table">SQ053M00</td>
+                            <td class="td-table">{{$product->sku}}</td>
                         </tr>
                         <tr class=" table-color">
                             <th class="th-table">Външни размери:</th>
-                            <td class="td-table">70 x 71,5 x 63см.</td>
+                            <td class="td-table">{{$product->width}} x {{$product->height}} x {{$product->length}}см.</td>
                         </tr>
                         <tr>
                             <th class="th-table">Разстояние м/у водачите</th>
-                            <td class="td-table">67мм.</td>
+                            <td class="td-table">{{$product->raztuqnie_mejdu_vodachite}}мм.</td>
                         </tr>
                         <tr class=" table-color">
                             <th class="th-table">Мощност: </th>
-                            <td class="td-table">5,4kW /400V</td>
+                            <td class="td-table">{{$product->power}}V</td>
                         </tr>
                         <tr>
                             <th class="th-table">Температура</th>
-                            <td class="td-table">280С.</td>
+                            <td class="td-table">{{$product->temperatura}}С.</td>
                         </tr>
                         <tr class=" table-color">
                             <th class="th-table">Свързване</th>
-                            <td class="td-table">Свързване към вода, канал и ток.</td>
+                            <td class="td-table">{{$product->svurzvane}}.</td>
                         </tr>
                     </table>
                 </div>
@@ -268,7 +266,7 @@
                     <div>
                         @include ('includes/product-small')
                     </div>
-                @endforeach         
+                @endforeach
             </div>
 
         </div>
