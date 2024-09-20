@@ -291,7 +291,7 @@
     </div>
     <div class="slideshow-container ">
         <div class="product-slider-1">
-            @foreach ($products as $product)
+            @foreach ($productsConvect as $product)
                 <div>
                      @include ('includes/product-small')
                 </div>
@@ -313,7 +313,7 @@
     </div>
     <div class="slideshow-container ">
         <div class="product-slider-2">
-            @foreach ($products as $product)
+            @foreach ($productsWash as $product)
                 <div>
                      @include ('includes/product-small')
                 </div>

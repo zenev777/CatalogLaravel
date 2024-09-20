@@ -30,6 +30,10 @@ class AppServiceProvider extends ServiceProvider
             // Pass the retrieved categories to the view
             $view->with('categories', $categories);
         });
+            $view->with('categories', Category::where('visible', true)
+            ->orderBy('position', 'asc')
+            ->get());
+        });
 
         View::composer('includes.footer', function ($view) {
             $view->with('pages', Page::All());
