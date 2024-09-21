@@ -33,6 +33,7 @@ Route::get('/search', [ProductController::class, 'search'])->name('search');
 
 // Receive email from contact form
 Route::post('/contact/send', [ContactsController::class, 'sendEmail'])->name('contact.send');
+Route::post('/product/{id}/inquiry', [ContactsController::class, 'sendInquiry'])->name('sendInquiry');
 
 // Define a route for static pages with a dynamic slug
 Route::get('/{slug}', [PageController::class, 'index'])->name('page.index');
