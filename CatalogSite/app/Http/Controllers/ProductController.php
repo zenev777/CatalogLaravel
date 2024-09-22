@@ -31,7 +31,7 @@ class ProductController extends Controller
 
         $product = Product::where('title', 'LIKE', "%{$query}%")
                             ->orWhere('sku', 'LIKE', "%{$query}%")
-                            ->first();
+                            ->get();
 
         if (!$product) {
             // return not found page 
@@ -39,7 +39,9 @@ class ProductController extends Controller
 
         }
 
-        return view('product', ['product' => $product]);
+        $subcategories = null;
+
+        return view('kategorii', ['products' => $product, 'subcategories' => $subcategories]);
     }
 }
 
