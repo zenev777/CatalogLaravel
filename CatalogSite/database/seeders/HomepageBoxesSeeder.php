@@ -10,23 +10,23 @@ class HomepageBoxesSeeder extends Seeder
     public function run()
     {
         HomepageBox::create([
-            'title' => 'Професионални<br> Конвектомати',
+            'title' => 'Професионални Конвектомати',
             'link' => 'categories',
             'image' => 'assets/img/1.png',  // Assuming the image will be stored in 'public/assets/img'
-            'position' => 1,
-            'visible' => true,
-        ]);
-
-        HomepageBox::create([
-            'title' => 'Професионални<br>миялни машини',
-            'link' => 'categories',
-            'image' => 'assets/img/2.png',
             'position' => 2,
             'visible' => true,
         ]);
 
         HomepageBox::create([
-            'title' => 'Препарати<br> за съдомиялни',
+            'title' => 'Професионални миялни машини',
+            'link' => 'categories',
+            'image' => 'assets/img/2.png',
+            'position' => 1,
+            'visible' => true,
+        ]);
+
+        HomepageBox::create([
+            'title' => 'Препарати за съдомиялни',
             'link' => 'categories',
             'image' => 'assets/img/3.png',
             'position' => 3,
@@ -34,7 +34,7 @@ class HomepageBoxesSeeder extends Seeder
         ]);
 
         HomepageBox::create([
-            'title' => 'Професионални<br>препарати',
+            'title' => 'Професионални препарати',
             'link' => 'categories',
             'image' => 'assets/img/4.png',
             'position' => 4,
