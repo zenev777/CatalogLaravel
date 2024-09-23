@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Page;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -26,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
             ->orderBy('position', 'asc')
             ->get());
         });
+
         View::composer('includes.footer', function ($view) {
             $view->with('pages', Page::All());
         });

@@ -2,11 +2,11 @@
 <div class="container">
     <div class="d-flex pt-3 t">
         <div class="d-flex w-100 position-relative mxm">
-            <a href="categories" class="position-relative zoom-container">
+            <a href="" class="position-relative zoom-container">
                 <span class="overlay position-absolute w-100 h-100 start-0 top-0"
                     style="background-color: rgba(42, 41, 100, .5);"></span>
-                <img src="assets/img/1.png" class="img-1 zoom-object">
-                <span class="title-baner">Професионални<br> Конвектомати</span>
+                <img src="{{$homeboxeOne->image}}" class="img-1 zoom-object">
+                <span class="title-baner">{{$homeboxeOne->title}}</span>
             </a>
             <a href="categories" class="position-absolute btn-pregledai">
                 Прегледай
@@ -17,28 +17,15 @@
             </a>
         </div>
         <div class="d-grid img-grid">
-            <a href="categories" class="position-relative zoom-container">
+            @foreach ($homeboxes as $homebox)
+            <a href="{{$homebox->link}}" class="position-relative zoom-container">
                 <span class="overlay position-absolute w-100 h-100 start-0 top-0"
                     style="background-color: rgba(42, 41, 100, .5);"></span>
-                <img src="assets/img/2.png" class="img-2 zoom-object">
-                <span class="title-smallbaner">Професионални<br>миялни машини</span>
+                <img src="{{$homebox->image}}" class="img-2 zoom-object">
+                <span class="title-smallbaner">{{$homebox->title}}</span>
                 <span class="button-banersmall"></span>
             </a>
-            <a href="categories" class="position-relative zoom-container">
-                <span class="overlay position-absolute w-100 h-100 start-0 top-0"
-                    style="background-color: rgba(42, 41, 100, .5);"></span>
-                <img src="assets/img/3.png" class="img-2 zoom-object">
-                <span class="title-smallbaner">Препарати<br>
-                    за съдомиялни</span>
-                <span class="button-banersmall"></span>
-            </a>
-            <a href="categories" class="position-relative zoom-container">
-                <span class="overlay position-absolute w-100 h-100 start-0 top-0"
-                    style="background-color: rgba(42, 41, 100, .5);"></span>
-                <img src="assets/img/4.png" class="img-2 zoom-object">
-                <span class="title-smallbaner">Професионални<br>препарати</span>
-                <span class="button-banersmall"></span>
-            </a>
+            @endforeach
             <a href="categories" class="text-decoration-none">
                 <span class="kutiika-julta">
                     Всички Продукти
@@ -237,7 +224,7 @@
                                 Научете повече
                             </span>
                         </a>
-                    </div>                   
+                    </div>
                 </div>
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
@@ -267,11 +254,11 @@
         <div class="col col-md-6">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-sm-1 g-3">
                 @foreach ($products as $product)
-                    <div class="col">
-                        @include('includes.product-small')
-                    </div>
-                    @if($loop->iteration % 8 == 0) @break @endif
-                @endforeach  
+                <div class="col">
+                    @include('includes.product-small')
+                </div>
+                @if($loop->iteration % 8 == 0) @break @endif
+                @endforeach
             </div>
         </div>
     </div>
@@ -292,9 +279,9 @@
     <div class="slideshow-container ">
         <div class="product-slider-1">
             @foreach ($productsConvect as $product)
-                <div>
-                     @include ('includes/product-small')
-                </div>
+            <div>
+                @include ('includes/product-small')
+            </div>
             @endforeach
         </div>
 
@@ -314,9 +301,9 @@
     <div class="slideshow-container ">
         <div class="product-slider-2">
             @foreach ($productsWash as $product)
-                <div>
-                     @include ('includes/product-small')
-                </div>
+            <div>
+                @include ('includes/product-small')
+            </div>
             @endforeach
         </div>
     </div>

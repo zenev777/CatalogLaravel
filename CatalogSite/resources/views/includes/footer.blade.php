@@ -42,9 +42,9 @@
         <div class="row tt centeralign">
 
             @foreach ($pages as $page)
-            <div class="col-4 order1 mhm2">
-                <a href="{{$page->slug}}" class="smalltextt">{{$page->name}}</a>
-            </div>
+                <div class="col-4 order1 mhm2">
+                    <a href="{{$page->slug}}" class="smalltextt">{{$page->name}}</a>
+                </div>
             @endforeach
             <div class="col-4">
             </div>
