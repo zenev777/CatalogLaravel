@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Validation\Rule;
 
 class CategoryResource extends Resource
 {
@@ -25,7 +26,7 @@ class CategoryResource extends Resource
             ->schema([
                 // Title field
                 Forms\Components\TextInput::make('title')
-                    ->label('Title')
+                    ->label('Title') // "Title" in Bulgarian
                     ->required()
                     ->maxLength(255),
 
@@ -37,31 +38,63 @@ class CategoryResource extends Resource
 
                 // Description field
                 Forms\Components\RichEditor::make('description')
-                    ->label('Description')
-                    ->required()
+                    ->label('description') // "Description" in Bulgarian
+                    ->nullable() // Made nullable to match the form
                     ->maxLength(1000),
 
-                // Visibility Toggle
+                // Visibility and Featured toggles
                 Forms\Components\Toggle::make('visible')
-                    ->label('Visible')
+                    ->label('visible') // "Visible" in Bulgarian
                     ->default(true),
+
+                Forms\Components\Toggle::make('featured')
+                    ->label('featured') // "Featured" in Bulgarian
+                    ->default(false),
 
                 // Position field
                 Forms\Components\TextInput::make('position')
-                    ->label('Position')
+                    ->label('position') // "Position" in Bulgarian
                     ->numeric()
                     ->default(0),
 
-                // Logo field
-                Forms\Components\FileUpload::make('logo')
-                    ->label('Logo')
+
+                Forms\Components\TextInput::make('slug')
+                    ->label('Slug')
+                    ->required() // cannot be empty
+                    ->maxLength(255) // max char 255
+                    ->rules(function ($record) {
+                        return $record
+                            ? [Rule::unique('pages', 'slug')->ignore($record->id)] // Ignore unique rule for the current record being edited
+                            : ['unique:pages,slug']; // Apply unique rule only when creating a new record
+                    }),
+
+                // Parent Category dropdown (select field)
+                Forms\Components\Select::make('parent_id')
+                    ->label('Parent category') // "Parent Category" in Bulgarian
+                    ->relationship('parent', 'title') // using the `parent` relationship and displaying the `title` of the category
+                    ->options(Category::all()->pluck('title', 'id')) // Fetching all categories for the dropdown
+                    ->searchable() // Makes the dropdown searchable
+                    ->nullable(), // Allows the category to have no parent
+
+                // Menu Icon and Image fields
+                Forms\Components\FileUpload::make('menu_icon')
+                    ->label('Menu Icon (35x38px, svg)') // "Menu icon" in Bulgarian
                     ->image()
                     ->disk('uploads')
-                    ->directory('uploads')
+                    ->directory('images')
+                    ->maxSize(1024)
+                    ->nullable(),
+
+                Forms\Components\FileUpload::make('image')
+                    ->label('Image') // "Image (jpg)" in Bulgarian
+                    ->image()
+                    ->disk('uploads')
+                    ->directory('images')
                     ->maxSize(2048)
                     ->nullable(),
             ]);
     }
+
 
     public static function table(Table $table): Table
     {
