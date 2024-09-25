@@ -22,6 +22,7 @@ class CreateClientsTable extends Migration
             $table->tinyInteger('position')->nullable();
             $table->string('logo')->nullable();  // Path to the logo
             $table->timestamps();
+            $table->tinyInteger('is_featured')->default(1);
         });
     }
 

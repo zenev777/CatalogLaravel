@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Client;
 use App\Models\HomepageBox;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -40,6 +41,8 @@ class HomeController extends Controller
         $productsConvect = Product::where('category_id', '=', $categoryConvect->id)
             ->where("is_featured", true)
             ->get();
+        
+        $featuredClients = Client::where("is_featured", true)->get();
 
         $homepageProducts = Product::where('is_featured', true)->get();
 
@@ -47,6 +50,6 @@ class HomeController extends Controller
             $productsConvect = $productsConvect->merge(Product::where('category_id', '=', $subcategory->id)->get());
         }
 
-        return view('index', ['products' => $products, 'productsConvect' => $productsConvect, 'productsWash' => $productsWash, 'homeboxeOne' => $homeboxeOne, 'homeboxes' => $homeboxes, 'homepageProducts' => $homepageProducts]);
+        return view('index', ['products' => $products, 'productsConvect' => $productsConvect, 'productsWash' => $productsWash, 'homeboxeOne' => $homeboxeOne, 'homeboxes' => $homeboxes, 'homepageProducts' => $homepageProducts, 'featuredClients' => $featuredClients]);
     }
 }
