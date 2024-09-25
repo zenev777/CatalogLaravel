@@ -30,6 +30,14 @@ class Product extends Model
         'is_top_price',
         'warranty_1y',
         'warranty_6m',
+        'power',
+        'vpruzkvane',
+        'revers',
+        'taimer',
+        'osvetlenie',
+        'raztuqnie_mejdu_vodachite',
+        'temperatura',
+        'svurzvane',
     ];
 
     public function categories()
