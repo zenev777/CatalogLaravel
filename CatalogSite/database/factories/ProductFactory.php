@@ -29,6 +29,7 @@ class ProductFactory extends Factory
             'length' => $this->faker->numberBetween(10, 200),
             'available_qty' => $this->faker->numberBetween(0, 100),
             'is_featured' => $this->faker->boolean,
+            'is_top_price' => $this->faker->boolean,
             'is_new' => $this->faker->boolean,
             'old_price' => $this->faker->randomFloat(2, 1000, 2000),
             'warranty_1y' => $this->faker->boolean,
