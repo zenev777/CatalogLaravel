@@ -93,11 +93,10 @@ class ProductResource extends Resource
             ->relationship('categories', 'title') // assuming a relationship to categories
             ->nullable(),
 
-        // Избор на изображения (много снимки)
         Forms\Components\FileUpload::make('images')
             ->label('Product Images')
-            ->directory('products/images')
-            ->multiple() // allows multiple image uploads
+            ->disk('uploads')
+            ->directory('uploads')
             ->image()
             ->maxSize(2048)
             ->nullable(), // 2MB max size per image
