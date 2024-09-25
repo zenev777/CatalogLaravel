@@ -98,7 +98,7 @@
                     </h1>
                     <div class="d-flex justify-content-start fs-6">
                         <small class="text-small">Производител: <a href="#"
-                                class="link">{{$product->manufacturer_id}}</a></small>
+                                class="link">{{$product->manufacturer->title}}</a></small>
                         <small class="ms-4 pb-3 text-small">арт.№: {{$product->sku}}</small>
                     </div>
                 </div>

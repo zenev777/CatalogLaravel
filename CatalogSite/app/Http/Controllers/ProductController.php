@@ -10,9 +10,10 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public function index($productId){
-        $product = Product::find($productId);
-      
+    public function index($productId)
+    {
+        $product = Product::with('manufacturer')->find($productId);
+
         // Check if the product exists]
         if (!$product) {
             abort(404, 'Product not found');
