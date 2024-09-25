@@ -48,6 +48,12 @@ class ClientResource extends Resource
                     ->default(true)
                     ->nullable(), // Default to true (visible)
 
+                // Feature Toggle
+                Forms\Components\Toggle::make('is_featured')
+                    ->label('Featured')
+                    ->default(true)
+                    ->nullable(),
+
                 // Position field
                 Forms\Components\TextInput::make('position')
                     ->label('Position')
