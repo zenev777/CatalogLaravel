@@ -24,7 +24,7 @@
     <div class="clienti-background">
         <div class="container text-center ">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 gap-4">
-                @foreach (range(1, 16) as $item)
+                @foreach ($clients as $client)
                     @include('includes/client-card')
                 @endforeach
             </div>
