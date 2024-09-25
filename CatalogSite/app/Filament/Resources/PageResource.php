@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Validation\Rule;
 
 class PageResource extends Resource
 {
@@ -32,7 +33,11 @@ class PageResource extends Resource
             ->label('Slug')
             ->required() // cannot be empty
             ->maxLength(255) // max char 255
-            ->unique('pages', 'slug'), // unique in pages table
+            ->rules(function ($record) {
+                return $record 
+                    ? [Rule::unique('pages', 'slug')->ignore($record->id)] // Ignore unique rule for the current record being edited
+                    : ['unique:pages,slug']; // Apply unique rule only when creating a new record
+            }),
 
         Forms\Components\Textarea::make('description')
             ->label('Description')
