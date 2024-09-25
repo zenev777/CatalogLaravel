@@ -4,15 +4,20 @@
 
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb breadcrumb2">
-            <li class="breadcrumb-item itemtext "><a href="home" class="text-decoration-none">Начало</a></li>
+            <li class="breadcrumb-item itemtext "><a href={{ route('home') }} class="text-decoration-none">Начало</a>
+            </li>
             <!-- ask for this links path -->
             <li class="breadcrumb-item itemtext"><a href="#" class="text-decoration-none">Всички
                     продукти</a></li>
-            <li class="breadcrumb-item itemtext"><a href="#" class="text-decoration-none">Професионални
-                    конвектомати</a></li>
+            <li class="breadcrumb-item itemtext"><a href="#" class="text-decoration-none">{{$category->title}}</a></li>
         </ol>
     </nav>
-    <h1 class="title">Професионални конвектомати</h1>
+    @if($query !== null)
+        <h1 class="title">Търсене за "{{$query}}"</h1>
+    @elseif ($category !== null)
+        <h1 class="title">{{$category->title}}</h1>
+    @endif
+
     <div class="alert-productova">
         <img src={{url('assets/img/vector.png')}} class="vector">
         <div class="textalert-productova">
@@ -63,18 +68,22 @@
         <div class="col-9 col-9a pt-4">
             <div class="d-flex gap-3 pb-3 m">
                 @if($subcategories !== null)
-                    @foreach($subcategories as $subcategory)
-                        <div class="col">
-                            @include('includes.subcategories-small')
-                        </div>
-                        @if($loop->iteration % 3 == 0) </div><div class="d-flex gap-3 pb-3 m"> @endif
-                    @endforeach
+                        @foreach($subcategories as $subcategory)
+                                <div class="col">
+                                    @include('includes.subcategories-small')
+                                </div>
+                                @if($loop->iteration % 3 == 0)
+                                    </div>
+                                <div class="d-flex gap-3 pb-3 m"> @endif
+                        @endforeach
                 @else
-                    @foreach($products as $product)
-                        <div class="col">
-                            @include('includes.product-small')
-                        </div>
-                        @if($loop->iteration % 3 == 0) </div><div class="d-flex gap-3 pb-3 m"> @endif
+                        @foreach($products as $product)
+                                <div class="col">
+                                    @include('includes.product-small')
+                                </div>
+                                @if($loop->iteration % 3 == 0)
+                                    </div>
+                                <div class="d-flex gap-3 pb-3 m"> @endif
                         @endforeach
                 @endif
             </div>

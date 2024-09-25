@@ -6,16 +6,15 @@
                 <div class="fs-6">
                     <nav aria-label="breadcrumb ">
                         <ol class="breadcrumb breadcrumb2">
-                            <li class="breadcrumb-item itemtext "><a href="home" class="text-decoration-none">Начало</a>
+                            <li class="breadcrumb-item itemtext "><a href={{ route('home') }}
+                                    class="text-decoration-none">Начало</a>
                             </li>
                             <li class="breadcrumb-item itemtext"><a href="categories"
                                     class="text-decoration-none">Всички
                                     продукти</a></li>
                             <li class="breadcrumb-item itemtext"><a href="categories"
-                                    class="text-decoration-none">Професионални
-                                    конвектомати</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">КОНВЕКТОМАТ МЕХАНИЧЕН, 5 ТАВИ GN 2/3
-                                (35.5×32.5СМ) SQ053M00</li>
+                                    class="text-decoration-none">{{$category->title}}</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{$product->title}}</li>
                         </ol>
                     </nav>
 
@@ -25,7 +24,7 @@
                     </h1>
                     <div class="d-flex justify-content-start fs-6">
                         <small class="text-small">Производител: <a href="#"
-                                class="link">{{$product->manufacturer_id}}</a></small>
+                                class="link">{{$product->manufacturer->title}}</a></small>
                         <small class="ms-4 pb-3 text-small">арт.№: 123456789</small>
                     </div>
                 </div>
@@ -80,16 +79,15 @@
                 <div class="display-no">
                     <nav aria-label="breadcrumb ">
                         <ol class="breadcrumb breadcrumb2">
-                            <li class="breadcrumb-item itemtext "><a href="home" class="text-decoration-none">Начало</a>
+                            <li class="breadcrumb-item itemtext "><a href={{ route('home')}}
+                                    class="text-decoration-none">Начало</a>
                             </li>
                             <li class="breadcrumb-item itemtext"><a href="categories"
                                     class="text-decoration-none">Всички
                                     продукти</a></li>
                             <li class="breadcrumb-item itemtext"><a href="categories"
-                                    class="text-decoration-none">Професионални
-                                    конвектомати</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">КОНВЕКТОМАТ МЕХАНИЧЕН, 5 ТАВИ GN 2/3
-                                (35.5×32.5СМ) SQ053M00</li>
+                                    class="text-decoration-none">{{$category->title}}</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{$product->title}}</li>
                         </ol>
                     </nav>
 
