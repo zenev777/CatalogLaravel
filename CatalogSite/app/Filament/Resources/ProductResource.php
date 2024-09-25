@@ -56,7 +56,6 @@ class ProductResource extends Resource
                     ->label('Manufacturer')
                     ->relationship('manufacturer', 'title') // assuming there's a relationship 'manufacturer'
                     ->required(),
-
                 // Slug на продукта
                 Forms\Components\TextInput::make('slug')
                     ->label('Slug')
@@ -72,6 +71,15 @@ class ProductResource extends Resource
                     ->default(0)
                     ->minValue(0)
                     ->step(0.01), // decimal field for price (8,2)
+
+                // Стара цена на продукта (old_price)
+                Forms\Components\TextInput::make('old_price')
+                    ->label('Old Price')
+                    ->numeric()
+                    ->default(0)
+                    ->minValue(0)
+                    ->step(0.01) // decimal field for old price (8,2)
+                    ->nullable(), // Старото поле може да е незадължително
 
                 // Позиция в списъка
                 Forms\Components\TextInput::make('position')
@@ -148,15 +156,57 @@ class ProductResource extends Resource
                     ->schema([
                         Forms\Components\TextInput::make('option_title')
                             ->label('Option Title')
-                            ->required()
                             ->maxLength(255),
                         Forms\Components\TextInput::make('option_price')
                             ->label('Option Price')
-                            ->numeric()
-                            ->required(),
+                            ->numeric(),
                     ])
                     ->minItems(1) // поне една опция
-                    ->collapsed(false), // показва всички опции разширени
+                    ->collapsed(false), // показва всички опции разширени 
+
+                // Мощност (Power)
+                Forms\Components\TextInput::make('power')
+                    ->label('Power')
+                    ->numeric()
+                    ->nullable(),
+
+                // Впръскване (Vpruzkvane)
+                Forms\Components\TextInput::make('vpruzkvane')
+                    ->label('Vpruzkvane')
+                    ->nullable(),
+
+                // Реверс (Revers)
+                Forms\Components\TextInput::make('revers')
+                    ->label('Revers')
+                    ->nullable(),
+
+                // Таймер (Taimer)
+                Forms\Components\TextInput::make('taimer')
+                    ->label('Taimer')
+                    ->nullable(),
+
+                // Осветление (Osvetlenie)
+                Forms\Components\TextInput::make('osvetlenie')
+                    ->label('Osvetlenie')
+                    ->nullable(),
+
+                // Разстояние между водачите (Raztqnie Mezhdu Vodachite)
+                Forms\Components\TextInput::make('raztuqnie_mejdu_vodachite')
+                    ->label('Distance Between Guides (cm)')
+                    ->numeric()
+                    ->step(0.01)
+                    ->nullable(),
+
+                // Температура (Temperatura)
+                Forms\Components\TextInput::make('temperatura')
+                    ->label('Temperature')
+                    ->numeric()
+                    ->nullable(),
+
+                // Свързване (Svurzvane)
+                Forms\Components\TextInput::make('svurzvane')
+                    ->label('Connection')
+                    ->nullable(),
             ]);
     }
 
