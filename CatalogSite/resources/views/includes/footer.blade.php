@@ -36,16 +36,17 @@
         </div>
     </div>
     <div class="footer-background1 mt-3 ">
+        <div class="col-4 orders mhm1">
+            <span class="smalltextt">2024 © Regular</span>
+        </div>
         <div class="row tt centeralign">
-            <div class="col-4 orders mhm1">
-                <span class="smalltextt">2024 © Regular</span>
-            </div>
-            <div class="col-4 order1 mhm2">
-                <a href="#" class="smalltextt">Политика за поверителност</a>
-                <a href="#" class="smalltextt">Общи условия</a>
-            </div>
-            <div class="col-4">
 
+            @foreach ($pages as $page)
+                <div class="col-4 order1 mhm2">
+                    <a href="{{$page->slug}}" class="smalltextt">{{$page->name}}</a>
+                </div>
+            @endforeach
+            <div class="col-4">
             </div>
         </div>
     </div>

@@ -32,7 +32,7 @@ class CategoryResource extends Resource
 
                 // Short Description field
                 Forms\Components\TextInput::make('short_description')
-                    ->label('Short description') // "Short Description" in Bulgarian
+                    ->label('Short Description')
                     ->nullable()
                     ->maxLength(255),
 
@@ -100,8 +100,8 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title'), 
-                Tables\Columns\TextColumn::make('slug'), 
+                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('slug'),
             ])
             ->filters([
                 //

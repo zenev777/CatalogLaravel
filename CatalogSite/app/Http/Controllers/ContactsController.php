@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -24,45 +25,46 @@ class ContactsController extends Controller
             'comentar' => 'required|string',
         ]);
 
-        // Prepare the data
-        $name = $validated['name'];
-        $phone = $validated['phone'];
-        $email = $validated['email'];
-        $comentar = $validated['comentar'];
-
-        // Define the HTML content of the email
-        $htmlContent = "
-        <html>
-        <head>
-            <style>
-                body { font-family: Arial, sans-serif; }
-                .email-container { padding: 20px; border: 1px solid #ddd; }
-                .email-header { font-size: 18px; font-weight: bold; }
-                .email-body { margin-top: 10px; }
-            </style>
-        </head>
-        <body>
-            <div class='email-container'>
-                <div class='email-header'>New Contact Form Submission</div>
-                <div class='email-body'>
-                    <p><strong>Name:</strong> $name</p>
-                    <p><strong>Phone:</strong> $phone</p>
-                    <p><strong>Email:</strong> $email</p>
-                    <p><strong>Message:</strong></p>
-                    <p>$comentar</p>
-                </div>
-            </div>
-        </body>
-        </html>
-        ";
-
         // Send the email
-        Mail::html($htmlContent, function ($message) {
+        Mail::send('email', $validated, function ($message) {
             $message->to('zhan.enev@abv.bg')
                 ->subject('New Contact Form Submission');
         });
 
         // Redirect or return a response
         return back()->with('success', 'Your message has been sent!');
+    }
+
+    public function sendInquiry(Request $request, $id)
+    {
+        // Валидиране на данните
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'email' => 'required|email',
+            'message' => 'string',
+        ]);
+
+        // Намиране на продукта по ID
+        $product = Product::findOrFail($id);
+
+        // Подготовка на данните за имейла
+        $data = [
+            'product' => $product,
+            'name' => $request->input('name'),
+            'phone' => $request->input('phone'),
+            'email' => $request->input('email'),
+            'messageContent' => $request->input('message'),
+        ];
+
+        // Изпращане на имейла
+        Mail::send('product-inquiry', $data, function ($message) use ($data) {
+            $message->to('zhan.enev@abv.bg') // Имейл на администратора
+                ->subject('Запитване за продукт: ' . $data['product']->title)
+                ->replyTo($data['email']);
+        });
+
+        // Пренасочване обратно с успех
+        return redirect()->back()->with('success', 'Вашето запитване беше изпратено успешно!');
     }
 }

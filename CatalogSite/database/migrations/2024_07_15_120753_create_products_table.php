@@ -33,6 +33,7 @@ class CreateProductsTable extends Migration
             $table->tinyInteger('is_featured')->default(0);
             $table->tinyInteger('is_new')->default(0);
             $table->tinyInteger('is_top_price')->default(0);
+            $table->decimal('old_price', 8, 2)->nullable();
             $table->tinyInteger('warranty_1y')->default(0);
             $table->tinyInteger('warranty_6m')->default(0);
             $table->timestamps();
