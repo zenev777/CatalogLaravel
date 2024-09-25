@@ -56,11 +56,10 @@ class CategoryResource extends Resource
                 Forms\Components\FileUpload::make('logo')
                     ->label('Logo')
                     ->image()
-                    ->disk('public')
-                    ->directory('logos')
+                    ->disk('uploads')
+                    ->directory('uploads')
                     ->maxSize(2048)
                     ->nullable(),
-
             ]);
     }
 

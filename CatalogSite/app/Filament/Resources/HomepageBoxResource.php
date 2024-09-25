@@ -41,11 +41,13 @@ class HomepageBoxResource extends Resource
                     ->url()
                     ->nullable(),
 
-                FileUpload::make('image')
+                Forms\Components\FileUpload::make('image')
                     ->label('Image')
-                    ->image()
-                    ->required()
-                    ->nullable(),
+                    ->image() // Only images are allowed
+                    ->disk('uploads') // Specify the disk for file storage
+                    ->directory('uploads') // Specify the directory to store logos
+                    ->maxSize(2048) // Max size of 2MB
+                    ->nullable(), // This field is optional
 
                 TextInput::make('position')
                     ->label('Position')
@@ -79,10 +81,10 @@ class HomepageBoxResource extends Resource
             ])
             ->headerActions([
                 Tables\Actions\Action::make('Select Homepage Box')
-                ->label('Select Boxes')
-                ->url(fn() => static::getUrl('select')) // Set the URL for the Select page
-                ->color('primary') // You can customize the button color (optional)
-                ->visible(fn() => true), // Optional visibility logic
+                    ->label('Select Boxes')
+                    ->url(fn() => static::getUrl('select')) // Set the URL for the Select page
+                    ->color('primary') // You can customize the button color (optional)
+                    ->visible(fn() => true), // Optional visibility logic
             ]);
     }
 

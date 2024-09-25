@@ -25,7 +25,7 @@
     <div class="cart-partnior">
         <div class="row m1">
             <div class="col-4 imgcart col-44">
-                <img src="assets/img/rectangle.png" class="regularcart-col">
+                <img src="{{$partner->logo}}" class="regularcart-col">
             </div>
             <div class="col-8 z">
                 <div>
