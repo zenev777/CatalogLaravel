@@ -253,11 +253,11 @@
         </div>
         <div class="col col-md-6">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-sm-1 g-3">
-                @foreach ($products as $product)
+                @foreach ($homepageProducts as $product)
                 <div class="col">
                     @include('includes.product-small')
                 </div>
-                @if($loop->iteration % 8 == 0) @break @endif
+                @if($loop->iteration % 4 == 0) @break @endif
                 @endforeach
             </div>
         </div>

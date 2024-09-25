@@ -56,7 +56,6 @@ class ProductResource extends Resource
                     ->label('Manufacturer')
                     ->relationship('manufacturer', 'title') // assuming there's a relationship 'manufacturer'
                     ->required(),
-
                 // Slug на продукта
                 Forms\Components\TextInput::make('slug')
                     ->label('Slug')
@@ -73,7 +72,6 @@ class ProductResource extends Resource
                     ->minValue(0)
                     ->step(0.01), // decimal field for price (8,2)
 
-
                 // Стара цена на продукта (old_price)
                 Forms\Components\TextInput::make('old_price')
                     ->label('Old Price')
@@ -82,7 +80,6 @@ class ProductResource extends Resource
                     ->minValue(0)
                     ->step(0.01) // decimal field for old price (8,2)
                     ->nullable(), // Старото поле може да е незадължително
-
 
                 // Позиция в списъка
                 Forms\Components\TextInput::make('position')

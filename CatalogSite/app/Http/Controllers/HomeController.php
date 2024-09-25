@@ -23,7 +23,9 @@ class HomeController extends Controller
 
         $subcategoriesConvect = Category::where('parent_id', '=', $categoryConvect->id)->get();
 
-        $productsWash = Product::where('category_id', '=', $categoryWash->id)->get();
+        $productsWash = Product::where('category_id', '=', $categoryWash->id)
+            ->where("is_featured", true)
+            ->get();
 
         $homeboxeOne = HomepageBox::where('position', '=', 1)->first();
 
@@ -35,12 +37,16 @@ class HomeController extends Controller
             $productsWash = $productsWash->merge(Product::where('category_id', '=', $subcategory->id)->get());
         }
 
-        $productsConvect = Product::where('category_id', '=', $categoryConvect->id)->get();
+        $productsConvect = Product::where('category_id', '=', $categoryConvect->id)
+            ->where("is_featured", true)
+            ->get();
+
+        $homepageProducts = Product::where('is_featured', true)->get();
 
         foreach ($subcategoriesConvect as $subcategory) {
             $productsConvect = $productsConvect->merge(Product::where('category_id', '=', $subcategory->id)->get());
         }
 
-        return view('index', ['products' => $products,  'productsConvect' => $productsConvect, 'productsWash' => $productsWash, 'homeboxeOne' => $homeboxeOne, 'homeboxes' => $homeboxes,]);
+        return view('index', ['products' => $products, 'productsConvect' => $productsConvect, 'productsWash' => $productsWash, 'homeboxeOne' => $homeboxeOne, 'homeboxes' => $homeboxes, 'homepageProducts' => $homepageProducts]);
     }
 }
