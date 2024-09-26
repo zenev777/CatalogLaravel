@@ -39,43 +39,11 @@
         <h2 class="justify-content-center pt-5 pb-5">Част от нашите клиенти</h2>
 
         <div class="clients-slider-1">
-            <div>
-                <img src="assets/img/client.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client2.png" class="img-fluid imgclider-clients carq" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client3.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client4.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client5.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client6.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client2.png" class="img-fluid imgclider-clients carq" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client3.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client4.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client5.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client6.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-
+            @foreach ($featuredClients as $client)
+                <div img src="{{$client->logo}}" class="img-fluid imgclider-clients">
+                    @include('includes.client-card')
+                </div>
+            @endforeach
         </div>
     </div>
 
@@ -253,7 +221,7 @@
         </div>
         <div class="col col-md-6">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-sm-1 g-3">
-                @foreach ($products as $product)
+                @foreach ($homepageProducts as $product)
                     <div class="col">
                         @include('includes.product-small')
                     </div>

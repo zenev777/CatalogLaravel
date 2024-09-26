@@ -48,6 +48,12 @@ class ClientResource extends Resource
                     ->default(true)
                     ->nullable(), // Default to true (visible)
 
+                // Feature Toggle
+                Forms\Components\Toggle::make('is_featured')
+                    ->label('Featured')
+                    ->default(true)
+                    ->nullable(),
+
                 // Position field
                 Forms\Components\TextInput::make('position')
                     ->label('Position')
@@ -59,8 +65,8 @@ class ClientResource extends Resource
                 Forms\Components\FileUpload::make('logo')
                     ->label('Logo')
                     ->image() // Only images are allowed
-                    ->disk('public') // Specify the disk for file storage
-                    ->directory('logos') // Specify the directory to store logos
+                    ->disk('uploads') // Specify the disk for file storage
+                    ->directory('uploads') // Specify the directory to store logos
                     ->maxSize(2048) // Max size of 2MB
                     ->nullable(), // This field is optional
             ]);
