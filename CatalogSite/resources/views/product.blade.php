@@ -151,12 +151,7 @@
                                     aria-label="Close"></button>
                                 <h1 class="modal-title  modaltitlee" id="exampleModalLabel">Изпратете запитване</h1>
                                 <div class="d-flex">
-                                    <div class="podtitle">
-                                        за продукт
-                                    </div>
-                                    <a href="#" class="podtitle-link"> Kонвектомат механичен, 5 тави gn 2/3
-                                        (35.5×32.5см)
-                                        SQ053M00</a>
+                                    <a href="#" class="podtitle-link"> {{$product->title}}, {{$product->sku}}</a>
                                 </div>
                             </div>
                             <div class="modal-body">
@@ -189,95 +184,83 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <h3>Опции</h3>
+                <div class="razdel-tablica">
+                    <h3>Характеристики:</h3>
+                    <table class=" tablica">
+                        <tr class=" table-color">
+                            <th class="th-table">Име:</th>
+                            <td class="td-table">{{$product->title}}</td>
+                        </tr>
+                        <tr>
+                            <th class="th-table">Впръскване</th>
+                            <td class="td-table">{{$product->vpruzkvane}}</td>
+                        </tr>
+                        <tr class=" table-color">
+                            <th class="th-table">Реверс</th>
+                            <td class="td-table">{{$product->revers}}</td>
+                        </tr>
+                        <tr>
+                            <th class="th-table">Таймер</th>
+                            <td class="td-table">{{$product->taimer}}: 0-120‘.</td>
+                        </tr>
+                        <tr class=" table-color">
+                            <th class="th-table">Осветление</th>
+                            <td class="td-table">{{$product->osvetlenie}}</td>
+                        </tr>
+                        <tr>
+                            <th class="th-table">Модел:</th>
+                            <td class="td-table">{{$product->sku}}</td>
+                        </tr>
+                        <tr class=" table-color">
+                            <th class="th-table">Външни размери:</th>
+                            <td class="td-table">{{$product->width}} x {{$product->height}} x
+                                {{$product->length}}см.
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="th-table">Разстояние м/у водачите</th>
+                            <td class="td-table">{{$product->raztuqnie_mejdu_vodachite}}мм.</td>
+                        </tr>
+                        <tr class=" table-color">
+                            <th class="th-table">Мощност: </th>
+                            <td class="td-table">{{$product->power}}V</td>
+                        </tr>
+                        <tr>
+                            <th class="th-table">Температура</th>
+                            <td class="td-table">{{$product->temperatura}}С.</td>
+                        </tr>
+                        <tr class=" table-color">
+                            <th class="th-table">Свързване</th>
+                            <td class="td-table">{{$product->svurzvane}}.</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex pb-4 justify-content-between pt-5">
+            <h4 class="d-flex align-items-center"> <img src={{url('assets/img/ellipse6.png')}} class="me-3"> Още
+                продукти от
+                категория
+                “{{$category->title}}”</h4>
+            <div class="butoncheta">
+                <a class="prev product-slider-3-prev">&#10094;</a>
+                <a class="next product-slider-3-next">&#10095;</a>
+                <!-- Ask for this path -->
+                <a href="productova.php" class="btn-wsichki">Към всички<img src={{url('assets/img/Polygon1.png')}}
+                        class="img-icon"></a>
+            </div>
+        </div>
 
-                    <h3>Опции</h3>
-                    <div class="razdel-tablica">
-                        <h3>Характеристики:</h3>
-                        <table class=" tablica">
-                            <tr class=" table-color">
-                                <th class="th-table">Име:</th>
-                                <td class="td-table">{{$product->title}}</td>
-                            </tr>
-                            <tr>
-                                <th class="th-table">Впръскване</th>
-                                <td class="td-table">{{$product->vpruzkvane}}</td>
-                            </tr>
-                            <tr class=" table-color">
-                                <th class="th-table">Реверс</th>
-                                <td class="td-table">{{$product->revers}}</td>
-                            </tr>
-                            <tr>
-                                <th class="th-table">Таймер</th>
-                                <td class="td-table">{{$product->taimer}}: 0-120‘.</td>
-                            </tr>
-                            <tr class=" table-color">
-                                <th class="th-table">Осветление</th>
-                                <td class="td-table">{{$product->osvetlenie}}</td>
-                            </tr>
-                            <tr>
-                                <th class="th-table">Модел:</th>
-                                <td class="td-table">{{$product->sku}}</td>
-                            </tr>
-                            <tr class=" table-color">
-                                <th class="th-table">Външни размери:</th>
-                                <td class="td-table">{{$product->width}} x {{$product->height}} x
-                                    {{$product->length}}см.
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="th-table">Разстояние м/у водачите</th>
-                                <td class="td-table">{{$product->raztuqnie_mejdu_vodachite}}мм.</td>
-                            </tr>
-                            <tr class=" table-color">
-                                <th class="th-table">Мощност: </th>
-                                <td class="td-table">{{$product->power}}V</td>
-                            </tr>
-                            <tr>
-                                <th class="th-table">Температура</th>
-                                <td class="td-table">{{$product->temperatura}}С.</td>
-                            </tr>
-                            <tr class=" table-color">
-                                <th class="th-table">Свързване</th>
-                                <td class="td-table">{{$product->svurzvane}}.</td>
-                            </tr>
-                        </table>
+        <div class="slideshow-container ">
+            <div class="product-slider-3">
+                @foreach ($categoryProducts as $product)
+                    <div>
+                        @include ('includes/product-small')
                     </div>
-
-
-
-
-
-
-                </div>
+                @endforeach
             </div>
-            <div class="d-flex pb-4 justify-content-between pt-5">
-                <h4 class="d-flex align-items-center"> <img src={{url('assets/img/ellipse6.png')}} class="me-3"> Още
-                    продукти от
-                    категория
-                    “Професионални
-                    конвектомати”</h4>
-                <div class="butoncheta">
-                    <a class="prev product-slider-3-prev">&#10094;</a>
-                    <a class="next product-slider-3-next">&#10095;</a>
-                    <!-- Ask for this path -->
-                    <a href="productova.php" class="btn-wsichki">Към всички<img src={{url('assets/img/Polygon1.png')}}
-                            class="img-icon"></a>
-                </div>
-            </div>
-
-            <div class="slideshow-container ">
-                <div class="product-slider-3">
-                    @foreach (range(1, 8) as $item)
-                        <div>
-                            @include ('includes/product-small')
-                        </div>
-                    @endforeach
-                </div>
-
-            </div>
-
-
-
 
         </div>
 
