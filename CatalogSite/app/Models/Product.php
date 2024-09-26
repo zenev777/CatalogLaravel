@@ -19,6 +19,7 @@ class Product extends Model
         'category_id',
         'slug',
         'price',
+        'old_price',
         'position',
         'weight',
         'width',
@@ -42,7 +43,7 @@ class Product extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'category_product' , 'category_id', 'product_id');
+        return $this->belongsToMany(Category::class, 'category_product', 'category_id', 'product_id');
     }
 
     public function manufacturer()
