@@ -115,14 +115,21 @@
                         <!-- <img src="assets/img/fframe93.png" style="width: 18.5px;"> -->
                     </button>
                 </div>
-                <div>
-                    <span class="prizenow">{{$product->price}} лв.</span>
-                    <span class="dds">/без ДДС/</span>
-                </div>
-                <div>
-                    <span class="prizeold">Стара цена:</span>
-                    <span class="prizeold-dds">{{$product->old_price}} лв.</span>
-                </div>
+                @if($product->old_price > 0 === true)
+                    <div>
+                        <span class="prizenow">{{$product->price}} лв.</span>
+                        <span class="dds">/без ДДС/</span>
+                    </div>
+                    <div>
+                        <span class="prizeold">Стара цена:</span>
+                        <span class="prizeold-dds">{{$product->old_price}} лв.</span>
+                    </div>
+                @else
+                    <div>
+                        <span class="prizenow">{{$product->price}} лв.</span>
+                        <span class="dds">/без ДДС/</span>
+                    </div>
+                @endif
             </div>
             <div>
                 <!-- Button trigger modal -->
