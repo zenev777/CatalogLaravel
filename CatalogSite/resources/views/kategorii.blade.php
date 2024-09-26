@@ -9,7 +9,9 @@
             <!-- ask for this links path -->
             <li class="breadcrumb-item itemtext"><a href="#" class="text-decoration-none">Всички
                     продукти</a></li>
-            <li class="breadcrumb-item itemtext"><a href="#" class="text-decoration-none">{{$category->title}}</a></li>
+            @if ($category !== null)
+                <li class="breadcrumb-item itemtext"><a href="#" class="text-decoration-none">{{$category->title}}</a></li>
+            @endif
         </ol>
     </nav>
     @if($query !== null)
