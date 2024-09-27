@@ -22,7 +22,7 @@ class ProductController extends Controller
 
         $category = Category::find($product->category_id);
 
-        $categoryProducts = Product::Where('category_id', '=', $category->id)->get();
+        $categoryProducts = Product::Where('category_id', '=', $product->category_id)->get();
 
         return view('product', ['product' => $product, 'category' => $category, 'categoryProducts' => $categoryProducts]);
     }

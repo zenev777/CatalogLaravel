@@ -31,7 +31,7 @@ class ProductFactory extends Factory
             'is_featured' => $this->faker->boolean,
             'is_top_price' => $this->faker->boolean,
             'is_new' => $this->faker->boolean,
-            'old_price' => $this->faker->randomFloat(2, 1000, 2000),
+            'old_price' => $this->faker->boolean(50) ? $this->faker->randomFloat(2, 1000, 2000) : 0,
             'warranty_1y' => $this->faker->boolean,
             'warranty_6m' => $this->faker->boolean,
             'category_id' => Category::inRandomOrder()->first()->id,
