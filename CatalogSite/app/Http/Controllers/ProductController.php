@@ -22,9 +22,26 @@ class ProductController extends Controller
 
         $category = Category::find($product->category_id);
 
-        $categoryProducts = Product::Where('category_id', '=', $product->category_id)->get();
+        // Извличане на свързаните продукти (ако има)
+        $connectedProducts = $product->connectedProducts;
 
-        return view('product', ['product' => $product, 'category' => $category, 'categoryProducts' => $categoryProducts]);
+        if ($connectedProducts->IsEmpty()) {
+            // Ако няма свързани продукти, вземаме продукти от същата категория
+            $connectedProducts = Product::where('category_id', '=', $product->category_id)
+                ->where('id', '!=', $product->id)
+                ->limit(12)
+                ->get();
+        }
+
+
+        return view(
+            'product',
+            [
+                'product' => $product,
+                'category' => $category,
+                'connectedProducts' => $connectedProducts,
+            ]
+        );
     }
 
     public function search(Request $request)

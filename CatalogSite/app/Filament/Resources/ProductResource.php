@@ -96,7 +96,7 @@ class ProductResource extends Resource
                     ->nullable(),
 
 
-                    Forms\Components\Select::make('category_id')
+                Forms\Components\Select::make('category_id')
                     ->label('Categories') // "Parent Category" in Bulgarian
                     ->relationship('categories', 'title') // using the `parent` relationship and displaying the `title` of the category
                     ->options(Category::all()->pluck('title', 'id')) // Fetching all categories for the dropdown
@@ -209,6 +209,12 @@ class ProductResource extends Resource
                 Forms\Components\TextInput::make('svurzvane')
                     ->label('Connection')
                     ->nullable(),
+
+                //Много към много за свързаните продукти
+                Forms\Components\BelongsToManyMultiSelect::make('connectedProducts')
+                    ->relationship('connectedProducts', 'title')
+                    ->label('Connected Products')
+                    ->placeholder('Select connected products'),
             ]);
     }
 

@@ -51,5 +51,15 @@ class Product extends Model
         return $this->belongsTo(Manufacturer::class);
     }
 
+    // Връзка към подобни продукти, които този продукт има
+    public function connectedProducts()
+    {
+        return $this->belongsToMany(Product::class, 'connected_products', 'product_id', 'connected_product_id');
+    }
 
+    // Връзка към продукти, на които този продукт е подобен
+    public function connectedTo()
+    {
+        return $this->belongsToMany(Product::class, 'connected_products', 'connected_product_id', 'product_id');
+    }
 }
