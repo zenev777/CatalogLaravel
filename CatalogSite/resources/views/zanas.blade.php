@@ -120,27 +120,9 @@
             индустриален стандарт от около 1500 година,</p>
 
         <div class="clients-slider-1 pb-5">
-            <div>
-                <img src="assets/img/client.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client2.png" class="img-fluid imgclider-clients carq" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client3.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client4.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client5.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client6.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client.png" class="img-fluid imgclider-clients" alt="">
-            </div>
+            @foreach ($featuredClients as $client)
+                @include('includes.client-card')
+            @endforeach
 
         </div>
         <a href="clients" class="btn-vijwsichki">Вижте всички</a>
@@ -150,19 +132,9 @@
         <p class="text-chastclienti pb-3">Lorem Ipsum е елементарен примерен текст, използван в печатарската и
             типографската
             индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година,</p>
-        <div class="clienti-background d-flex gap-3 mb-5">
-            <div class="col-4 bordercart-client1">
-                <img src=" assets/img/client.png" alt="Сибиес" class="imgclienttt">
-            </div>
-            <div class="col-4 bordercart-client1">
-                <img src=" assets/img/client.png" alt="Сибиес" class="imgclienttt">
-            </div>
-            <div class="col-4 bordercart-client1">
-                <img src=" assets/img/client.png" alt="Сибиес" class="imgclienttt">
-            </div>
-            <div class="col-4 bordercart-client1">
-                <img src=" assets/img/client.png" alt="Сибиес" class="imgclienttt">
-            </div>
+            @foreach ($featuredPartners as $partners)
+                @include('includes.client-card')
+            @endforeach
         </div>
         <a href="clients" class="btn-vijwsichki">Вижте всички</a>
     </div>
