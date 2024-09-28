@@ -40,9 +40,7 @@
 
         <div class="clients-slider-1">
             @foreach ($featuredClients as $client)
-                <div img src="{{$client->logo}}" class="img-fluid imgclider-clients">
                     @include('includes.client-card')
-                </div>
             @endforeach
         </div>
     </div>
