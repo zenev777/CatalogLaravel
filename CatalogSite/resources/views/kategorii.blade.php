@@ -7,7 +7,7 @@
             <li class="breadcrumb-item itemtext "><a href={{ route('home') }} class="text-decoration-none">Начало</a>
             </li>
             <!-- ask for this links path -->
-            <li class="breadcrumb-item itemtext"><a href="#" class="text-decoration-none">Всички
+            <li class="breadcrumb-item itemtext"><a href={{ route('allcategories') }} class="text-decoration-none">Всички
                     продукти</a></li>
             @if ($category !== null)
                 <li class="breadcrumb-item itemtext"><a href="#" class="text-decoration-none">{{$category->title}}</a></li>
@@ -19,7 +19,7 @@
     @elseif ($category !== null)
         <h1 class="title">{{$category->title}}</h1>
     @endif
-
+    
     <div class="alert-productova">
         <img src={{url('assets/img/vector.png')}} class="vector">
         <div class="textalert-productova">

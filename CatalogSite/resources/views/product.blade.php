@@ -9,7 +9,7 @@
                             <li class="breadcrumb-item itemtext "><a href={{ route('home') }}
                                     class="text-decoration-none">Начало</a>
                             </li>
-                            <li class="breadcrumb-item itemtext"><a href="categories"
+                            <li class="breadcrumb-item itemtext"><a href={{ route('allcategories')}}
                                     class="text-decoration-none">Всички
                                     продукти</a></li>
                             <li class="breadcrumb-item itemtext"><a href="categories"
@@ -82,7 +82,7 @@
                             <li class="breadcrumb-item itemtext "><a href={{ route('home')}}
                                     class="text-decoration-none">Начало</a>
                             </li>
-                            <li class="breadcrumb-item itemtext"><a href="categories"
+                            <li class="breadcrumb-item itemtext"><a href={{ route('allcategories')}}
                                     class="text-decoration-none">Всички
                                     продукти</a></li>
                             <li class="breadcrumb-item itemtext"><a href="categories"
