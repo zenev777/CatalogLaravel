@@ -48,6 +48,12 @@ class CategoryController extends Controller
 
     }
 
+    public function allcategory(){
+        $categories = Category::all();
+
+        return view('allcategory',['categories' => $categories]);
+    }
+
     public function getMenuCategories()
     {
         return Category::where('in_menu', true)
