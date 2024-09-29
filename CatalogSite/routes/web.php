@@ -21,6 +21,8 @@ Route::get('/clients', [ClientController::class, 'index'])->name('clients');
 Route::get('/partners', [PartnerController::class, 'index'])->name('partners');
 Route::get('/service', [ServiceController::class, 'index'])->name('service');
 Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
+//All categories 
+Route::get('/categories', [CategoryController::class, 'allcategory'])->name('allcategories');
 
 // Product route
 Route::get('/product/{id}', [ProductController::class, 'index'])->name('product.index');
