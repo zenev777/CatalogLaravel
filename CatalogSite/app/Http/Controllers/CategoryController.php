@@ -49,8 +49,12 @@ class CategoryController extends Controller
     }
 
     public function allcategory(){
-        $allcategory = Category::all();
 
+        $allcategory = Category::where('visible', true)
+                ->orderBy('position', 'asc')
+                ->get();
+                
+        
         return view('allcategory',['allcategory' => $allcategory]);
     }
 
