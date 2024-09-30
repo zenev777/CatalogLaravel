@@ -92,7 +92,7 @@
 
             <div class="pagination">
                 @if($subcategories == null)
-                    {{ $products->appends(['query' => request()->query('query')])->links()  }}
+                    {{ $products->appends(['query' => request()->query('query')])->links('vendor.pagination.bootstrap-4')  }}
                 @endif
             </div>
 
