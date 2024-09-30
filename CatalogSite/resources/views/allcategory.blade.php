@@ -13,7 +13,7 @@
 <div class="container pt-5 pb-5 align-items-center flex-column d-flex gap-3">
 
     <div class="row vsichki-produkti">
-        @foreach ($categories as $category)
+        @foreach ($allcategory as $category)
             <div class="col">
                 <li style="list-style-type: none;"><a class="dropdown-item" href={{ url('categories/' . $category->id . '/products') }}>{{$category->title}}</a></li>
             </div> @if($loop->iteration % 3 == 0) </div><div class="d-flex gap-3 pb-3 m"> @endif
