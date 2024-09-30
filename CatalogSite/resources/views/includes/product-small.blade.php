@@ -4,13 +4,14 @@
         {{$product->width}}x{{$product->height}}x{{$product->length}}–
         Дигитална еволюция {{$product->manufacturer_code}}</span>
     <span class="cena pt-4 pb-2">
-        @if($product->old_price > 0 === true)
+
+        @if($product->price === 0)
+        <p>Направете запитване</p>
+        @elseif($product->old_price > 0 === true)
         <span class="prizze2 d-flex">Цена:
             <p class="text-decoration-line-through px-1">{{$product->old_price}} лв.</p>
         </span>
         <span class="prizze3">{{$product->price}} лв.</span>
-        @elseif($product->price === null || $product->price === 0)
-        <span class="prizze2 d-flex">Направете запитване</span>
         @else
         <span class="prizze2 d-flex" style="justify-content: center;">Цена:
             <p class="text-decoration-line-through px-1"></p>
@@ -18,6 +19,4 @@
         <span class="prizze3">{{$product->price}} лв.</span>
         @endif
     </span>
-
-
 </a>
