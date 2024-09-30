@@ -89,6 +89,13 @@
                         @endforeach
                 @endif
             </div>
+
+            <div class="pagination">
+                @if($subcategories == null)
+                    {{ $products->appends(['query' => request()->query('query')])->links('vendor.pagination.bootstrap-4')  }}
+                @endif
+            </div>
+
             <h2 class="pb-3">Често задавани въпроси</h2>
             <div class="pb-5">
                 <div class="accordion" id="accordionExample">
