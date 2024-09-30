@@ -19,6 +19,7 @@ class Product extends Model
         'category_id',
         'slug',
         'price',
+        'old_price',
         'position',
         'weight',
         'width',
@@ -42,7 +43,7 @@ class Product extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'category_product' , 'category_id', 'product_id');
+        return $this->belongsToMany(Category::class, 'category_product', 'product_id', 'category_id');
     }
 
     public function manufacturer()
@@ -50,5 +51,15 @@ class Product extends Model
         return $this->belongsTo(Manufacturer::class);
     }
 
+    // Връзка към подобни продукти, които този продукт има
+    public function connectedProducts()
+    {
+        return $this->belongsToMany(Product::class, 'connected_products', 'product_id', 'connected_product_id');
+    }
 
+    // Връзка към продукти, на които този продукт е подобен
+    public function connectedTo()
+    {
+        return $this->belongsToMany(Product::class, 'connected_products', 'connected_product_id', 'product_id');
+    }
 }

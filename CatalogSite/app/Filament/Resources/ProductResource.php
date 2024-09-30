@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Resources\ProductResource\RelationManagers;
+use App\Models\Category;
 use App\Models\Product;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -56,7 +57,6 @@ class ProductResource extends Resource
                     ->label('Manufacturer')
                     ->relationship('manufacturer', 'title') // assuming there's a relationship 'manufacturer'
                     ->required(),
-
                 // Slug на продукта
                 Forms\Components\TextInput::make('slug')
                     ->label('Slug')
@@ -73,7 +73,6 @@ class ProductResource extends Resource
                     ->minValue(0)
                     ->step(0.01), // decimal field for price (8,2)
 
-
                 // Стара цена на продукта (old_price)
                 Forms\Components\TextInput::make('old_price')
                     ->label('Old Price')
@@ -82,7 +81,6 @@ class ProductResource extends Resource
                     ->minValue(0)
                     ->step(0.01) // decimal field for old price (8,2)
                     ->nullable(), // Старото поле може да е незадължително
-
 
                 // Позиция в списъка
                 Forms\Components\TextInput::make('position')
@@ -97,12 +95,13 @@ class ProductResource extends Resource
                     ->default(true)
                     ->nullable(),
 
-                // Избор на категории
-                Forms\Components\Select::make('categories')
-                    ->label('Categories')
-                    ->multiple()
-                    ->relationship('categories', 'title') // assuming a relationship to categories
-                    ->nullable(),
+
+                Forms\Components\Select::make('category_id')
+                    ->label('Categories') // "Parent Category" in Bulgarian
+                    ->relationship('categories', 'title') // using the `parent` relationship and displaying the `title` of the category
+                    ->options(Category::all()->pluck('title', 'id')) // Fetching all categories for the dropdown
+                    ->searchable() // Makes the dropdown searchable
+                    ->nullable(), // Allows the category to have no parent
 
                 Forms\Components\FileUpload::make('images')
                     ->label('Product Images')
@@ -210,6 +209,12 @@ class ProductResource extends Resource
                 Forms\Components\TextInput::make('svurzvane')
                     ->label('Connection')
                     ->nullable(),
+
+                //Много към много за свързаните продукти
+                Forms\Components\BelongsToManyMultiSelect::make('connectedProducts')
+                    ->relationship('connectedProducts', 'title')
+                    ->label('Connected Products')
+                    ->placeholder('Select connected products'),
             ]);
     }
 

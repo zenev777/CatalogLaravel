@@ -4,20 +4,7 @@
         <div class="col-5 col-5g">
             <div class="display-n">
                 <div class="fs-6">
-                    <nav aria-label="breadcrumb ">
-                        <ol class="breadcrumb breadcrumb2">
-                            <li class="breadcrumb-item itemtext "><a href="home" class="text-decoration-none">Начало</a>
-                            </li>
-                            <li class="breadcrumb-item itemtext"><a href="categories"
-                                    class="text-decoration-none">Всички
-                                    продукти</a></li>
-                            <li class="breadcrumb-item itemtext"><a href="categories"
-                                    class="text-decoration-none">Професионални
-                                    конвектомати</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">КОНВЕКТОМАТ МЕХАНИЧЕН, 5 ТАВИ GN 2/3
-                                (35.5×32.5СМ) SQ053M00</li>
-                        </ol>
-                    </nav>
+                    @include ('includes/breadcrumb-product')
 
                     <h1 class="fs-2 fw-semibold pb-2">{{$product->title}}, 5 ТАВИ
                         {{$product->width}}x{{$product->height}}x{{$product->length}}–
@@ -25,7 +12,7 @@
                     </h1>
                     <div class="d-flex justify-content-start fs-6">
                         <small class="text-small">Производител: <a href="#"
-                                class="link">{{$product->manufacturer_id}}</a></small>
+                                class="link">{{$product->manufacturer->title}}</a></small>
                         <small class="ms-4 pb-3 text-small">арт.№: 123456789</small>
                     </div>
                 </div>
@@ -78,27 +65,14 @@
         <div class="col-7 col-77">
             <div class="fs-6">
                 <div class="display-no">
-                    <nav aria-label="breadcrumb ">
-                        <ol class="breadcrumb breadcrumb2">
-                            <li class="breadcrumb-item itemtext "><a href="home" class="text-decoration-none">Начало</a>
-                            </li>
-                            <li class="breadcrumb-item itemtext"><a href="categories"
-                                    class="text-decoration-none">Всички
-                                    продукти</a></li>
-                            <li class="breadcrumb-item itemtext"><a href="categories"
-                                    class="text-decoration-none">Професионални
-                                    конвектомати</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">КОНВЕКТОМАТ МЕХАНИЧЕН, 5 ТАВИ GN 2/3
-                                (35.5×32.5СМ) SQ053M00</li>
-                        </ol>
-                    </nav>
+                    @include ('includes/breadcrumb-product')
 
                     <h1 class="fs-2 fw-semibold pb-2">{{$product->title}} - {{$product->manufacturer_code}} -
                         {{$product->width}}x{{$product->height}}x{{$product->length}}
                     </h1>
                     <div class="d-flex justify-content-start fs-6">
                         <small class="text-small">Производител: <a href="#"
-                                class="link">{{$product->manufacturer_id}}</a></small>
+                                class="link">{{$product->manufacturer->title}}</a></small>
                         <small class="ms-4 pb-3 text-small">арт.№: {{$product->sku}}</small>
                     </div>
                 </div>
@@ -117,14 +91,21 @@
                         <!-- <img src="assets/img/fframe93.png" style="width: 18.5px;"> -->
                     </button>
                 </div>
-                <div>
-                    <span class="prizenow">{{$product->price}} лв.</span>
-                    <span class="dds">/без ДДС/</span>
-                </div>
-                <div>
-                    <span class="prizeold">Стара цена:</span>
-                    <span class="prizeold-dds">{{$product->old_price}} лв.</span>
-                </div>
+                @if($product->old_price > 0 === true)
+                    <div>
+                        <span class="prizenow">{{$product->price}} лв.</span>
+                        <span class="dds">/без ДДС/</span>
+                    </div>
+                    <div>
+                        <span class="prizeold">Стара цена:</span>
+                        <span class="prizeold-dds">{{$product->old_price}} лв.</span>
+                    </div>
+                @else
+                    <div>
+                        <span class="prizenow">{{$product->price}} лв.</span>
+                        <span class="dds">/без ДДС/</span>
+                    </div>
+                @endif
             </div>
             <div>
                 <!-- Button trigger modal -->
@@ -153,12 +134,7 @@
                                     aria-label="Close"></button>
                                 <h1 class="modal-title  modaltitlee" id="exampleModalLabel">Изпратете запитване</h1>
                                 <div class="d-flex">
-                                    <div class="podtitle">
-                                        за продукт
-                                    </div>
-                                    <a href="#" class="podtitle-link"> Kонвектомат механичен, 5 тави gn 2/3
-                                        (35.5×32.5см)
-                                        SQ053M00</a>
+                                    <a href="#" class="podtitle-link"> {{$product->title}}, {{$product->sku}}</a>
                                 </div>
                             </div>
                             <div class="modal-body">
@@ -191,96 +167,83 @@
                             </div>
                         </div>
                     </div>
-
-                    <h3>Опции</h3>
-                    <div class="razdel-tablica">
-                        <h3>Характеристики:</h3>
-                        <table class=" tablica">
-                            <tr class=" table-color">
-                                <th class="th-table">Име:</th>
-                                <td class="td-table">{{$product->title}}</td>
-                            </tr>
-                            <tr>
-                                <th class="th-table">Впръскване</th>
-                                <td class="td-table">{{$product->vpruzkvane}}</td>
-                            </tr>
-                            <tr class=" table-color">
-                                <th class="th-table">Реверс</th>
-                                <td class="td-table">{{$product->revers}}</td>
-                            </tr>
-                            <tr>
-                                <th class="th-table">Таймер</th>
-                                <td class="td-table">{{$product->taimer}}: 0-120‘.</td>
-                            </tr>
-                            <tr class=" table-color">
-                                <th class="th-table">Осветление</th>
-                                <td class="td-table">{{$product->osvetlenie}}</td>
-                            </tr>
-                            <tr>
-                                <th class="th-table">Модел:</th>
-                                <td class="td-table">{{$product->sku}}</td>
-                            </tr>
-                            <tr class=" table-color">
-                                <th class="th-table">Външни размери:</th>
-                                <td class="td-table">{{$product->width}} x {{$product->height}} x
-                                    {{$product->length}}см.
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="th-table">Разстояние м/у водачите</th>
-                                <td class="td-table">{{$product->raztuqnie_mejdu_vodachite}}мм.</td>
-                            </tr>
-                            <tr class=" table-color">
-                                <th class="th-table">Мощност: </th>
-                                <td class="td-table">{{$product->power}}V</td>
-                            </tr>
-                            <tr>
-                                <th class="th-table">Температура</th>
-                                <td class="td-table">{{$product->temperatura}}С.</td>
-                            </tr>
-                            <tr class=" table-color">
-                                <th class="th-table">Свързване</th>
-                                <td class="td-table">{{$product->svurzvane}}.</td>
-                            </tr>
-                        </table>
-                    </div>
-
-
-
-
-
-
+                </div>
+                <h3>Опции</h3>
+                <div class="razdel-tablica">
+                    <h3>Характеристики:</h3>
+                    <table class=" tablica">
+                        <tr class=" table-color">
+                            <th class="th-table">Име:</th>
+                            <td class="td-table">{{$product->title}}</td>
+                        </tr>
+                        <tr>
+                            <th class="th-table">Впръскване</th>
+                            <td class="td-table">{{$product->vpruzkvane}}</td>
+                        </tr>
+                        <tr class=" table-color">
+                            <th class="th-table">Реверс</th>
+                            <td class="td-table">{{$product->revers}}</td>
+                        </tr>
+                        <tr>
+                            <th class="th-table">Таймер</th>
+                            <td class="td-table">{{$product->taimer}}: 0-120‘.</td>
+                        </tr>
+                        <tr class=" table-color">
+                            <th class="th-table">Осветление</th>
+                            <td class="td-table">{{$product->osvetlenie}}</td>
+                        </tr>
+                        <tr>
+                            <th class="th-table">Модел:</th>
+                            <td class="td-table">{{$product->sku}}</td>
+                        </tr>
+                        <tr class=" table-color">
+                            <th class="th-table">Външни размери:</th>
+                            <td class="td-table">{{$product->width}} x {{$product->height}} x
+                                {{$product->length}}см.
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="th-table">Разстояние м/у водачите</th>
+                            <td class="td-table">{{$product->raztuqnie_mejdu_vodachite}}мм.</td>
+                        </tr>
+                        <tr class=" table-color">
+                            <th class="th-table">Мощност: </th>
+                            <td class="td-table">{{$product->power}}V</td>
+                        </tr>
+                        <tr>
+                            <th class="th-table">Температура</th>
+                            <td class="td-table">{{$product->temperatura}}С.</td>
+                        </tr>
+                        <tr class=" table-color">
+                            <th class="th-table">Свързване</th>
+                            <td class="td-table">{{$product->svurzvane}}.</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-            <div class="d-flex pb-4 justify-content-between pt-5">
-                <h4 class="d-flex align-items-center"> <img src={{url('assets/img/ellipse6.png')}} class="me-3"> Още
-                    продукти от
-                    категория
-                    “Професионални
-                    конвектомати”</h4>
-                <div class="butoncheta">
-                    <a class="prev product-slider-3-prev">&#10094;</a>
-                    <a class="next product-slider-3-next">&#10095;</a>
-                    <!-- Ask for this path -->
-                    <a href="productova.php" class="btn-wsichki">Към всички<img src={{url('assets/img/Polygon1.png')}}
-                            class="img-icon"></a>
-                </div>
+        </div>
+        <div class="d-flex pb-4 justify-content-between pt-5">
+            <h4 class="d-flex align-items-center"> <img src={{url('assets/img/ellipse6.png')}} class="me-3"> Още
+                продукти от
+                категория
+                “{{$category->title}}”</h4>
+            <div class="butoncheta">
+                <a class="prev product-slider-3-prev">&#10094;</a>
+                <a class="next product-slider-3-next">&#10095;</a>
+                <!-- Ask for this path -->
+                <a href="productova.php" class="btn-wsichki">Към всички<img src={{url('assets/img/Polygon1.png')}}
+                        class="img-icon"></a>
             </div>
-
-            <div class="slideshow-container ">
-                <div class="product-slider-3">
-                    @foreach (range(1, 8) as $item)
-                        <div>
-                            @include ('includes/product-small')
-                        </div>
-                    @endforeach
-                </div>
-
-            </div>
-
-
-
-
         </div>
 
+        <div class="slideshow-container ">
+            <div class="product-slider-3">
+                @foreach ($connectedProducts as $product)
+                    <div>
+                        @include ('includes/product-small')
+                    </div>
+                @endforeach
+            </div>
+
+        </div>
         @include ('includes/footer')

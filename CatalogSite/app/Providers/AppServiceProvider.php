@@ -24,12 +24,22 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('includes.nav', function ($view) {
             $view->with('categories', Category::where('visible', true)
-            ->orderBy('position', 'asc')
-            ->get());
+                ->orderBy('position', 'asc')
+                ->get());
         });
 
         View::composer('includes.footer', function ($view) {
             $view->with('pages', Page::All());
+            $view->with('categories', Category::where('visible', true)
+                ->orderBy('position', 'asc')
+                ->get()
+                ->take(9));
         });
+
+        // View::composer('includes.footer', function ($view) {
+        //     $view->with('categories', Category::where('visible', true)
+        //         ->orderBy('position', 'asc')
+        //         ->get());
+        // });
     }
 }

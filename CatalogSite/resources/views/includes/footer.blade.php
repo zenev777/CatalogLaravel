@@ -1,23 +1,25 @@
 <!-- footer -->
+@php
+    $categoryChunks = $categories->chunk(3); // Разделяме категориите на групи по 3
+@endphp
+
 <div class="container pb-4 pt-5">
     <div class="footer-background">
         <div class="row align-items-center tt">
-            <div class="col-3 col3-with">
-                <span class="footernav1">Продукти</span>
-                <li><a class="footernav" href="categories">Конвектомати</a></li>
-                <li><a class="footernav" href="categories">Професионални Миялни машини</a></li>
-                <li><a class="footernav" href="categories">Професионални препарати</a></li>
-            </div>
-            <div class="col-3 col3-with">
-                <li><a class="footernav" href="categories">Препарати за съдомиялни</a></li>
-                <li><a class="footernav" href="categories">Почистващи препарати</a></li>
-                <li><a class="footernav" href="categories">Рециклирани машини</a></li>
-            </div>
-            <div class="col-3 col3-with">
-                <li><a class="footernav" href="categories">Рециклирани Конвектомати</a></li>
-                <li><a class="footernav" href="categories">Рециклирани Съдомиялни</a></li>
-                <li><a class="footernav" href="categories">Омекотители</a></li>
-            </div>
+            <span class="footernav1">Продукти</span>
+
+
+
+
+            @foreach ($categoryChunks as $chunk)
+                <div class="col-3 col3-with">
+                    @foreach ($chunk as $category)
+                        <li><a class="footernav"
+                                href="{{ url('categories/' . $category->id . '/products') }}">{{ $category->title }}</a></li>
+                    @endforeach
+                </div>
+            @endforeach
+
             <div class="col-3 d-flex gap-5 col3-with1">
                 <div class="px-4">
                     <span class="footernav1">За компанията</span>
@@ -56,7 +58,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-</script>
+    </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
 
 <!-- NOTE: prior to v2.2.1 tiny-slider.js need to be in <body> -->
@@ -89,10 +91,10 @@
             }
         }
     });
-    document.querySelector(".product-slider-1-prev").addEventListener("click", function() {
+    document.querySelector(".product-slider-1-prev").addEventListener("click", function () {
         productSlider1.goTo('prev');
     });
-    document.querySelector(".product-slider-1-next").addEventListener("click", function() {
+    document.querySelector(".product-slider-1-next").addEventListener("click", function () {
         productSlider1.goTo('next');
     });
 
@@ -185,10 +187,10 @@
             }
         }
     });
-    document.querySelector(".product-slider-2-prev").addEventListener("click", function() {
+    document.querySelector(".product-slider-2-prev").addEventListener("click", function () {
         productSlider2.goTo('prev');
     });
-    document.querySelector(".product-slider-2-next").addEventListener("click", function() {
+    document.querySelector(".product-slider-2-next").addEventListener("click", function () {
         productSlider2.goTo('next');
     });
 </script>
@@ -216,10 +218,10 @@
             }
         }
     });
-    document.querySelector(".product-slider-3-prev").addEventListener("click", function() {
+    document.querySelector(".product-slider-3-prev").addEventListener("click", function () {
         productSlider3.goTo('prev');
     });
-    document.querySelector(".product-slider-3-next").addEventListener("click", function() {
+    document.querySelector(".product-slider-3-next").addEventListener("click", function () {
         productSlider3.goTo('next');
     });
 </script>

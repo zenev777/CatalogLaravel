@@ -13,7 +13,7 @@ class CategoryController extends Controller
     {
 
         $category = Category::find($categoryId);
-
+        $query = null;
         // Check if the category exists
         if (!$category) {
             abort(404, 'Category not found');
@@ -25,7 +25,11 @@ class CategoryController extends Controller
             // Check if the subcategories exists
             if (count($subcategories) > 1) {
                 //return view with subcategories
-                return view('kategorii', ['subcategories' => $subcategories]);
+                return view('kategorii', [
+                    'query' => $query,
+                    'subcategories' => $subcategories,
+                    'category' => $category
+                ]);
             }
         }
         $subcategories = null;
@@ -33,11 +37,25 @@ class CategoryController extends Controller
         $products = Product::where('category_id', '=', $categoryId)->get();
 
 
+
         // Return view with products
         return view('kategorii', [
             'products' => $products,
-            'subcategories' => $subcategories
+            'query' => $query,
+            'subcategories' => $subcategories,
+            'category' => $category
         ]);
+
+    }
+
+    public function allcategory(){
+
+        $allcategory = Category::where('visible', true)
+                ->orderBy('position', 'asc')
+                ->get();
+                
+        
+        return view('allcategory',['allcategory' => $allcategory]);
     }
 
     public function getMenuCategories()

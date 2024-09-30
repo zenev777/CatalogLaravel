@@ -18,13 +18,13 @@
         </div>
         <div class="d-grid img-grid">
             @foreach ($homeboxes as $homebox)
-            <a href="{{$homebox->link}}" class="position-relative zoom-container">
-                <span class="overlay position-absolute w-100 h-100 start-0 top-0"
-                    style="background-color: rgba(42, 41, 100, .5);"></span>
-                <img src="{{$homebox->image}}" class="img-2 zoom-object">
-                <span class="title-smallbaner">{{$homebox->title}}</span>
-                <span class="button-banersmall"></span>
-            </a>
+                <a href="{{$homebox->link}}" class="position-relative zoom-container">
+                    <span class="overlay position-absolute w-100 h-100 start-0 top-0"
+                        style="background-color: rgba(42, 41, 100, .5);"></span>
+                    <img src="{{$homebox->image}}" class="img-2 zoom-object">
+                    <span class="title-smallbaner">{{$homebox->title}}</span>
+                    <span class="button-banersmall"></span>
+                </a>
             @endforeach
             <a href="categories" class="text-decoration-none">
                 <span class="kutiika-julta">
@@ -39,43 +39,9 @@
         <h2 class="justify-content-center pt-5 pb-5">Част от нашите клиенти</h2>
 
         <div class="clients-slider-1">
-            <div>
-                <img src="assets/img/client.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client2.png" class="img-fluid imgclider-clients carq" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client3.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client4.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client5.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client6.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client2.png" class="img-fluid imgclider-clients carq" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client3.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client4.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client5.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-            <div>
-                <img src="assets/img/client6.png" class="img-fluid imgclider-clients" alt="">
-            </div>
-
+            @foreach ($featuredClients as $client)
+                    @include('includes.client-card')
+            @endforeach
         </div>
     </div>
 
@@ -253,11 +219,11 @@
         </div>
         <div class="col col-md-6">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-sm-1 g-3">
-                @foreach ($products as $product)
-                <div class="col">
-                    @include('includes.product-small')
-                </div>
-                @if($loop->iteration % 8 == 0) @break @endif
+                @foreach ($homepageProducts as $product)
+                    <div class="col">
+                        @include('includes.product-small')
+                    </div>
+                    @if($loop->iteration % 4 == 0) @break @endif
                 @endforeach
             </div>
         </div>
@@ -272,16 +238,15 @@
         <div class="prevnext-btn">
             <a class="prev product-slider-1-prev">&#10094;</a>
             <a class="next product-slider-1-next">&#10095;</a>
-            <a href="categories" class="btn-wsichki">Към всички<img src="assets/img/Polygon1.png"
-                    class="img-icon"></a>
+            <a href="categories" class="btn-wsichki">Към всички<img src="assets/img/Polygon1.png" class="img-icon"></a>
         </div>
     </div>
     <div class="slideshow-container ">
         <div class="product-slider-1">
             @foreach ($productsConvect as $product)
-            <div>
-                @include ('includes/product-small')
-            </div>
+                <div>
+                    @include ('includes/product-small')
+                </div>
             @endforeach
         </div>
 
@@ -294,16 +259,15 @@
         <div class="prevnext-btn">
             <a class="prev product-slider-2-prev">&#10094;</a>
             <a class="next product-slider-2-next">&#10095;</a>
-            <a href="categories" class="btn-wsichki">Към всички<img src="assets/img/Polygon1.png"
-                    class="img-icon"></a>
+            <a href="categories" class="btn-wsichki">Към всички<img src="assets/img/Polygon1.png" class="img-icon"></a>
         </div>
     </div>
     <div class="slideshow-container ">
         <div class="product-slider-2">
             @foreach ($productsWash as $product)
-            <div>
-                @include ('includes/product-small')
-            </div>
+                <div>
+                    @include ('includes/product-small')
+                </div>
             @endforeach
         </div>
     </div>

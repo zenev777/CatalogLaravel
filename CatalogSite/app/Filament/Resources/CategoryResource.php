@@ -81,7 +81,7 @@ class CategoryResource extends Resource
                     ->label('Menu Icon (35x38px, svg)') // "Menu icon" in Bulgarian
                     ->image()
                     ->disk('uploads')
-                    ->directory('images')
+                    ->directory('uploads')
                     ->maxSize(1024)
                     ->nullable(),
 
@@ -89,7 +89,7 @@ class CategoryResource extends Resource
                     ->label('Image') // "Image (jpg)" in Bulgarian
                     ->image()
                     ->disk('uploads')
-                    ->directory('images')
+                    ->directory('uploads')
                     ->maxSize(2048)
                     ->nullable(),
             ]);
