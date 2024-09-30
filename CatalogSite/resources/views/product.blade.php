@@ -4,19 +4,7 @@
         <div class="col-5 col-5g">
             <div class="display-n">
                 <div class="fs-6">
-                    <nav aria-label="breadcrumb ">
-                        <ol class="breadcrumb breadcrumb2">
-                            <li class="breadcrumb-item itemtext "><a href={{ route('home') }}
-                                    class="text-decoration-none">Начало</a>
-                            </li>
-                            <li class="breadcrumb-item itemtext"><a href={{ route('allcategories')}}
-                                    class="text-decoration-none">Всички
-                                    продукти</a></li>
-                            <li class="breadcrumb-item itemtext"><a href="categories"
-                                    class="text-decoration-none">{{$category->title}}</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{$product->title}}</li>
-                        </ol>
-                    </nav>
+                    @include ('includes/breadcrumb-product')
 
                     <h1 class="fs-2 fw-semibold pb-2">{{$product->title}}, 5 ТАВИ
                         {{$product->width}}x{{$product->height}}x{{$product->length}}–
@@ -77,19 +65,7 @@
         <div class="col-7 col-77">
             <div class="fs-6">
                 <div class="display-no">
-                    <nav aria-label="breadcrumb ">
-                        <ol class="breadcrumb breadcrumb2">
-                            <li class="breadcrumb-item itemtext "><a href={{ route('home')}}
-                                    class="text-decoration-none">Начало</a>
-                            </li>
-                            <li class="breadcrumb-item itemtext"><a href={{ route('allcategories')}}
-                                    class="text-decoration-none">Всички
-                                    продукти</a></li>
-                            <li class="breadcrumb-item itemtext"><a href="categories"
-                                    class="text-decoration-none">{{$category->title}}</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{$product->title}}</li>
-                        </ol>
-                    </nav>
+                    @include ('includes/breadcrumb-product')
 
                     <h1 class="fs-2 fw-semibold pb-2">{{$product->title}} - {{$product->manufacturer_code}} -
                         {{$product->width}}x{{$product->height}}x{{$product->length}}
