@@ -262,7 +262,7 @@
 
         <div class="slideshow-container ">
             <div class="product-slider-3">
-                @foreach ($categoryProducts as $product)
+                @foreach ($connectedProducts as $product)
                     <div>
                         @include ('includes/product-small')
                     </div>
@@ -270,5 +270,4 @@
             </div>
 
         </div>
-
         @include ('includes/footer')
