@@ -49,9 +49,9 @@ class CategoryController extends Controller
     }
 
     public function allcategory(){
-        $categories = Category::all();
+        $allcategory = Category::all();
 
-        return view('allcategory',['categories' => $categories]);
+        return view('allcategory',['allcategory' => $allcategory]);
     }
 
     public function getMenuCategories()
