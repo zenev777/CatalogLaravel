@@ -34,7 +34,7 @@ class CategoryController extends Controller
         }
         $subcategories = null;
         // Retrieve products for the category
-        $products = Product::where('category_id', '=', $categoryId)->get();
+        $products = Product::where('category_id', '=', $categoryId)->paginate($productsPerPage = 18);
 
 
 

@@ -54,9 +54,9 @@ class ProductController extends Controller
 
         $product = Product::where('title', 'LIKE', "%{$query}%")
             ->orWhere('sku', 'LIKE', "%{$query}%")
-            ->get();
+            ->paginate($productsPerPage = 18);
 
-        if (!$product) {
+        if ($product->isEmpty()) {
             // return not found page 
             return redirect()->back()->with('error', 'The product is missing');
 
