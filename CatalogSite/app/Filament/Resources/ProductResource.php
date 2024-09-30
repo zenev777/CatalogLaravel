@@ -13,6 +13,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Validation\Rule;
 
 class ProductResource extends Resource
 {
@@ -62,7 +63,11 @@ class ProductResource extends Resource
                     ->label('Slug')
                     ->required()
                     ->maxLength(255)
-                    ->unique('products', 'slug'),
+                    ->rules(function ($record) {
+                        return $record
+                            ? [Rule::unique('pages', 'slug')->ignore($record->id)] // Ignore unique rule for the current record being edited
+                            : ['unique:pages,slug']; // Apply unique rule only when creating a new record
+                    }),
 
                 // Цена на продукта
                 Forms\Components\TextInput::make('price')
@@ -163,7 +168,6 @@ class ProductResource extends Resource
                             ->label('Option Price')
                             ->numeric(),
                     ])
-                    ->minItems(1) // поне една опция
                     ->collapsed(false), // показва всички опции разширени 
 
                 // Мощност (Power)
