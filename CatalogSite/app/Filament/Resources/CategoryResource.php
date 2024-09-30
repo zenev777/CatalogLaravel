@@ -70,11 +70,15 @@ class CategoryResource extends Resource
 
                 // Parent Category dropdown (select field)
                 Forms\Components\Select::make('parent_id')
-                    ->label('Parent category') // "Parent Category" in Bulgarian
-                    ->relationship('parent', 'title') // using the `parent` relationship and displaying the `title` of the category
-                    ->options(Category::all()->pluck('title', 'id')) // Fetching all categories for the dropdown
+                    ->label('Parent Category') // The label for the field
+                    ->options(Category::all()->pluck('title', 'id')) // Fetching all categories as options
                     ->searchable() // Makes the dropdown searchable
-                    ->nullable(), // Allows the category to have no parent
+                    ->nullable() // Allows the category to have no parent
+                    ->default(fn($record) => $record?->parent_id) // Sets the default value to the current parent_id when editing
+                    ->placeholder('No Parent') // Optional: To show 'No Parent' if none is selected
+                    ->required(false), // Optional: In case it's not required
+
+
 
                 // Menu Icon and Image fields
                 Forms\Components\FileUpload::make('menu_icon')

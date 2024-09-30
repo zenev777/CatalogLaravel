@@ -78,7 +78,10 @@
                                     </div>
                                 <div class="d-flex gap-3 pb-3 m"> @endif
                         @endforeach
-                @else
+                @endif
+            </div>
+            <div class="d-flex gap-3 pb-3 m">
+                @if($products !== null)    
                         @foreach($products as $product)
                                 <div class="col">
                                     @include('includes.product-small')
