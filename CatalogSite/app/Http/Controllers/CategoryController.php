@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\FAQ;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -66,15 +67,15 @@ class CategoryController extends Controller
 
     }
 
-  
+
 
     public function allcategory(){
 
         $allcategory = Category::where('visible', true)
                 ->orderBy('position', 'asc')
                 ->get();
-                
-        
+
+
         return view('allcategory',['allcategory' => $allcategory]);
     }
 
@@ -84,4 +85,14 @@ class CategoryController extends Controller
             ->orderBy('menu_order')
             ->get();
     }
+
+    public function faqs($id)
+    {
+        $category = Category::with(['faqs' => function($query) {
+            $query->orderBy('position');
+        }])->findOrFail($id);
+
+        return view('category.show', compact('category'));
+    }
+
 }
