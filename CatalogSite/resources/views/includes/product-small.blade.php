@@ -5,7 +5,7 @@
         Дигитална еволюция {{$product->manufacturer_code}}</span>
     <span class="cena pt-4 pb-2">
 
-        @if($product->price === 0)
+        @if($product->price == 0)
         <p>Направете запитване</p>
         @elseif($product->old_price > 0 === true)
         <span class="prizze2 d-flex">Цена:
