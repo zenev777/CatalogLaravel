@@ -41,8 +41,10 @@ class HomeController extends Controller
         $productsConvect = Product::where('category_id', '=', $categoryConvect->id)
             ->where("is_featured", true)
             ->get();
-        
-        $featuredClients = Client::where("is_featured", true)->get();
+
+        $featuredClients = Client::where("is_featured", true)
+            ->orderBy('position', 'asc')
+            ->get();
 
         $homepageProducts = Product::where('is_featured', true)->get();
 
