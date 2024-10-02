@@ -10,8 +10,8 @@ class PartnerController extends Controller
 {
     public function index(){
 
-        $partners = Partner::all();
+        $partners = Partner::orderBy('position', 'asc')->get();
 
-        return view('partniori', ['partners' => $partners]); 
+        return view('partniori', ['partners' => $partners]);
     }
 }
