@@ -10,7 +10,8 @@
             <li class="breadcrumb-item itemtext"><a href={{ route('allcategories') }} class="text-decoration-none">Всички
                     продукти</a></li>
             @if ($category !== null)
-                <li class="breadcrumb-item itemtext"><a href="#" class="text-decoration-none">{{$category->title}}</a></li>
+                <li class="breadcrumb-item itemtext"><a href="#" class="text-decoration-none">{{$category->title}}</a>
+                </li>
             @endif
         </ol>
     </nav>
@@ -19,7 +20,7 @@
     @elseif ($category !== null)
         <h1 class="title">{{$category->title}}</h1>
     @endif
-    
+
     <div class="alert-productova">
         <img src={{url('assets/img/vector.png')}} class="vector">
         <div class="textalert-productova">
@@ -60,8 +61,8 @@
                         <div class="range-slider">
                             <div class="range-fill"></div>
 
-                            <input type="range" class="min-price" value="70" min="70" max="500" step="10" />
-                            <input type="range" class="max-price" value="250" min="10" max="1000" step="100" />
+                            <input type="range" class="min-price" value="70" min="70" max="500" step="10"/>
+                            <input type="range" class="max-price" value="250" min="10" max="1000" step="100"/>
                         </div>
                     </div>
                 </div>
@@ -70,26 +71,26 @@
         <div class="col-9 col-9a pt-4">
             <div class="d-flex gap-3 pb-3 m">
                 @if($subcategories !== null)
-                        @foreach($subcategories as $subcategory)
-                                <div class="col">
-                                    @include('includes.subcategories-small')
-                                </div>
-                                @if($loop->iteration % 3 == 0)
-                                    </div>
-                                <div class="d-flex gap-3 pb-3 m"> @endif
-                        @endforeach
+                    @foreach($subcategories as $subcategory)
+                        <div class="col">
+                            @include('includes.subcategories-small')
+                        </div>
+                        @if($loop->iteration % 3 == 0)
+            </div>
+            <div class="d-flex gap-3 pb-3 m"> @endif
+                @endforeach
                 @endif
             </div>
             <div class="d-flex gap-3 pb-3 m">
-                @if($products !== null)    
-                        @foreach($products as $product)
-                                <div class="col">
-                                    @include('includes.product-small')
-                                </div>
-                                @if($loop->iteration % 3 == 0)
-                                    </div>
-                                <div class="d-flex gap-3 pb-3 m"> @endif
-                        @endforeach
+                @if($products !== null)
+                    @foreach($products as $product)
+                        <div class="col">
+                            @include('includes.product-small')
+                        </div>
+                        @if($loop->iteration % 3 == 0)
+            </div>
+            <div class="d-flex gap-3 pb-3 m"> @endif
+                @endforeach
                 @endif
             </div>
 
@@ -99,97 +100,36 @@
                 @endif
             </div>
 
-            <h2 class="pb-3">Често задавани въпроси</h2>
-            <div class="pb-5">
-                <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button acordiontitle" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Защо конвектоматът е важна част от оборудването на професионалната кухня?
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the first item's accordion body.</strong> It is shown by default,
-                                until
-                                the collapse plugin adds the appropriate classes that we use to style each element.
-                                These classes control the overall appearance, as well as the showing and hiding via
-                                CSS
-                                transitions. You can modify any of this with custom CSS or overriding our default
-                                variables. It's also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
+            @if($category->faqs->isNotEmpty())
+                <h2 class="pb-3">Често задавани въпроси</h2>
+                <div class="pb-5">
+                    <div class="accordion" id="accordionExample">
+                        @foreach($category->faqs as $index => $faq)
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button acordiontitle" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse{{ $index }}"
+                                            aria-expanded="{{ $index == 0 ? 'true' : 'false' }}"
+                                            aria-controls="collapse{{ $index }}">
+                                        {{ $faq->question }}
+                                    </button>
+                                </h2>
+                                <div id="collapse{{ $index }}"
+                                     class="accordion-collapse collapse {{ $index == 0 ? 'show' : '' }}"
+                                     data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        {{ $faq->answer }}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed  acordiontitle" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
-                                aria-controls="collapseTwo">
-                                Как се категоризират конвектоматите
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the second item's accordion body.</strong> It is hidden by default,
-                                until the collapse plugin adds the appropriate classes that we use to style each
-                                element. These classes control the overall appearance, as well as the showing and
-                                hiding
-                                via CSS transitions. You can modify any of this with custom CSS or overriding our
-                                default variables. It's also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed  acordiontitle" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
-                                aria-controls="collapseThree">
-                                Колко вида конвектомати има
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default,
-                                until
-                                the collapse plugin adds the appropriate classes that we use to style each element.
-                                These classes control the overall appearance, as well as the showing and hiding via
-                                CSS
-                                transitions. You can modify any of this with custom CSS or overriding our default
-                                variables. It's also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed acordiontitle" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
-                                aria-controls="collapseFour">
-                                Има ли специфика в сервизирането на такъв тип техника
-                            </button>
-                        </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default,
-                                until
-                                the collapse plugin adds the appropriate classes that we use to style each element.
-                                These classes control the overall appearance, as well as the showing and hiding via
-                                CSS
-                                transitions. You can modify any of this with custom CSS or overriding our default
-                                variables. It's also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-            </div>
-
+            @endif
         </div>
+
     </div>
+</div>
 </div>
 
 
