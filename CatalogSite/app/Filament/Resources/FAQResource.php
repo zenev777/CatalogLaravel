@@ -43,7 +43,7 @@ public static function table(Table $table): Table
         ->columns([
             TextColumn::make('question')->sortable()->searchable(),
             TextColumn::make('answer')->limit(50),
-            TextColumn::make('category.name')->label('Category'),
+            TextColumn::make('category.title')->label('Category')->sortable()->searchable(),
         ]);
 }
 

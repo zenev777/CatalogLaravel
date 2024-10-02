@@ -86,13 +86,4 @@ class CategoryController extends Controller
             ->get();
     }
 
-    public function faqs($id)
-    {
-        $category = Category::with(['faqs' => function($query) {
-            $query->orderBy('position');
-        }])->findOrFail($id);
-
-        return view('category.show', compact('category'));
-    }
-
 }
