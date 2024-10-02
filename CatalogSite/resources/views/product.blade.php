@@ -192,7 +192,20 @@
                         </div>
                     </div>
                 </div>
-                <h3>Опции</h3>
+                @if ($options->isNotEmpty())
+                    <h3>Опции</h3>
+                    <ul>
+                        @foreach ($options as $option)
+                            <li>
+                                <strong>{{ $option->title }}</strong>:
+                                {{ number_format($option->price, 2) }} лв.
+                                <p>{{ $option->short_description }}</p>
+                            </li>
+                        @endforeach
+                    </ul>
+                @else
+                    <h3>Няма налични опции за този продукт.</h3>
+                @endif
                 <div class="razdel-tablica">
                     <h3>Характеристики:</h3>
                     <table class=" tablica">

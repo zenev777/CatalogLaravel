@@ -62,4 +62,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Product::class, 'connected_products', 'connected_product_id', 'product_id');
     }
+
+    public function options()
+    {
+        return $this->hasMany(Option::class);
+    }
 }

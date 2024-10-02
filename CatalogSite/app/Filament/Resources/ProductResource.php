@@ -159,14 +159,33 @@ class ProductResource extends Resource
 
                 // Опции (Заглавие и Цена за всяка опция)
                 Forms\Components\Repeater::make('options')
-                    ->label('Options')
+                    ->relationship('options') // Задаваме релацията
                     ->schema([
-                        Forms\Components\TextInput::make('option_title')
+                        Forms\Components\TextInput::make('title')
                             ->label('Option Title')
-                            ->maxLength(255),
-                        Forms\Components\TextInput::make('option_price')
+                            ->required(),
+                        Forms\Components\TextInput::make('price')
                             ->label('Option Price')
-                            ->numeric(),
+                            ->numeric()
+                            ->required(),
+                        Forms\Components\TextInput::make('short_description')
+                            ->label('Short Description')
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('description')
+                            ->label('Description'),
+                        Forms\Components\TextInput::make('image')
+                            ->label('Image')
+                            ->image() // Only images are allowed
+                            ->disk('uploads') // Specify the disk for file storage
+                            ->directory('uploads') // Specify the directory to store images
+                            ->maxSize(2048) // Max size of 2MB
+                            ->rules(['dimensions:max_width=500,max_height=500'])
+                            ->nullable(), // This field is optional
+                        Forms\Components\TextInput::make('position')
+                            ->label('Position'),
+                        Forms\Components\Toggle::make('visible')
+                            ->label('Visible')
+                            ->default(true),
                     ])
                     ->collapsed(false), // показва всички опции разширени 
 

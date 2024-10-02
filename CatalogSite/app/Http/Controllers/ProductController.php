@@ -33,6 +33,7 @@ class ProductController extends Controller
                 ->get();
         }
 
+        $options = $product->options()->where('visible', 1)->get();
 
         return view(
             'product',
@@ -40,6 +41,7 @@ class ProductController extends Controller
                 'product' => $product,
                 'category' => $category,
                 'connectedProducts' => $connectedProducts,
+                'options' => $options,
             ]
         );
     }
