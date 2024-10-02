@@ -33,7 +33,9 @@ class ProductController extends Controller
                 ->get();
         }
 
-        $options = $product->options()->where('visible', 1)->get();
+        $options = $product->options()->where('visible', 1)
+            ->orderBy('position', 'asc')
+            ->get();
 
         return view(
             'product',

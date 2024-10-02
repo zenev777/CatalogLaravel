@@ -194,15 +194,21 @@
                 </div>
                 @if ($options->isNotEmpty())
                     <h3>Опции</h3>
-                    <ul>
-                        @foreach ($options as $option)
-                            <li>
-                                <strong>{{ $option->title }}</strong>:
-                                {{ number_format($option->price, 2) }} лв.
-                                <p>{{ $option->short_description }}</p>
-                            </li>
-                        @endforeach
-                    </ul>
+                    <div class="container13">
+                        <div class="options-section13">
+                            @foreach ($options as $option)
+                                <div class="option13">
+                                    <img src={{$option->image}} alt="option">
+                                    <div class="option-text13">
+                                        <p>{{$option->title}}, {{$option->short_description}}</p>
+                                    </div>
+                                    <div class="option-price13">+ {{ number_format($option->price, 2) }} лв. </div>
+                                    <input type="checkbox" class="add-checkbox13">
+                                    <p>Добави</p>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 @else
                     <h3>Няма налични опции за този продукт.</h3>
                 @endif

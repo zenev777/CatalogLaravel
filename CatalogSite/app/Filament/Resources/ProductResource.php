@@ -173,7 +173,7 @@ class ProductResource extends Resource
                             ->maxLength(255),
                         Forms\Components\TextInput::make('description')
                             ->label('Description'),
-                        Forms\Components\TextInput::make('image')
+                        Forms\Components\FileUpload::make('image')
                             ->label('Image')
                             ->image() // Only images are allowed
                             ->disk('uploads') // Specify the disk for file storage
