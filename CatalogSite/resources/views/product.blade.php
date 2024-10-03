@@ -178,6 +178,7 @@
                                         <textarea name="message" class="form-input" id="floatingTextareaa"
                                             placeholder="Вашето съобщение" style="width: 100%;" required></textarea>
                                     </div>
+                                    <input type="hidden" name="selectedOptions" id="selectedOptions">
                                     <span class="zaduljitelnotext">
                                         Полетата обозначени със “<p style="color: red;">*</p>” са задължителни
                                     </span>
@@ -200,7 +201,7 @@
                                 <div class="option13">
                                     <img src={{$option->image}} alt="option">
                                     <div class="option-text13">
-                                        <p>{{$option->title}}, {{$option->short_description}}</p>
+                                        <p>{{$option->title}} {{$option->short_description}}</p>
                                     </div>
                                     <div class="option-price13">+ {{ number_format($option->price, 2) }} лв. </div>
                                     <input type="checkbox" class="add-checkbox13">
@@ -289,4 +290,34 @@
             </div>
 
         </div>
+        <!-- jQuery библиотека -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+
+                function updateSelectedOptions() {
+                    var selectedOptions = [];
+                    $('.add-checkbox13:checked').each(function () {
+                        var optionText = $(this).closest('.option13').find('.option-text13 p').text().trim();
+                        selectedOptions.push(optionText);
+                    });
+                    $('#selectedOptions').val(selectedOptions.join('; '));
+                }
+
+                $('.add-checkbox13').on('change', function () {
+                    updateSelectedOptions();
+                    if ($(this).is(':checked')) {
+                        $(this).closest('.option13').addClass('selected-option');
+                    } else {
+                        $(this).closest('.option13').removeClass('selected-option');
+                    }
+                });
+
+
+                $('form').on('submit', function () {
+                    updateSelectedOptions();
+                });
+            });
+        </script>
+
         @include ('includes/footer')

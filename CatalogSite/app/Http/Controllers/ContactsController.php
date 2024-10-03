@@ -48,6 +48,9 @@ class ContactsController extends Controller
         // Намиране на продукта по ID
         $product = Product::findOrFail($id);
 
+        // Подготовка на избраните опции (ако има)
+        $selectedOptions = $request->input('selectedOptions') ? $request->input('selectedOptions') : 'Няма избрани опции.';
+
         // Подготовка на данните за имейла
         $data = [
             'product' => $product,
@@ -55,6 +58,7 @@ class ContactsController extends Controller
             'phone' => $request->input('phone'),
             'email' => $request->input('email'),
             'messageContent' => $request->input('message'),
+            'selectedOptions' => $selectedOptions,
         ];
 
         // Изпращане на имейла

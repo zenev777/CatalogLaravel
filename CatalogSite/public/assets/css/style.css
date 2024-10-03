@@ -1522,12 +1522,10 @@ input[type="range"]::-webkit-slider-runnable-track {
 .container13 {
   width: 100%;
   margin: 0 auto;
+  color: #2a2964;
 }
 .options-section13 {
   margin-top: 20px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .option13 {
   display: flex;
@@ -1535,13 +1533,16 @@ input[type="range"]::-webkit-slider-runnable-track {
   align-items: center;
   padding: 25px;
   border: 2px solid #f0f0f0;
-  border-radius: 5px;
+  border-radius: 20px;
+  background-color: white;
   margin-bottom: 10px;
+  transition: all 0.3s ease;
 }
 .option13 img {
   width: 50px;
   height: auto;
   margin-right: 10px;
+  border-radius: 10px;
 }
 .option13 p 
 {
@@ -1555,13 +1556,14 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 .option-price13 {
   font-weight: bold;
-  color: #333;
+  color: #2a2964;
   margin-right: 3em;
 }
 .add-checkbox13 {
   transform: scale(1.5);
 }
-input[type="checkbox"]:checked {
-  background-color: #4CAF50;
-  border: 1px solid #4CAF50;
+
+.selected-option {
+  border-color: #ffc107; 
+  background-color: #fffacd; 
 }
