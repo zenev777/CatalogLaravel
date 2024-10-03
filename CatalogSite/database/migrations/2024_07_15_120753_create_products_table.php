@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('manufacturer_id');
             $table->unsignedBigInteger('category_id')->nullable();
             $table->string('slug');
-            $table->decimal('price', 8, 2);
+            $table->decimal('price', 8, 2)->nullable();
             $table->integer('position')->nullable();
             $table->integer('weight')->nullable();
             $table->integer('width')->nullable();

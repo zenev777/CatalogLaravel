@@ -82,7 +82,9 @@
                         <!-- <img src="assets/img/fframe93.png" style="width: 18.5px;"> -->
                     </button>
                 </div>
-                @if($product->old_price > 0 === true)
+                @if($product->price == 0)
+                    <p>Направете запитване</p>
+                @elseif($product->old_price > 0 === true)
                     <div>
                         <span class="prizenow">{{$product->price}} лв.</span>
                         <span class="dds">/без ДДС/</span>
