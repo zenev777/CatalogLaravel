@@ -2,13 +2,13 @@
 <div class="container">
     <div class="d-flex pt-3 t">
         <div class="d-flex w-100 position-relative mxm">
-            <a href="" class="position-relative zoom-container">
+            <a href="{{$homeboxeOne->link}}" class="position-relative zoom-container">
                 <span class="overlay position-absolute w-100 h-100 start-0 top-0"
                     style="background-color: rgba(42, 41, 100, .5);"></span>
                 <img src="{{$homeboxeOne->image}}" class="img-1 zoom-object">
                 <span class="title-baner">{{$homeboxeOne->title}}</span>
             </a>
-            <a href="categories" class="position-absolute btn-pregledai">
+            <a href="{{$homeboxeOne->link}}" class="position-absolute btn-pregledai">
                 Прегледай
                 <svg class="hidden ml-10 icon-right" width="8" height="10" viewBox="0 0 8 10" fill="#2a2964"
                     xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +40,7 @@
 
         <div class="clients-slider-1">
             @foreach ($featuredClients as $client)
-                    @include('includes.client-card')
+                @include('includes.client-card')
             @endforeach
         </div>
     </div>
@@ -238,7 +238,8 @@
         <div class="prevnext-btn">
             <a class="prev product-slider-1-prev">&#10094;</a>
             <a class="next product-slider-1-next">&#10095;</a>
-            <a href="categories" class="btn-wsichki">Към всички<img src="assets/img/Polygon1.png" class="img-icon"></a>
+            <a href="categories/7/products" class="btn-wsichki">Към всички<img src="assets/img/Polygon1.png"
+                    class="img-icon"></a>
         </div>
     </div>
     <div class="slideshow-container ">
@@ -259,7 +260,8 @@
         <div class="prevnext-btn">
             <a class="prev product-slider-2-prev">&#10094;</a>
             <a class="next product-slider-2-next">&#10095;</a>
-            <a href="categories" class="btn-wsichki">Към всички<img src="assets/img/Polygon1.png" class="img-icon"></a>
+            <a href="categories/2/products" class="btn-wsichki">Към всички<img src="assets/img/Polygon1.png"
+                    class="img-icon"></a>
         </div>
     </div>
     <div class="slideshow-container ">
@@ -276,7 +278,7 @@
 
 <div class="container">
     <div class="pb-5 d-grid baner-grid">
-        <a href="categories" class="position-relative zoom-container2">
+        <a href="categories/3/products" class="position-relative zoom-container2">
             <span class="overlayy position-absolute w-100 h-100 start-0 top-0"
                 style="background-color: rgba(42, 41, 100, .5);"></span>
             <span class="texticon">
@@ -288,7 +290,7 @@
             <img src="assets/img/img1.png" class="img-7 zoom-object">
 
         </a>
-        <a href="categories" class="position-relative zoom-container2">
+        <a href="categories/4/products" class="position-relative zoom-container2">
             <span class="overlayy position-absolute w-100 h-100 start-0 top-0"
                 style="background-color: rgba(42, 41, 100, .5);"></span>
             <span class="texticon">
@@ -302,7 +304,7 @@
         </a>
 
 
-        <a href="categories" class="position-relative zoom-container2">
+        <a href="categories/5/products" class="position-relative zoom-container2">
             <span class="overlayy position-absolute w-100 h-100 start-0 top-0"
                 style="background-color: rgba(42, 41, 100, .5);"></span>
             <span class="texticon">
