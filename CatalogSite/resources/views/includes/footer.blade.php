@@ -23,9 +23,9 @@
             <div class="col-3 d-flex gap-5 col3-with1">
                 <div class="px-4">
                     <span class="footernav1">За компанията</span>
-                    <li> <a class="footernav" href="aboutus">За нас</a></li>
-                    <li><a class="footernav" href="service">Сервиз</a></li>
-                    <li> <a class="footernav" href="contacts">Контакти</a></li>
+                    <li> <a class="footernav" href={{ url('aboutus') }}>За нас</a></li>
+                    <li><a class="footernav" href={{ url('service') }}>Сервиз</a></li>
+                    <li> <a class="footernav" href={{ url('contacts') }}>Контакти</a></li>
                 </div>
                 <div class="ptp">
                     <span class="footernav1">Свържете се с нас</span>
