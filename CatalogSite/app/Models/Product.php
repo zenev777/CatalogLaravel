@@ -39,6 +39,11 @@ class Product extends Model
         'raztuqnie_mejdu_vodachite',
         'temperatura',
         'svurzvane',
+        'images',
+    ];
+
+    protected $casts = [
+        'images' => 'array', // Кастинг на колоната 'images' като масив
     ];
 
     public function categories()

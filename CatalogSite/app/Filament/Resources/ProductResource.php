@@ -114,7 +114,8 @@ class ProductResource extends Resource
                     ->directory('uploads')
                     ->image()
                     ->maxSize(2048)
-                    ->nullable(), // 2MB max size per image
+                    ->nullable()
+                    ->multiple(), // 2MB max size per image
 
                 // Тегло
                 Forms\Components\TextInput::make('weight')

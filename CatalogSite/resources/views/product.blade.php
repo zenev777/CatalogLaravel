@@ -31,21 +31,11 @@
             </div>
             <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
-                    <div class="carousel-itemm active">
-                        <img src={{url('assets/img/image11.png')}} class="d-block slaid-imgg" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src={{url('assets/img/image11.png')}} class="d-block  slaid-img" alt="...">
-
-                    </div>
-                    <div class="carousel-item">
-                        <img src={{url('assets/img/image11.png')}} class="d-block  slaid-img" alt="...">
-
-                    </div>
-                    <div class="carousel-item">
-                        <img src={{url('assets/img/image11.png')}} class="d-block  slaid-img" alt="...">
-
-                    </div>
+                    @foreach ($product->images as $image)
+                        <div class="carousel-item @if ($loop->first) active @endif">
+                            <img src="{{url($image)}}" class="d-block slaid-img" alt="...">
+                        </div>
+                    @endforeach
                 </div>
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
@@ -59,16 +49,13 @@
                     <span class="visually-hidden">Next</span>
                 </button>
 
+                <!-- Indicators -->
                 <div class="carousel-indicators mb-4">
-                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3"
-                        aria-label="Slide 4"></button>
-
+                    @foreach ($product->images as $index => $image)
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="{{ $index }}"
+                            class="@if ($loop->first) active @endif" aria-current="@if ($loop->first) true @endif"
+                            aria-label="Slide {{ $index + 1 }}"></button>
+                    @endforeach
                 </div>
 
             </div>
@@ -199,7 +186,9 @@
                         <div class="options-section13">
                             @foreach ($options as $option)
                                 <div class="option13">
-                                    <img src={{$option->image}} alt="option">
+                                    @if($option->image !== null)
+                                        <img src={{ url($option->image) }} alt="option">
+                                    @endif
                                     <div class="option-text13">
                                         <p>{{$option->title}} {{$option->short_description}}</p>
                                     </div>
