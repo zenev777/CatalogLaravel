@@ -31,11 +31,13 @@
             </div>
             <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
-                    @foreach ($product->images as $image)
-                        <div class="carousel-item @if ($loop->first) active @endif">
-                            <img src="{{url($image)}}" class="d-block slaid-img" alt="...">
-                        </div>
-                    @endforeach
+                    @if($product->image !== null)
+                        @foreach ($product->images as $image)
+                            <div class="carousel-item @if ($loop->first) active @endif">
+                                <img src="{{url($image)}}" class="d-block slaid-img" alt="...">
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
@@ -51,11 +53,13 @@
 
                 <!-- Indicators -->
                 <div class="carousel-indicators mb-4">
-                    @foreach ($product->images as $index => $image)
-                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="{{ $index }}"
-                            class="@if ($loop->first) active @endif" aria-current="@if ($loop->first) true @endif"
-                            aria-label="Slide {{ $index + 1 }}"></button>
-                    @endforeach
+                    @if($product->image !== null)
+                        @foreach ($product->images as $index => $image)
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="{{ $index }}"
+                                class="@if ($loop->first) active @endif" aria-current="@if ($loop->first) true @endif"
+                                aria-label="Slide {{ $index + 1 }}"></button>
+                        @endforeach
+                    @endif
                 </div>
 
             </div>
