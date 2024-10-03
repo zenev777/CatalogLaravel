@@ -39,6 +39,11 @@ class Product extends Model
         'raztuqnie_mejdu_vodachite',
         'temperatura',
         'svurzvane',
+        'images',
+    ];
+
+    protected $casts = [
+        'images' => 'array', // Кастинг на колоната 'images' като масив
     ];
 
     public function categories()
@@ -61,5 +66,10 @@ class Product extends Model
     public function connectedTo()
     {
         return $this->belongsToMany(Product::class, 'connected_products', 'connected_product_id', 'product_id');
+    }
+
+    public function options()
+    {
+        return $this->hasMany(Option::class);
     }
 }

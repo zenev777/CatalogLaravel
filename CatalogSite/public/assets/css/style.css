@@ -1518,3 +1518,52 @@ input[type="range"]::-webkit-slider-runnable-track {
   margin-right: auto;
   margin-left: auto;
 }
+
+.container13 {
+  width: 100%;
+  margin: 0 auto;
+  color: #2a2964;
+}
+.options-section13 {
+  margin-top: 20px;
+}
+.option13 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  border: 2px solid #f0f0f0;
+  border-radius: 20px;
+  background-color: white;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+.option13 img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+.option13 p 
+{
+  margin: 0px 0px 0px 1em;
+}
+.option-text13 {
+  flex-grow: 1;
+}
+.option-text13 p {
+  margin: 0;
+}
+.option-price13 {
+  font-weight: bold;
+  color: #2a2964;
+  margin-right: 3em;
+}
+.add-checkbox13 {
+  transform: scale(1.5);
+}
+
+.selected-option {
+  border-color: #ffc107; 
+  background-color: #fffacd; 
+}

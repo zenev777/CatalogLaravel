@@ -6,3 +6,4 @@
 <p>{{ $messageContent }}</p>
 
 <p><strong>Продукт:</strong> <a href="{{ url('/product/' . $product->id)}}">{{ $product->title }}</a></p>
+<p><strong>Избрани опции:</strong> {{ $selectedOptions }}</p>

@@ -16,12 +16,12 @@ class CreateOptionsTable extends Migration
         Schema::create('options', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('short_description');
-            $table->text('description');
+            $table->string('short_description')->nullable();
+            $table->text('description')->nullable();
             $table->decimal('price', 8, 2);
-            $table->unsignedBigInteger('product_id');
-            $table->string('image');  // Path to the image
-            $table->integer('position');
+            $table->unsignedBigInteger('product_id')->constrained('products')->onDelete('cascade');
+            $table->string('image')->nullable();  // Path to the image
+            $table->integer('position')->nullable();
             $table->tinyInteger('visible')->default(1);
             $table->timestamps();
 
