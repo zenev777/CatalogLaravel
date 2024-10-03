@@ -106,7 +106,7 @@ class ProductResource extends Resource
                     ->relationship('categories', 'title') // using the `parent` relationship and displaying the `title` of the category
                     ->options(Category::all()->pluck('title', 'id')) // Fetching all categories for the dropdown
                     ->searchable() // Makes the dropdown searchable
-                    ->nullable(), // Allows the category to have no parent
+                    ->required(),
 
                 Forms\Components\FileUpload::make('images')
                     ->label('Product Images')
