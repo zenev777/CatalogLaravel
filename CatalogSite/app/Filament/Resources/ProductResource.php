@@ -182,7 +182,10 @@ class ProductResource extends Resource
                             ->rules(['dimensions:max_width=500,max_height=500'])
                             ->nullable(), // This field is optional
                         Forms\Components\TextInput::make('position')
-                            ->label('Position'),
+                            ->label('Position')
+                            ->numeric()
+                            ->default(0)
+                            ->nullable(),
                         Forms\Components\Toggle::make('visible')
                             ->label('Visible')
                             ->default(true),
