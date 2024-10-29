@@ -95,9 +95,6 @@
                         <option value="{{ request()->fullUrlWithQuery(['sort' => 'promo']) }}" {{ request('sort') == 'promo' ? 'selected' : '' }}>Първо промоции</option>
                     </select>
                 </div>
-                <div class="pagination">
-                    {{ $products->appends(request()->query())->links() }}
-                </div>
             @endif
             <div class="d-flex gap-3 pb-3 m">
                 @if($products !== null)
