@@ -7,7 +7,8 @@
             <li class="breadcrumb-item itemtext "><a href={{ route('home') }} class="text-decoration-none">Начало</a>
             </li>
             <!-- ask for this links path -->
-            <li class="breadcrumb-item itemtext"><a href={{ route('allcategories') }} class="text-decoration-none">Всички
+            <li class="breadcrumb-item itemtext"><a href={{ route('allcategories') }}
+                    class="text-decoration-none">Всички
                     продукти</a></li>
             @if ($category !== null)
                 <li class="breadcrumb-item itemtext"><a href="#" class="text-decoration-none">{{$category->title}}</a>
@@ -61,8 +62,8 @@
                         <div class="range-slider">
                             <div class="range-fill"></div>
 
-                            <input type="range" class="min-price" value="70" min="70" max="500" step="10"/>
-                            <input type="range" class="max-price" value="250" min="10" max="1000" step="100"/>
+                            <input type="range" class="min-price" value="70" min="70" max="500" step="10" />
+                            <input type="range" class="max-price" value="250" min="10" max="1000" step="100" />
                         </div>
                     </div>
                 </div>
@@ -71,26 +72,43 @@
         <div class="col-9 col-9a pt-4">
             <div class="d-flex gap-3 pb-3 m">
                 @if($subcategories !== null)
-                    @foreach($subcategories as $subcategory)
-                        <div class="col">
-                            @include('includes.subcategories-small')
-                        </div>
-                        @if($loop->iteration % 3 == 0)
-            </div>
-            <div class="d-flex gap-3 pb-3 m"> @endif
-                @endforeach
+                        @foreach($subcategories as $subcategory)
+                                <div class="col">
+                                    @include('includes.subcategories-small')
+                                </div>
+                                @if($loop->iteration % 3 == 0)
+                                    </div>
+                                <div class="d-flex gap-3 pb-3 m"> @endif
+                        @endforeach
                 @endif
             </div>
+            @if($products->isNotEmpty())
+                <div class="sorting-dropdown">
+                    <label for="sort-options">Сортиране по:</label>
+                    <select id="sort-options" onchange="location = this.value;">
+                        <option value="{{ request()->fullUrlWithQuery(['sort' => 'custom']) }}" {{ request('sort') == 'custom' ? 'selected' : '' }}>Персонализирано</option>
+                        <option value="{{ request()->fullUrlWithQuery(['sort' => 'name_asc']) }}" {{ request('sort') == 'name_asc' ? 'selected' : '' }}>Азбучен ред (А-Я)</option>
+                        <option value="{{ request()->fullUrlWithQuery(['sort' => 'name_desc']) }}" {{ request('sort') == 'name_desc' ? 'selected' : '' }}>Азбучен ред (Я-А)</option>
+                        <option value="{{ request()->fullUrlWithQuery(['sort' => 'price_asc']) }}" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>Цена (Най-евтини)</option>
+                        <option value="{{ request()->fullUrlWithQuery(['sort' => 'price_desc']) }}" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Цена (Най-скъпи)</option>
+                        <option value="{{ request()->fullUrlWithQuery(['sort' => 'date_desc']) }}" {{ request('sort') == 'date_desc' ? 'selected' : '' }}>Дата (най-нови)</option>
+                        <option value="{{ request()->fullUrlWithQuery(['sort' => 'promo']) }}" {{ request('sort') == 'promo' ? 'selected' : '' }}>Първо промоции</option>
+                    </select>
+                </div>
+                <div class="pagination">
+                    {{ $products->appends(request()->query())->links() }}
+                </div>
+            @endif
             <div class="d-flex gap-3 pb-3 m">
                 @if($products !== null)
-                    @foreach($products as $product)
-                        <div class="col">
-                            @include('includes.product-small')
-                        </div>
-                        @if($loop->iteration % 3 == 0)
-            </div>
-            <div class="d-flex gap-3 pb-3 m"> @endif
-                @endforeach
+                        @foreach($products as $product)
+                                <div class="col">
+                                    @include('includes.product-small')
+                                </div>
+                                @if($loop->iteration % 3 == 0)
+                                    </div>
+                                <div class="d-flex gap-3 pb-3 m"> @endif
+                        @endforeach
                 @endif
             </div>
 
@@ -108,15 +126,15 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button acordiontitle" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse{{ $index }}"
-                                            aria-expanded="{{ $index == 0 ? 'true' : 'false' }}"
-                                            aria-controls="collapse{{ $index }}">
+                                        data-bs-target="#collapse{{ $index }}"
+                                        aria-expanded="{{ $index == 0 ? 'true' : 'false' }}"
+                                        aria-controls="collapse{{ $index }}">
                                         {{ $faq->question }}
                                     </button>
                                 </h2>
                                 <div id="collapse{{ $index }}"
-                                     class="accordion-collapse collapse {{ $index == 0 ? 'show' : '' }}"
-                                     data-bs-parent="#accordionExample">
+                                    class="accordion-collapse collapse {{ $index == 0 ? 'show' : '' }}"
+                                    data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         {{ $faq->answer }}
                                     </div>
