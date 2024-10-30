@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use App\Models\Product;
+use Storage;
 
 class ImportProducts extends Command
 {
@@ -45,18 +46,72 @@ class ImportProducts extends Command
                     ]
                 );
 
-                // Запазваме първата снимка (при нужда може да се разшири за няколко снимки)
+                // Запазваме снимките локално
                 if (!empty($apiProduct['images'])) {
-                    $product->images = json_encode($apiProduct['images']); // Запазваме като JSON
-                    $product->save();
+                    $savedImages = [];
+                    foreach ($apiProduct['images'] as $imageUrl) {
+                        $imagePath = $this->downloadImage($imageUrl);
+                        if ($imagePath) {
+                            $savedImages[] = $imagePath;
+                        }
+                    }
+                    $product->images = json_encode($savedImages);
                 }
+
+                $product->save();
             }
 
             // Увеличаваме skip за следващата страница
             $skip += $limit;
 
-        } while ($skip < $data['total']); // Спираме, когато достигнем общия брой
+        } while ($skip < 20);// Sega e do 20 , zaradi testa //$data['total']); // Спираме, когато достигнем общия брой
 
         $this->info("Products imported successfully.");
+    }
+
+    private function downloadImage($url)
+    {
+        // Опитваме се да отворим потока за четене
+        $stream = fopen($url, 'r');
+
+        if ($stream === false) {
+            return null;
+        }
+
+        // Получаваме информация за файла
+        $fileStats = fstat($stream);
+
+        // Проверка дали fstat е успешен
+        if ($fileStats === false) {
+            fclose($stream);
+            return null;
+        }
+
+        $fileSize = $fileStats['size'];
+
+        // Проверка за размера на файла (5MB)
+        if ($fileSize > 5 * 1024 * 1024) {
+            fclose($stream);
+            return null;
+        }
+
+        // Генериране на уникално име за файла
+        $fileExtension = pathinfo($url, PATHINFO_EXTENSION);
+        $fileName = basename($url, '.' . $fileExtension);
+        $uniqueId = uniqid();
+
+        // Комбинираме името на файла с уникалното ID
+        $localPath = 'images/products/' . $fileName . '_' . $uniqueId . '.' . $fileExtension;
+
+        // Записване на файла в локалната файлова система
+        $file = Storage::disk('public')->put($localPath, stream_get_contents($stream));
+
+        fclose($stream);
+
+        if ($file) {
+            return $localPath;
+        }
+
+        return null;
     }
 }
