@@ -20,9 +20,9 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->string('sku')->nullable();
             $table->string('manufacturer_code')->nullable();
-            $table->unsignedBigInteger('manufacturer_id');
+            $table->unsignedBigInteger('manufacturer_id')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->decimal('price', 8, 2)->nullable();
             $table->integer('position')->nullable();
             $table->integer('weight')->nullable();
