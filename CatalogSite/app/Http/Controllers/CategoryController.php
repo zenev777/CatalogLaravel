@@ -19,125 +19,53 @@ class CategoryController extends Controller
             abort(404, 'Category not found');
         }
 
-        if ($category->parent_id == null) {
-            $subcategories = Category::where('parent_id', '=', $categoryId)->get();
 
-            $products = Product::where('category_id', '=', $categoryId);
+        $subcategories = $category->parent_id === null
+            ? Category::where('parent_id', '=', $categoryId)->get()
+            : Category::where('parent_id', '=', $categoryId)->get();
 
-            // Проверяваме дали има параметър за сортиране в заявката
-            switch ($request->input('sort')) {
-                case 'name_asc':
-                    $products = $products->orderBy('title', 'asc');
-                    break;
-                case 'name_desc':
-                    $products = $products->orderBy('title', 'desc');
-                    break;
-                case 'price_asc':
-                    $products = $products->orderBy('price', 'asc');
-                    break;
-                case 'price_desc':
-                    $products = $products->orderBy('price', 'desc');
-                    break;
-                case 'date_desc':
-                    $products = $products->orderBy('created_at', 'desc');
-                    break;
-                case 'promo':
-                    $products = $products
-                        ->whereNotNull('old_price')
-                        ->orderBy('old_price', 'desc')
-                        ->orderBy('price', 'asc');
-                    break;
-            }
+        $productsQuery = Product::where('category_id', '=', $categoryId);
 
-            $products = $products->paginate(18);
 
-            if (count($subcategories) > 1) {
-                return view('kategorii', [
-                    'query' => $query,
-                    'subcategories' => $subcategories,
-                    'products' => $products,
-                    'category' => $category
-                ]);
-            }
-        } else {
-            $subcategories = Category::where('parent_id', '=', $categoryId)->get();
-            $products = Product::where('category_id', '=', $categoryId);
+        $productsQuery = $this->applySorting($request, $productsQuery);
 
-            switch ($request->input('sort')) {
-                case 'name_asc':
-                    $products = $products->orderBy('title', 'asc');
-                    break;
-                case 'name_desc':
-                    $products = $products->orderBy('title', 'desc');
-                    break;
-                case 'price_asc':
-                    $products = $products->orderBy('price', 'asc');
-                    break;
-                case 'price_desc':
-                    $products = $products->orderBy('price', 'desc');
-                    break;
-                case 'date_desc':
-                    $products = $products->orderBy('created_at', 'desc');
-                    break;
-                case 'promo':
-                    $products = $products
-                        ->whereNotNull('old_price')
-                        ->orderBy('old_price', 'desc')
-                        ->orderBy('price', 'asc');
-                    break;
-            }
+        $products = $productsQuery->paginate(18);
 
-            $products = $products->paginate(18);
-
-            if (!$subcategories->isEmpty()) {
-                return view('kategorii', [
-                    'query' => $query,
-                    'subcategories' => $subcategories,
-                    'products' => $products,
-                    'category' => $category
-                ]);
-            }
+        if ($category->parent_id === null && count($subcategories) > 1) {
+            return view('kategorii', compact('query', 'subcategories', 'products', 'category'));
+        } elseif (!$subcategories->isEmpty()) {
+            return view('kategorii', compact('query', 'subcategories', 'products', 'category'));
         }
 
+        // Ако няма подкатегории, връщаме категория с продукти
         $subcategories = null;
-        $products = Product::where('category_id', '=', $categoryId);
 
-        switch ($request->input('sort')) {
-            case 'name_asc':
-                $products = $products->orderBy('title', 'asc');
-                break;
-            case 'name_desc':
-                $products = $products->orderBy('title', 'desc');
-                break;
-            case 'price_asc':
-                $products = $products->orderBy('price', 'asc');
-                break;
-            case 'price_desc':
-                $products = $products->orderBy('price', 'desc');
-                break;
-            case 'date_desc':
-                $products = $products->orderBy('created_at', 'desc');
-                break;
-            case 'promo':
-                $products = $products
-                    ->whereNotNull('old_price')
-                    ->orderBy('old_price', 'desc')
-                    ->orderBy('price', 'asc');
-                break;
-        }
-
-        $products = $products->paginate(18);
-
-        return view('kategorii', [
-            'products' => $products,
-            'query' => $query,
-            'subcategories' => $subcategories,
-            'category' => $category
-        ]);
+        return view('kategorii', compact('products', 'query', 'subcategories', 'category'));
     }
 
 
-
+    private function applySorting(Request $request, $productsQuery)
+    {
+        switch ($request->input('sort')) {
+            case 'name_asc':
+                return $productsQuery->orderBy('title', 'asc');
+            case 'name_desc':
+                return $productsQuery->orderBy('title', 'desc');
+            case 'price_asc':
+                return $productsQuery->orderBy('price', 'asc');
+            case 'price_desc':
+                return $productsQuery->orderBy('price', 'desc');
+            case 'date_desc':
+                return $productsQuery->orderBy('created_at', 'desc');
+            case 'promo':
+                return $productsQuery
+                    ->whereNotNull('old_price')
+                    ->orderBy('old_price', 'desc')
+                    ->orderBy('price', 'asc');
+            default:
+                return $productsQuery;
+        }
+    }
     public function allcategory()
     {
 
@@ -154,23 +82,5 @@ class CategoryController extends Controller
         return Category::where('in_menu', true)
             ->orderBy('menu_order')
             ->get();
-    }
-
-    private function applySorting($productsQuery, Request $request)
-    {
-        switch ($request->input('sort')) {
-            case 'name_asc':
-                return $productsQuery->orderBy('title', 'asc');
-            case 'name_desc':
-                return $productsQuery->orderBy('title', 'desc');
-            case 'price_asc':
-                return $productsQuery->orderBy('price', 'asc');
-            case 'price_desc':
-                return $productsQuery->orderBy('price', 'desc');
-            case 'date_desc':
-                return $productsQuery->orderBy('created_at', 'desc');
-            case 'promo':
-                return $productsQuery->where('old_price', '!=', null)->orderBy('price', 'asc');
-        }
     }
 }
