@@ -2,8 +2,13 @@
 
 namespace App\Providers;
 
+use App\Events\ProductCreated;
+use App\Listeners\SendNewProductNotification;
 use App\Models\Category;
 use App\Models\Page;
+use App\Models\Product;
+use App\Observers\ProductObserver;
+use Event;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -41,5 +46,12 @@ class AppServiceProvider extends ServiceProvider
         //         ->orderBy('position', 'asc')
         //         ->get());
         // });
+
+        Event::listen(
+            ProductCreated::class,
+            [SendNewProductNotification::class, 'handle']
+        );
+
+        Product::observe(ProductObserver::class);
     }
 }
