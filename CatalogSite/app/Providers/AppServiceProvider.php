@@ -47,11 +47,6 @@ class AppServiceProvider extends ServiceProvider
         //         ->get());
         // });
 
-        Event::listen(
-            ProductCreated::class,
-            [SendNewProductNotification::class, 'handle']
-        );
-
         Product::observe(ProductObserver::class);
     }
 }
