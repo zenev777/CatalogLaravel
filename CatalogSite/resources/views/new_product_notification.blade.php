@@ -66,7 +66,7 @@
         <div class="email-body">
             <h1>{{ $title }}</h1>
             @if($imagePath)
-                <img class="product-image" src="{{ asset($imagePath) }}" alt="Product Image">
+                <img class="product-image" src="{{ url($imagePath) }}" alt="Product Image">
             @endif
             <p>Цена: {{ $price }} лв.</p>
             @if($promo_end_date)

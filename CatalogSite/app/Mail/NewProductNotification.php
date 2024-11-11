@@ -23,7 +23,7 @@ class NewProductNotification extends Mailable
     public function __construct(Product $product)
     {
         $this->product = $product;
-        $this->imagePath = json_decode($product->image_column_name, true)[0] ?? null;
+        $this->imagePath = collect($product->images)->first() ?? 'няма снимка';
     }
 
     /**
