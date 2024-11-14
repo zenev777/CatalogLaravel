@@ -25,10 +25,9 @@ class SendNewProductNotification
      */
     public function handle(ProductCreated $event)
     {
-        if (app()->runningInConsole()) {
+        if (app()->runningInConsole() && !app()->runningUnitTests()) {
             Log::info('Имейл не се изпраща по време на миграция или сийдване.');
-
-            return; // Stop sending emails for console commands
+            return;
         }
 
         $product = $event->product;
