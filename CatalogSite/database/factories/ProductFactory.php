@@ -43,6 +43,12 @@ class ProductFactory extends Factory
             'raztuqnie_mejdu_vodachite' => $this->faker->numberBetween(0.01, 100),
             'temperatura' => $this->faker->randomNumber(),
             'svurzvane' => $this->faker->word,
+            'promo_from' => $this->faker->optional()->date('-1 month', '+1 month'),
+            'promo_to' => function (array $attributes) {
+                return isset($attributes['promo_from'])
+                ? $this->faker->date('Y-m-d', strtotime('+2 months', strtotime($attributes['promo_from'])))
+                : null;
+            },
         ];
     }
 }
