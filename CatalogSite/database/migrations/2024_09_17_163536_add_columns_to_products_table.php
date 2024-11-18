@@ -22,6 +22,8 @@ return new class extends Migration {
             $table->decimal('raztuqnie_mejdu_vodachite', 5, 2)->nullable();
             $table->integer('temperatura')->nullable();
             $table->string('svurzvane')->nullable();
+            $table->date('promo_from')->nullable();
+            $table->date('promo_to')->nullable();
         });
     }
 
