@@ -6,17 +6,25 @@
     <span class="cena pt-4 pb-2">
 
         @if($product->price == 0)
-        <p>Направете запитване</p>
-        @elseif($product->old_price > 0 === true)
-        <span class="prizze2 d-flex">Цена:
-            <p class="text-decoration-line-through px-1">{{$product->old_price}} лв.</p>
-        </span>
+            <p>Направете запитване</p>
+        @elseif($product->isPromoActive() && $product->old_price > 0)
+            <span class="prizze2 d-flex">Цена:
+                <p class="text-decoration-line-through px-1">{{$product->old_price}} лв.</p>
+            </span>
         <span class="prizze3">{{$product->price}} лв.</span>
         @else
-        <span class="prizze2 d-flex" style="justify-content: center;">Цена:
-            <p class="text-decoration-line-through px-1"></p>
-        </span>
-        <span class="prizze3">{{$product->price}} лв.</span>
+            @if($product->old_price > 0)
+                <span class="prizze2 d-flex" style="justify-content: center;">Цена:
+                <p class="text-decoration-line-through px-1"></p>
+                </span>
+                <span class="prizze3">{{$product->old_price}} лв.</span>
+            @else
+                <span class="prizze2 d-flex" style="justify-content: center;">Цена:
+                <p class="text-decoration-line-through px-1"></p>
+                </span>
+                <span class="prizze3">{{$product->price}} лв.</span>
+            @endif
         @endif
     </span>
 </a>
+    

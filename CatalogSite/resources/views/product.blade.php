@@ -82,23 +82,31 @@
                         <!-- <img src="assets/img/fframe93.png" style="width: 18.5px;"> -->
                     </button>
                 </div>
-                @if($product->price == 0)
+                @if ($product->price == 0)
                     <p>Направете запитване</p>
-                @elseif($product->old_price > 0 === true)
+                @elseif ($product->isPromoActive() && $product->old_price > 0)
                     <div>
-                        <span class="prizenow">{{$product->price}} лв.</span>
+                        <span class="prizenow">{{ number_format($product->price, 2) }} лв.</span>
                         <span class="dds">/без ДДС/</span>
                     </div>
                     <div>
                         <span class="prizeold">Стара цена:</span>
-                        <span class="prizeold-dds">{{$product->old_price}} лв.</span>
+                        <span class="prizeold-dds">{{ number_format($product->old_price, 2) }} лв.</span>
                     </div>
                 @else
-                    <div>
-                        <span class="prizenow">{{$product->price}} лв.</span>
-                        <span class="dds">/без ДДС/</span>
-                    </div>
+                    @if($product->old_price > 0)
+                        <div>
+                            <span class="prizenow">{{ number_format($product->old_price, 2) }} лв.</span>
+                            <span class="dds">/без ДДС/</span>
+                        </div>
+                    @else
+                        <div>
+                            <span class="prizenow">{{ number_format($product->price, 2) }} лв.</span>
+                            <span class="dds">/без ДДС/</span>
+                        </div>
+                    @endif                 
                 @endif
+
             </div>
             <div>
                 <!-- Button trigger modal -->

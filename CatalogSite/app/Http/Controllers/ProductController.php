@@ -71,5 +71,6 @@ class ProductController extends Controller
 
         return view('kategorii', ['products' => $product, 'subcategories' => $subcategories, 'query' => $query, 'category' => $category]);
     }
-}
 
+
+}
