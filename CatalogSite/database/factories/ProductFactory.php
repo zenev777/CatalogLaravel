@@ -47,14 +47,14 @@ class ProductFactory extends Factory
             'promo_from' => function (array $attributes) {
                 if ($attributes['old_price'] > 0) {
                     $promoFrom = $this->faker->optional()->dateTimeBetween('-1 month', '+1 month');
-                    return $promoFrom ? $promoFrom->format('Y-m-d') : null;
+                    return $promoFrom ? $promoFrom->format('Y-m-d H:i:s') : null;
                 }
                 return null;
             },
             'promo_to' => function (array $attributes) {
                 if (isset($attributes['promo_from']) && $attributes['promo_from'] !== null) {
                     $promoTo = $this->faker->dateTimeBetween($attributes['promo_from'], '+2 months');
-                    return $promoTo ? $promoTo->format('Y-m-d') : null;
+                    return $promoTo ? $promoTo->format('Y-m-d H:i:s') : null;
                 }
                 return null;
             },

@@ -46,8 +46,8 @@ class Product extends Model
 
     protected $casts = [
         'images' => 'array', // Кастинг на колоната 'images' като масив
-        'promo_from' => 'date', // Кастинг на колоната 'promo_from' като date
-        'promo_to' => 'date', // Кастинг на колоната 'promo_to' като date
+        'promo_from' => 'datetime', // Кастинг на колоната 'promo_from' като datetime
+        'promo_to' => 'datetime', // Кастинг на колоната 'promo_to' като datetime
     ];
 
     public function categories()
