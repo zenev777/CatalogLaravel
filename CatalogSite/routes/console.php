@@ -8,3 +8,5 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote')->hourly();
 
 Schedule::command('import:products')->daily();
+
+Schedule::command('promotions:stop')->monthlyOn(30, '23:59');

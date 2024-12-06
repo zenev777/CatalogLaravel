@@ -42,7 +42,26 @@ class ProductFactory extends Factory
             'osvetlenie' => $this->faker->word,
             'raztuqnie_mejdu_vodachite' => $this->faker->numberBetween(0.01, 100),
             'temperatura' => $this->faker->randomNumber(),
-            'svurzvane' => $this->faker->word,
+            'svurzvane' => $this->faker->word, 
+            
+            'promo_from' => function (array $attributes) {
+                if ($attributes['old_price'] > 0) {
+                    $promoFrom = $this->faker->optional()->dateTimeBetween('-1 month', '+1 month');
+                    return $promoFrom ? $promoFrom->format('Y-m-d H:i:s') : null;
+                }
+                return null;
+            },
+            'promo_to' => function (array $attributes) {
+                if (isset($attributes['promo_from']) && $attributes['promo_from'] !== null) {
+                    $promoTo = $this->faker->dateTimeBetween($attributes['promo_from'], '+2 months');
+                    return $promoTo ? $promoTo->format('Y-m-d H:i:s') : null;
+                }
+                return null;
+            },
+
+
+
+
         ];
     }
 }
