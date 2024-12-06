@@ -242,6 +242,20 @@ class ProductResource extends Resource
                     ->relationship('connectedProducts', 'title')
                     ->label('Connected Products')
                     ->placeholder('Select connected products'),
+
+                //Добавяне на дати за промоции
+                Forms\Components\DatePicker::make('promo_from')
+                    ->label('Promo From')
+                    ->displayFormat('Y-m-d')
+                    ->placeholder('Select Start Date')
+                    ->nullable(),
+
+                Forms\Components\DatePicker::make('promo_to')
+                    ->label('Promo To')
+                    ->displayFormat('Y-m-d')
+                    ->placeholder('Select End Date')
+                    ->nullable()
+                    ->afterOrEqual('promo_from'),
             ]);
     }
 

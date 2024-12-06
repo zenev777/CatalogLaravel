@@ -40,10 +40,14 @@ class Product extends Model
         'temperatura',
         'svurzvane',
         'images',
+        'promo_from',
+        'promo_to',
     ];
 
     protected $casts = [
         'images' => 'array', // Кастинг на колоната 'images' като масив
+        'promo_from' => 'datetime', // Кастинг на колоната 'promo_from' като datetime
+        'promo_to' => 'datetime', // Кастинг на колоната 'promo_to' като datetime
     ];
 
     public function categories()
@@ -66,6 +70,19 @@ class Product extends Model
     public function connectedTo()
     {
         return $this->belongsToMany(Product::class, 'connected_products', 'connected_product_id', 'product_id');
+    }
+
+    //Функция за проверка дали промоцията е активна
+    public function isPromoActive()
+    {
+        // Ако promo_from или promo_to са null, връщаме false (няма активна промоция)
+        if (is_null($this->promo_from) || is_null($this->promo_to)) {
+            return false;
+        }
+
+        // Проверка дали текущата дата е между promo_from и promo_to
+        $now = now();
+        return $now->between($this->promo_from, $this->promo_to);
     }
 
     public function options()
