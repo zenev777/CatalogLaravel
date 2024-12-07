@@ -95,6 +95,8 @@ class CategoryController extends Controller
     private function applySorting($products, $sortOption)
     {
         switch ($sortOption) {
+            case 'custom':
+                return $products;
             case 'name_asc':
                 return $products->orderBy('title', 'asc');
             case 'name_desc':
