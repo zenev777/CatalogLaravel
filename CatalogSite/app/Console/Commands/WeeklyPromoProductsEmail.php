@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Models\Product;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Carbon;
 
 class WeeklyPromoProductsEmail extends Command
 {
@@ -18,14 +19,12 @@ class WeeklyPromoProductsEmail extends Command
 
     public function handle()
     {
-
-        $now = new \DateTime();
-
+        $now = now(); // Използване на Laravel's now() хелпър
 
         $promoProducts = Product::whereNotNull('promo_from')
             ->whereNotNull('promo_to')
-            ->where('promo_from', '<=', $now->format('Y-m-d H:i:s'))
-            ->where('promo_to', '>=', $now->format('Y-m-d H:i:s'))
+            ->where('promo_from', '<=', $now)
+            ->where('promo_to', '>=', $now)
             ->get();
 
         if ($promoProducts->isEmpty()) {
@@ -36,15 +35,15 @@ class WeeklyPromoProductsEmail extends Command
         $adminEmail = config('mail.admin_email');
 
         $data = $promoProducts->map(function ($product) use ($now) {
-            $promoEndDate = new \DateTime($product->promo_to);
-            $interval = $now->diff($promoEndDate);
+            $promoEndDate = Carbon::parse($product->promo_to);
+            $interval = $promoEndDate->diffInDays($now);
 
             return [
                 'title' => $product->title,
                 'image' => $product->image,
                 'price' => $product->price,
                 'old_price' => $product->old_price,
-                'days_remaining' => $interval->days,
+                'days_remaining' => $interval,
             ];
         });
 
@@ -56,5 +55,3 @@ class WeeklyPromoProductsEmail extends Command
         $this->info('Weekly promo email sent to admin.');
     }
 }
-
-
