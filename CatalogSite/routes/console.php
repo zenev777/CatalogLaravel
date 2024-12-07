@@ -9,4 +9,8 @@ Artisan::command('inspire', function () {
 
 Schedule::command('import:products')->daily();
 
-Schedule::command('promotions:stop')->monthlyOn(30, '23:59');
+Schedule::command('promotions:stop')->monthlyOn(date('t'), '23:59');
+
+Schedule::command('email:products-without-images')->daily();
+
+Schedule::command('email:promo-products')->weeklyOn(1, '8:00');
