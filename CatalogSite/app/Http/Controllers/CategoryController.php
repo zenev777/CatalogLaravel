@@ -10,9 +10,8 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index($categoryId)
+    public function index($categoryId, Request $request)
     {
-
         $category = Category::find($categoryId);
         $query = null;
 
@@ -23,7 +22,11 @@ class CategoryController extends Controller
         if ($category->parent_id == null) {
             $subcategories = Category::where('parent_id', '=', $categoryId)->get();
 
-            $products = Product::where('category_id', '=', $categoryId)->get();
+            $products = Product::where('category_id', '=', $categoryId);
+
+            $products = $this->applySorting($products, $request->input('sort'));
+
+            $products = $products->paginate(18);
             // Check if the subcategories exists
             if (count($subcategories) > 1) {
                 //return view with subcategories
@@ -34,11 +37,14 @@ class CategoryController extends Controller
                     'category' => $category
                 ]);
             }
-        }
-        else{
+        } else {
             $subcategories = Category::where('parent_id', '=', $categoryId)->get();
 
-            $products = Product::where('category_id', '=', $categoryId)->get();
+            $products = Product::where('category_id', '=', $categoryId);
+
+            $products = $this->applySorting($products, $request->input('sort'));
+
+            $products = $products->paginate(18);
             // Check if the subcategories exists
             if (!$subcategories->isEmpty()) {
                 //return view with subcategories
@@ -53,10 +59,12 @@ class CategoryController extends Controller
 
         $subcategories = null;
         // Retrieve products for the category
-        $products = Product::where('category_id', '=', $categoryId)->paginate($productsPerPage = 18);
+        $products = Product::where('category_id', '=', $categoryId);
 
 
+        $products = $this->applySorting($products, $request->input('sort'));
 
+        $products = $products->paginate(18);
         // Return view with products
         return view('kategorii', [
             'products' => $products,
@@ -67,16 +75,14 @@ class CategoryController extends Controller
 
     }
 
-
-
-    public function allcategory(){
+    public function allcategory()
+    {
 
         $allcategory = Category::where('visible', true)
-                ->orderBy('position', 'asc')
-                ->get();
+            ->orderBy('position', 'asc')
+            ->get();
 
-
-        return view('allcategory',['allcategory' => $allcategory]);
+        return view('allcategory', ['allcategory' => $allcategory]);
     }
 
     public function getMenuCategories()
@@ -84,6 +90,66 @@ class CategoryController extends Controller
         return Category::where('in_menu', true)
             ->orderBy('menu_order')
             ->get();
+    }
+
+    private function applySorting($products, $sortOption)
+    {
+        switch ($sortOption) {
+            case 'custom':
+                return $products;
+            case 'name_asc':
+                return $products->orderBy('title', 'asc');
+            case 'name_desc':
+                return $products->orderBy('title', 'desc');
+            case 'price_asc':
+                return $products->orderByRaw("
+                    CASE 
+                        WHEN promo_from IS NOT NULL 
+                             AND promo_to IS NOT NULL 
+                             AND promo_from <= NOW() 
+                             AND promo_to >= NOW() 
+                        THEN price
+                        ELSE old_price
+                    END ASC
+                ");
+            case 'price_desc':
+                return $products->orderByRaw("
+                    CASE 
+                        WHEN promo_from IS NOT NULL 
+                             AND promo_to IS NOT NULL 
+                             AND promo_from <= NOW() 
+                             AND promo_to >= NOW() 
+                        THEN price
+                        ELSE old_price
+                    END DESC
+                ");
+            case 'date_desc':
+                return $products->orderBy('created_at', 'desc');
+            case 'promo':
+                return $products
+                    ->orderByRaw("
+                        CASE 
+                            WHEN promo_from IS NOT NULL 
+                                 AND promo_to IS NOT NULL 
+                                 AND promo_from <= NOW() 
+                                 AND promo_to >= NOW() 
+                            THEN 1 
+                            ELSE 0 
+                        END DESC
+                    ")
+                    ->orderByRaw("
+                        CASE 
+                            WHEN promo_from IS NOT NULL 
+                                 AND promo_to IS NOT NULL 
+                                 AND promo_from <= NOW() 
+                                 AND promo_to >= NOW() 
+                            THEN price
+                            ELSE old_price
+                        END ASC
+                    ");
+            default:
+                return $products;
+        }
     }
 
 }
